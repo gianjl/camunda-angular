@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CamundaRestService } from '../../camunda-rest.service';
-import { StartProcessInstanceComponent } from '../general/start-process-instance.component'
-import { MyProcessData } from '../../schemas/MyProcessData';
+import { StartProcessInstanceComponent } from '../general/start-process-instance.component';
+import { DatiAnagrafica } from '../../schemas/DatiAnagrafica';
 
 @Component({
   selector: 'startNewProcess',
   templateUrl: './startNewProcess.component.html',
-  styleUrls: []
+  styleUrls: ['./startNewProcess.component.css']
 })
 export class startNewProcessComponent extends StartProcessInstanceComponent {
   submitted:boolean = false;
-  model = new MyProcessData('','',false);
+  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+
+ 
 
   constructor(route: ActivatedRoute,
     camundaRestService: CamundaRestService,) {
