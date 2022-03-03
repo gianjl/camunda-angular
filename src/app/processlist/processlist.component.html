@@ -1,0 +1,14 @@
+<div class="ui grid">
+  <div class="sixteen wide column">
+    <h2>Lista Processi</h2>
+    <ul class="processDefinitions">
+      <div *ngFor="let processDefinition of processDefinitions">
+        <a routerLink="/startprocess/{{processDefinition.key}}">
+          <div id="process-item">
+            <h3>{{processDefinition.name}}</h3>
+          </div>
+        </a>
+      </div>
+    </ul>
+  </div>
+</div>

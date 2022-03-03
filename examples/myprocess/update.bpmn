@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_17wmxl6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="UpdateAnagrafica" name="Aggiorna Anagrafica" isExecutable="true">
+    <bpmn:startEvent id="Event_11311qt" name="Process&#10;started">
+      <bpmn:outgoing>Flow_09azj4o</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_10njcgf" name="Process&#10;ended">
+      <bpmn:incoming>Flow_03gaehp</bpmn:incoming>
+      <bpmn:incoming>Flow_0w9ypvs</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Activity_136lzar" name="Inserire codice cliente" camunda:formKey="codiceCliente" camunda:assignee="demo">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="codiceCliente" label="Codice Cliente" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_09azj4o</bpmn:incoming>
+      <bpmn:incoming>Flow_1kyapov</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xpp5hw</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0v0r5hn" name="PersonaFisica GET">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="accept">text/plain</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="url">http://localhost:24772/api/v1/PersonaFisica/${codiceCliente}</camunda:inputParameter>
+            <camunda:outputParameter name="output">${response}</camunda:outputParameter>
+            <camunda:outputParameter name="codeResponse">${statusCode}</camunda:outputParameter>
+            <camunda:outputParameter name="outputJson">
+              <camunda:script scriptFormat="JavaScript">if (statusCode != 200) {
+    throw new org.camunda.bpm.engine.delegate.BpmnError("error-boundary-no-respose");
+} else {
+    S(response);
+}</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="output">${output}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1xpp5hw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0bjxtat</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_1wd7xnb" name="Verify&#10;error" camunda:formKey="response" camunda:assignee="demo">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="outputJson">${output}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0nfu32e</bpmn:incoming>
+      <bpmn:incoming>Flow_0fwnot2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1v7h0sv</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0k12qmy" default="Flow_1kyapov">
+      <bpmn:incoming>Flow_1v7h0sv</bpmn:incoming>
+      <bpmn:incoming>Flow_11cv8wk</bpmn:incoming>
+      <bpmn:outgoing>Flow_03gaehp</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1kyapov</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_1c9t7wt" name="Dati Caricati" camunda:formKey="anagrafica" camunda:assignee="demo">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="indirizzo">
+            <camunda:script scriptFormat="JavaScript">outputJsonInd.prop("IndirizzoSenzaNumeroCivico").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="presso">
+            <camunda:script scriptFormat="JavaScript">outputJsonInd.prop("Presso").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="provincia">
+            <camunda:script scriptFormat="JavaScript">outputJsonInd.prop("Provincia").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="comune">
+            <camunda:script scriptFormat="JavaScript">outputJsonInd.prop("Comune").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="cap">
+            <camunda:script scriptFormat="JavaScript">outputJsonInd.prop("Cap").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="civico">
+            <camunda:script scriptFormat="JavaScript">outputJsonInd.prop("Civico").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="titoloStudio">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("CodiceTitoloStudio").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="statoCivile">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("CodiceTipoStatoCivile").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="numeroFigli">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("NumeroFigli").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="dataNascita">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("DataDiNascita").value().substring(0,10);</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="sesso">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("Sesso").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="cognome">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("Cognome").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="nome">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("Nome").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="codiceFiscale">
+            <camunda:script scriptFormat="JavaScript">outputJson.prop("CodiceFiscale").value();</camunda:script>
+          </camunda:inputParameter>
+          <camunda:outputParameter name="presso">${presso}</camunda:outputParameter>
+          <camunda:outputParameter name="provincia">${provincia}</camunda:outputParameter>
+          <camunda:outputParameter name="comune">${comune}</camunda:outputParameter>
+          <camunda:outputParameter name="cap">${cap}</camunda:outputParameter>
+          <camunda:outputParameter name="civico">${civico}</camunda:outputParameter>
+          <camunda:outputParameter name="indirizzo">${indirizzo}</camunda:outputParameter>
+          <camunda:outputParameter name="codiceFiscale">${codiceFiscale}</camunda:outputParameter>
+          <camunda:outputParameter name="nome">${nome}</camunda:outputParameter>
+          <camunda:outputParameter name="cognome">${cognome}</camunda:outputParameter>
+          <camunda:outputParameter name="sesso">${sesso}</camunda:outputParameter>
+          <camunda:outputParameter name="dataNascita">${dataNascita}</camunda:outputParameter>
+          <camunda:outputParameter name="numeroFigli">${numeroFigli}</camunda:outputParameter>
+          <camunda:outputParameter name="statoCivile">${statoCivile}</camunda:outputParameter>
+          <camunda:outputParameter name="titoloStudio">${titoloStudio}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_144cfaq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1meggxl</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0spc40y" name="PersonaFisica PUT">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="payload">{
+"CodiceCliente": "${codiceCliente}",
+"Cognome": "${cognome}",
+"Nome": "${nome}",
+"CodiceFiscale": "${codiceFiscale}",
+"Sesso": "${sesso}",
+"NumeroFigli": ${numeroFigli},
+"CodiceTipoStatoCivile": "${statoCivile}",
+"CodiceTitoloStudio": "${titoloStudio}",
+"LuogoDiNascita": "${luogoNascita}",
+"ProvinciaDiNascita": "${provinciaNascita}",
+"DataDiNascita": "${dataNascita}",
+"CodicePuntoVendita": "AD47AE78-F3DB-4E43-A728-7B2D6EB50E94",
+"CodiceProduttore": "16692973-520B-441E-AA70-833508B26571",
+"CodiceSegnalazione": "01",
+"CodiceApplicazione": 1,
+"CodiceUtente": "B0F4F63C-C891-457A-AA89-B0D618252CEF"
+}
+
+</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+                <camunda:entry key="accept">text/plain</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="method">PUT</camunda:inputParameter>
+            <camunda:inputParameter name="url">http://localhost:24772/api/v1/PersonaFisica</camunda:inputParameter>
+            <camunda:outputParameter name="output">$response</camunda:outputParameter>
+            <camunda:outputParameter name="codeResponse">${statusCode}</camunda:outputParameter>
+            <camunda:outputParameter name="outputJson">
+              <camunda:script scriptFormat="JavaScript">if (statusCode != 200) {
+    throw new org.camunda.bpm.engine.delegate.BpmnError("error-boundary-no-respose");
+} else {
+    S(response);
+}</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="dataNascita">${dataNascita}</camunda:inputParameter>
+          <camunda:inputParameter name="titoloStudio">${titoloStudio}</camunda:inputParameter>
+          <camunda:inputParameter name="statoCivile">${statoCivile}</camunda:inputParameter>
+          <camunda:inputParameter name="sesso">${sesso}</camunda:inputParameter>
+          <camunda:inputParameter name="cognome">${cognome}</camunda:inputParameter>
+          <camunda:inputParameter name="numeroFigli">${numeroFigli}</camunda:inputParameter>
+          <camunda:inputParameter name="nome">${nome}</camunda:inputParameter>
+          <camunda:inputParameter name="codiceFiscale">${codiceFiscale}</camunda:inputParameter>
+          <camunda:outputParameter name="codiceSoggAnag">
+            <camunda:script scriptFormat="JavaScript">if (statusCode = 200) {
+outputJson.prop("Id").value();
+}</camunda:script>
+          </camunda:outputParameter>
+          <camunda:outputParameter name="payload">{
+"CodiceCliente": "${codiceCliente}",
+"Cognome": "${cognome}",
+"Nome": "${nome}",
+"CodiceFiscale": "${codiceFiscale}",
+"Sesso": "${sesso}",
+"NumeroFigli": ${numeroFigli},
+"CodiceTipoStatoCivile": "${statoCivile}",
+"CodiceTitoloStudio": "${titoloStudio}",
+"LuogoDiNascita": "${luogoNascita}",
+"ProvinciaDiNascita": "${provinciaNascita}",
+"DataDiNascita": "${dataNascita}",
+"CodicePuntoVendita": "AD47AE78-F3DB-4E43-A728-7B2D6EB50E94",
+"CodiceProduttore": "16692973-520B-441E-AA70-833508B26571",
+"CodiceSegnalazione": "01",
+"CodiceApplicazione": 1,
+"CodiceUtente": "B0F4F63C-C891-457A-AA89-B0D618252CEF"
+}
+
+</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1meggxl</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cfycuv</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_1kqoxft" name="Aggiornamento riuscito" camunda:formKey="response" camunda:assignee="demo">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="codiceCliente">${codiceSoggAnag}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15ocgd2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0w9ypvs</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0lfdvb8" name="Verify&#10;error" camunda:formKey="response" camunda:assignee="demo">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="outputJson">${output}</camunda:inputParameter>
+          <camunda:inputParameter name="payload">${payload}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_147v0vw</bpmn:incoming>
+      <bpmn:incoming>Flow_0h7efkh</bpmn:incoming>
+      <bpmn:outgoing>Flow_11cv8wk</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_13zoagy" name="Indirizzi GET">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="accept">text/plain</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="url">http://localhost:24772/api/v1/Indirizzi/${codiceCliente}</camunda:inputParameter>
+            <camunda:outputParameter name="output">${response}</camunda:outputParameter>
+            <camunda:outputParameter name="codeResponse">${statusCode}</camunda:outputParameter>
+            <camunda:outputParameter name="outputJsonInd">
+              <camunda:script scriptFormat="JavaScript">if (statusCode != 200) {
+    throw new org.camunda.bpm.engine.delegate.BpmnError("error-boundary-no-respose");
+} else {
+S(response).elements().get(0);
+}</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="output">${output}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0bjxtat</bpmn:incoming>
+      <bpmn:outgoing>Flow_144cfaq</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1d5eywa" name="Indirizzi PUT">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="payload">{
+  "CodiceCliente": "${codiceCliente}",
+  "Progressivo": "1",
+  "CodicePuntoVendita": "5BCDE864-12C1-11D4-AD5E-0050DAB5A1CE",
+  "Indirizzo": "${indirizzo}",
+  "Civico": "${civico}",
+  "Presso": "${presso}",
+  "SiglaProvincia": "${provincia}",
+  "Comune": "${comune}",
+  "Cap": "${cap}",
+  "CodiceRegione": "22",
+  "CodiceNazione": "55",
+  "CodiceStatoNormalizzazione": "11",
+  "CodiceTipoIndirizzo": "08",
+  "Frazione": "",
+  "Latitudine": 45.0458573,  
+  "Longitudine": 11.7846555,
+  "CodiceUtente": "B0B206F5-5A84-4D2F-B6AE-A330009EC163",
+  "Nome": "Gianluca",
+  "Note": "",
+  "DataNormalizzazione": "2022-02-10T15:30:00"
+}</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+                <camunda:entry key="accept">text/plain</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="method">PUT</camunda:inputParameter>
+            <camunda:inputParameter name="url">http://localhost:24772/api/v1/Indirizzi</camunda:inputParameter>
+            <camunda:outputParameter name="output">${response}</camunda:outputParameter>
+            <camunda:outputParameter name="codeResponse">${statusCode}</camunda:outputParameter>
+            <camunda:outputParameter name="outputJson">
+              <camunda:script scriptFormat="JavaScript">if (statusCode != 200) {
+    throw new org.camunda.bpm.engine.delegate.BpmnError("error-boundary-no-respose");
+} else {
+    S(response);
+}</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="payload">{
+  "CodiceCliente": "${codiceCliente}",
+  "Progressivo": "1",
+  "CodicePuntoVendita": "AD47AE78-F3DB-4E43-A728-7B2D6EB50E94",
+  "Indirizzo": "${indirizzo}",
+  "Civico": "${civico}",
+  "Presso": "${presso}",
+  "SiglaProvincia": "${provincia}",
+  "Comune": "${comune}",
+  "Cap": "${cap}",
+  "CodiceRegione": "22",
+  "CodiceNazione": "55",
+  "CodiceStatoNormalizzazione": "11",
+  "CodiceTipoIndirizzo": "08",
+  "Frazione": "",
+  "Latitudine": 45.0458573,  
+  "Longitudine": 11.7846555,
+  "CodiceUtente": "B0B206F5-5A84-4D2F-B6AE-A330009EC163",
+  "Nome": "Gianluca",
+  "Note": "",
+  "DataNormalizzazione": "2022-02-10T15:30:00"
+}
+
+</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1cfycuv</bpmn:incoming>
+      <bpmn:outgoing>Flow_15ocgd2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:boundaryEvent id="Event_1fxk4d5" name="" attachedToRef="Activity_0v0r5hn">
+      <bpmn:outgoing>Flow_0nfu32e</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1cqdzg6" errorRef="Error_0s9ixos" />
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="Event_1fbqqwf" name="" attachedToRef="Activity_0spc40y">
+      <bpmn:outgoing>Flow_147v0vw</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_0snhidi" errorRef="Error_0g0ottk" />
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="Event_0w76udt" name="" attachedToRef="Activity_13zoagy">
+      <bpmn:outgoing>Flow_0fwnot2</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_01suxpe" errorRef="Error_18vlwgf" />
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="Event_006opmb" attachedToRef="Activity_1d5eywa">
+      <bpmn:outgoing>Flow_0h7efkh</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1kmbxe9" errorRef="Error_04bqsgu" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_09azj4o" sourceRef="Event_11311qt" targetRef="Activity_136lzar" />
+    <bpmn:sequenceFlow id="Flow_03gaehp" sourceRef="Gateway_0k12qmy" targetRef="Event_10njcgf">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!retryService}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0w9ypvs" sourceRef="Activity_1kqoxft" targetRef="Event_10njcgf" />
+    <bpmn:sequenceFlow id="Flow_1kyapov" sourceRef="Gateway_0k12qmy" targetRef="Activity_136lzar" />
+    <bpmn:sequenceFlow id="Flow_1xpp5hw" sourceRef="Activity_136lzar" targetRef="Activity_0v0r5hn" />
+    <bpmn:sequenceFlow id="Flow_0bjxtat" sourceRef="Activity_0v0r5hn" targetRef="Activity_13zoagy" />
+    <bpmn:sequenceFlow id="Flow_0nfu32e" sourceRef="Event_1fxk4d5" targetRef="Activity_1wd7xnb" />
+    <bpmn:sequenceFlow id="Flow_0fwnot2" sourceRef="Event_0w76udt" targetRef="Activity_1wd7xnb" />
+    <bpmn:sequenceFlow id="Flow_1v7h0sv" sourceRef="Activity_1wd7xnb" targetRef="Gateway_0k12qmy" />
+    <bpmn:sequenceFlow id="Flow_11cv8wk" sourceRef="Activity_0lfdvb8" targetRef="Gateway_0k12qmy" />
+    <bpmn:sequenceFlow id="Flow_144cfaq" sourceRef="Activity_13zoagy" targetRef="Activity_1c9t7wt" />
+    <bpmn:sequenceFlow id="Flow_1meggxl" sourceRef="Activity_1c9t7wt" targetRef="Activity_0spc40y" />
+    <bpmn:sequenceFlow id="Flow_1cfycuv" sourceRef="Activity_0spc40y" targetRef="Activity_1d5eywa" />
+    <bpmn:sequenceFlow id="Flow_15ocgd2" sourceRef="Activity_1d5eywa" targetRef="Activity_1kqoxft" />
+    <bpmn:sequenceFlow id="Flow_147v0vw" sourceRef="Event_1fbqqwf" targetRef="Activity_0lfdvb8" />
+    <bpmn:sequenceFlow id="Flow_0h7efkh" sourceRef="Event_006opmb" targetRef="Activity_0lfdvb8" />
+    <bpmn:group id="Group_19xd4p2" categoryValueRef="CategoryValue_0ojihq3" />
+  </bpmn:process>
+  <bpmn:error id="Error_0ajckzs" name="Error boudary no response" errorCode="error-boundary-no-respose" />
+  <bpmn:error id="Error_0g562z4" name="Error boudary no response" errorCode="error-boundary-no-respose" />
+  <bpmn:error id="Error_0s9ixos" name="Error boudary no response" errorCode="error-boundary-no-respose" />
+  <bpmn:error id="Error_0g0ottk" name="Error boudary no response" errorCode="error-boundary-no-respose" />
+  <bpmn:error id="Error_18vlwgf" name="Error boudary no response" errorCode="error-boundary-no-respose" />
+  <bpmn:error id="Error_04bqsgu" name="Error boudary no response" errorCode="error-boundary-no-respose" />
+  <bpmn:category id="Category_0cru4uy">
+    <bpmn:categoryValue id="CategoryValue_0ojihq3" value="Error Handling" />
+  </bpmn:category>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="UpdateAnagrafica">
+      <bpmndi:BPMNEdge id="Flow_0h7efkh_di" bpmnElement="Flow_0h7efkh">
+        <di:waypoint x="1400" y="198" />
+        <di:waypoint x="1400" y="480" />
+        <di:waypoint x="1300" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_147v0vw_di" bpmnElement="Flow_147v0vw">
+        <di:waypoint x="1110" y="198" />
+        <di:waypoint x="1110" y="480" />
+        <di:waypoint x="1200" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15ocgd2_di" bpmnElement="Flow_15ocgd2">
+        <di:waypoint x="1450" y="140" />
+        <di:waypoint x="1550" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cfycuv_di" bpmnElement="Flow_1cfycuv">
+        <di:waypoint x="1160" y="140" />
+        <di:waypoint x="1350" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1meggxl_di" bpmnElement="Flow_1meggxl">
+        <di:waypoint x="960" y="140" />
+        <di:waypoint x="1060" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_144cfaq_di" bpmnElement="Flow_144cfaq">
+        <di:waypoint x="770" y="140" />
+        <di:waypoint x="860" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11cv8wk_di" bpmnElement="Flow_11cv8wk">
+        <di:waypoint x="1250" y="520" />
+        <di:waypoint x="1250" y="610" />
+        <di:waypoint x="615" y="610" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1v7h0sv_di" bpmnElement="Flow_1v7h0sv">
+        <di:waypoint x="590" y="520" />
+        <di:waypoint x="590" y="585" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fwnot2_di" bpmnElement="Flow_0fwnot2">
+        <di:waypoint x="720" y="198" />
+        <di:waypoint x="720" y="480" />
+        <di:waypoint x="640" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nfu32e_di" bpmnElement="Flow_0nfu32e">
+        <di:waypoint x="470" y="198" />
+        <di:waypoint x="470" y="480" />
+        <di:waypoint x="540" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bjxtat_di" bpmnElement="Flow_0bjxtat">
+        <di:waypoint x="520" y="140" />
+        <di:waypoint x="670" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xpp5hw_di" bpmnElement="Flow_1xpp5hw">
+        <di:waypoint x="359" y="140" />
+        <di:waypoint x="420" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kyapov_di" bpmnElement="Flow_1kyapov">
+        <di:waypoint x="565" y="610" />
+        <di:waypoint x="309" y="610" />
+        <di:waypoint x="309" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w9ypvs_di" bpmnElement="Flow_0w9ypvs">
+        <di:waypoint x="1650" y="140" />
+        <di:waypoint x="1762" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03gaehp_di" bpmnElement="Flow_03gaehp">
+        <di:waypoint x="590" y="635" />
+        <di:waypoint x="590" y="680" />
+        <di:waypoint x="1780" y="680" />
+        <di:waypoint x="1780" y="158" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09azj4o_di" bpmnElement="Flow_09azj4o">
+        <di:waypoint x="198" y="140" />
+        <di:waypoint x="259" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_11311qt_di" bpmnElement="Event_11311qt">
+        <dc:Bounds x="162" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="160" y="158" width="40" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_10njcgf_di" bpmnElement="Event_10njcgf">
+        <dc:Bounds x="1762" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1760" y="85" width="40" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_136lzar_di" bpmnElement="Activity_136lzar">
+        <dc:Bounds x="259" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0v0r5hn_di" bpmnElement="Activity_0v0r5hn">
+        <dc:Bounds x="420" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wd7xnb_di" bpmnElement="Activity_1wd7xnb">
+        <dc:Bounds x="540" y="440" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0k12qmy_di" bpmnElement="Gateway_0k12qmy" isMarkerVisible="true">
+        <dc:Bounds x="565" y="585" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1c9t7wt_di" bpmnElement="Activity_1c9t7wt">
+        <dc:Bounds x="860" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0spc40y_di" bpmnElement="Activity_0spc40y">
+        <dc:Bounds x="1060" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1kqoxft_di" bpmnElement="Activity_1kqoxft">
+        <dc:Bounds x="1550" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lfdvb8_di" bpmnElement="Activity_0lfdvb8">
+        <dc:Bounds x="1200" y="440" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13zoagy_di" bpmnElement="Activity_13zoagy">
+        <dc:Bounds x="670" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1d5eywa_di" bpmnElement="Activity_1d5eywa">
+        <dc:Bounds x="1350" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_19xd4p2_di" bpmnElement="Group_19xd4p2">
+        <dc:Bounds x="270" y="350" width="1440" height="390" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="954" y="357" width="72" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_006opmb_di" bpmnElement="Event_006opmb">
+        <dc:Bounds x="1382" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0w76udt_di" bpmnElement="Event_0w76udt">
+        <dc:Bounds x="702" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1fbqqwf_di" bpmnElement="Event_1fbqqwf">
+        <dc:Bounds x="1092" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1fxk4d5_di" bpmnElement="Event_1fxk4d5">
+        <dc:Bounds x="452" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

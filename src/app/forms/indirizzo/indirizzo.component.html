@@ -1,0 +1,49 @@
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #indirizzo="ngForm"
+        class="ui form">
+    <h2> Indirizzi </h2>
+    <div class="field">
+      <div class="sixteen wide field">
+        <label for="indirizzo"> Indirizzo </label>
+        <input type="text" id="indirizzo"
+               required
+               [(ngModel)]="model.indirizzo" name="indirizzo" #name="ngModel">
+      </div>
+    </div>
+    <div class="fields">
+      <div class="six wide field">
+        <label for="civico"> Civico </label>
+        <input type="text" id="civico"
+               [(ngModel)]="model.civico" name="civico" #name="ngModel">
+      </div>
+      <div class="ten wide field">
+        <label for="presso"> Presso </label>
+        <input type="text" id="presso"
+               [(ngModel)]="model.presso" name="presso" #name="ngModel">
+      </div>
+    </div>
+    <div class="fields">
+      <div class="eight wide field">
+        <label for="comune"> Comune </label>
+        <input type="text" id="comune"
+               [(ngModel)]="model.comune" name="comune" #name="ngModel">
+      </div>
+      <div class="four wide field">
+        <label for="provincia"> Provincia </label>
+        <input type="text" id="provincia"
+               [(ngModel)]="model.provincia" name="provincia" #name="ngModel">
+      </div>
+      <div class="four wide field">
+        <label for="cap"> CAP </label>
+        <input type="text" id="cap"
+               [(ngModel)]="model.cap" name="cap" #name="ngModel">
+      </div>
+    </div>
+
+    <button type="submit" class="ui button" [disabled]="!indirizzo.form.valid">Conferma</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Task completed.</p>
+</div>

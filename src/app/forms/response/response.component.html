@@ -1,0 +1,46 @@
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #responseSuccess="ngForm"
+        class="ui form">
+    <ng-template ngIf="model.codeResponse === 200">
+      <div id="success">
+        Dati Salvati Correttamente
+      </div>
+      <div class="field">
+        <label for="codiceCliente"> Codice Cliente </label> <input type="text" id="codiceCliente"
+                                                                   [(ngModel)]="model.codiceCliente"
+                                                                   name="codiceCliente"
+                                                                   #name="ngModel">
+      </div>
+
+    </ng-template>
+    <ng-template ngIf="model.codeResponse !== 200">
+      <div id="error">
+        Si e' verificato un errore
+      </div>
+      <div class="field">
+        <label for="codeResponse"> Status Code </label>
+        <h4 id="codeResponse"> {{model.codeResponse}}  </h4>
+      </div>
+      <div class="field">
+        <label for="outputJson"> Response </label> <input type="text" id="outputJson"
+                                                          [(ngModel)]="model.outputJson" name="outputJson"
+                                                          #name="ngModel">
+      </div>
+      <div class="field">
+        <label for="payload"> Payload </label> <input type="text" id="payload"
+                                                      [(ngModel)]="model.payload" name="outputJson" #name="ngModel">
+      </div>
+      <div class="field">
+        <label for="retryService">Ritentare</label>
+        <input type="checkbox" class="form-check form-check-inline" id="retryService"
+               [(ngModel)]="model.retryService" name="retryService" value=true #name="ngModel">
+      </div>
+
+    </ng-template>
+    <button type="submit" class="ui button" [disabled]="!responseSuccess.form.valid">Completa task</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Task completed.</p>
+</div>

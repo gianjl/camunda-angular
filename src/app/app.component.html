@@ -1,0 +1,22 @@
+<body>
+	<div class="ui grid">
+		<div class="twelve wide column centered">
+
+			<h1><img src="assets/resources/Vittoria.png" width="80" 
+				height="80">
+				{{title}}
+			</h1>
+		</div>
+		
+		<div class="twelve wide column centered">
+			<div class="ui pointing inverted menu">
+				<a class="blue item" routerLink="/processlist" class="item">Home</a>
+				<a class="blue item" routerLink="/tasklist" class="item">Lista
+					dei Task</a>
+			</div>
+			<div class="ui segment">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</body>

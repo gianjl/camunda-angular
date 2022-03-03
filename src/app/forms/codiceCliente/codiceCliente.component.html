@@ -1,0 +1,19 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h2>Inserire Codice Cliente</h2>
+    <form (ngSubmit)="onSubmit()" #inserimentoCodice="ngForm" class="ui form">
+      <div class="field">
+        <label for="codiceCliente"> Codice Cliente </label> <input type="text" required id="codiceCliente"
+                                                                   [(ngModel)]="model.codiceCliente"
+                                                                   name="codiceCliente"
+                                                                   #name="ngModel">
+      </div>
+      <div class="field">
+        <button type="submit" class="ui button" [disabled]="!inserimentoCodice.form.valid">Cerca Cliente</button>
+      </div>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <p>Cliente trovato.</p>
+  </div>
+</div>
