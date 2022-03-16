@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { CamundaRestService } from '../camunda-rest.service';
+import { ProcessInstance } from '../schemas/ProcessInstance';
 import { Task } from '../schemas/Task';
 
 @Component({
@@ -10,9 +11,11 @@ import { Task } from '../schemas/Task';
   styleUrls: ['./tasklist.component.css']
 })
 export class TasklistComponent implements OnInit {
-  tasks: Task[] = null;
+  tasks: Task[] = [];
   taskId: String;
   formKey: String;
+  processInstances: ProcessInstance [] = [];
+ 
 
   constructor(
     private camundaRestService: CamundaRestService,
@@ -32,6 +35,7 @@ export class TasklistComponent implements OnInit {
         }
       });
     }
+    
   }
 
   getFormKey(): void {

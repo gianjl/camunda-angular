@@ -2,21 +2,6 @@
 /* =Common Styles */
 /***********************************************************************************************/
 
-[cam-widget-header] {
-    border-color: #001f5b;
-  }
-  
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-    border-color: #001f5b;
-  }
-  
-  .three-cols-layout .column-left .list-unstyled>.item.active,
-  .three-cols-layout .column-center .list-unstyled>li.active,
-  .three-cols-layout .column-left .list-unstyled>.item.active:hover,
-  .three-cols-layout .column-center .list-unstyled>li.active:hover {
-    border-color: #001f5b;
-  }
-  
   #process-item{
     background-color: azure;
     border: 2px #001f5b;
@@ -29,7 +14,6 @@
     border: 2px #001f5b;
     padding: 10px;
     margin-bottom: 5px;
-    child-align:left;
   }
   
   #success {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1">
-  <bpmn:process id="SimpleDemo" name="Nuova Persona Fisica" isExecutable="true">
-    <bpmn:startEvent id="StartEventProcessStarted" name="Process&#10;started">
+  <bpmn:process id="NuovaPersonaFisica" name="Nuova Persona Fisica" isExecutable="true">
+    <bpmn:startEvent id="StartEventProcessStarted" name="Process&#10;started" camunda:formKey="startNewProcess">
       <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="EndEventProcessEnded" name="Process&#10;ended">
@@ -9,7 +9,7 @@
       <bpmn:incoming>Flow_0aqzfak</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="StartEventProcessStarted" targetRef="Activity_1yyrrr0" />
-    <bpmn:userTask id="Activity_1yyrrr0" name="Anagrafica Assicurato" camunda:formKey="embedded:app:forms/anagrafica.html" camunda:assignee="demo">
+    <bpmn:userTask id="Activity_1yyrrr0" name="Anagrafica Assicurato" camunda:formKey="anagrafica" camunda:assignee="demo">
       <bpmn:incoming>SequenceFlow1</bpmn:incoming>
       <bpmn:incoming>Flow_08pu81v</bpmn:incoming>
       <bpmn:outgoing>Flow_1gj2sb3</bpmn:outgoing>
@@ -90,7 +90,7 @@ outputJson.prop("Id").value();
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_11ij7ua" sourceRef="Activity_0itv3uz" targetRef="Activity_167w0pl" />
     <bpmn:sequenceFlow id="Flow_0aqzfak" sourceRef="Activity_0olr1g4" targetRef="EndEventProcessEnded" />
-    <bpmn:userTask id="Activity_0olr1g4" name="Dati salvati" camunda:formKey="embedded:app:forms/response.html" camunda:assignee="demo">
+    <bpmn:userTask id="Activity_0olr1g4" name="Dati salvati" camunda:formKey="response" camunda:assignee="demo">
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codiceCliente">${codiceCliente}</camunda:inputParameter>
@@ -103,7 +103,7 @@ outputJson.prop("Id").value();
       <bpmn:outgoing>Flow_09hfpyo</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_17rxl36" errorRef="Error_07ovllk" />
     </bpmn:boundaryEvent>
-    <bpmn:userTask id="Activity_01b0snq" name="Verify&#10;error" camunda:formKey="embedded:app:forms/erroreResponse.html" camunda:assignee="demo">
+    <bpmn:userTask id="Activity_01b0snq" name="Verify&#10;error" camunda:formKey="response" camunda:assignee="demo">
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codeResponse">${codeResponse}</camunda:inputParameter>
@@ -209,7 +209,7 @@ outputJson.prop("Id").value();
   <bpmn:error id="Error_07ovllk" name="Error boudary no response" errorCode="error-boundary-no-respose" />
   <bpmn:error id="Error_1x7d9jn" name="Error boudary no response" errorCode="error-boundary-no-respose" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SimpleDemo">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="NuovaPersonaFisica">
       <bpmndi:BPMNEdge id="Flow_056xxr3_di" bpmnElement="Flow_056xxr3">
         <di:waypoint x="710" y="178" />
         <di:waypoint x="710" y="350" />
@@ -263,11 +263,20 @@ outputJson.prop("Id").value();
           <dc:Bounds x="140" y="138" width="40" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEventProcessEnded">
+        <dc:Bounds x="1072" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1070" y="66" width="40" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_10t80tv_di" bpmnElement="Activity_1yyrrr0">
         <dc:Bounds x="220" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0itv3uz_di" bpmnElement="Activity_0itv3uz">
         <dc:Bounds x="380" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gkfitj_di" bpmnElement="Activity_0olr1g4">
+        <dc:Bounds x="890" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_01b0snq_di" bpmnElement="Activity_01b0snq">
         <dc:Bounds x="510" y="310" width="100" height="80" />
@@ -277,15 +286,6 @@ outputJson.prop("Id").value();
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_167w0pl_di" bpmnElement="Activity_167w0pl">
         <dc:Bounds x="660" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEventProcessEnded">
-        <dc:Bounds x="1072" y="102" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1070" y="66" width="40" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1gkfitj_di" bpmnElement="Activity_0olr1g4">
-        <dc:Bounds x="890" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0771xc1_di" bpmnElement="Event_0771xc1">
         <dc:Bounds x="692" y="142" width="36" height="36" />

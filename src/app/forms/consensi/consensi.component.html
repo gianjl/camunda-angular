@@ -6,22 +6,7 @@
 				<li id="breadcrumb-item-active" class="breadcrumb-item active" aria-current="page">Consensi</li>
 			</ol>
 		</nav>
-		<div class="field">
-			<label for="datiPersonali">
-				<input type="checkbox" class="form-check form-check-inline" id="datiPersonali"
-					[(ngModel)]="model.datiPersonali" name="datiPersonali" value=true #name="ngModel" required>
-				Consento il trattamento dei miei dati personali
-			</label>
-		</div>
-		<div class="field">
-			<label for="finiCommerciali">
-				<input type="checkbox" class="form-check form-check-inline" id="finiCommerciali"
-					[(ngModel)]="model.finiCommerciali" name="finiCommerciali" value=true #name="ngModel">
-				Consento il trattamento dei miei dati personali anche per finalità commerciali (potrò revocarlo in
-				qualsiasi momento)
-			</label>
-
-		</div>
+		
 		<button type="submit" class="ui button" [disabled]="!consensi.form.valid">Conferma</button>
 	</form>
 </div>

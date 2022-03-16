@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_17wmxl6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="UpdateAnagrafica" name="Aggiorna Anagrafica" isExecutable="true">
-    <bpmn:startEvent id="Event_11311qt" name="Process&#10;started">
+    <bpmn:startEvent id="Event_11311qt" name="Process&#10;started" camunda:formKey="startNewProcess">
       <bpmn:outgoing>Flow_09azj4o</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="Event_10njcgf" name="Process&#10;ended">

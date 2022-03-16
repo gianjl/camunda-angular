@@ -1,0 +1,22 @@
+<div class="ui grid">
+	<div class="six wide column">
+		<h2>Processi Avviati</h2>
+		<ul class="tasks">
+			<div *ngFor="let pi of processInstances">
+				<a routerLink="/processinstancelist/{{pi.id}}">
+					<div id="task-item">
+						<h4>Nome Processo: </h4>
+						<h5>{{mainActivity.activityName}}</h5>
+						<h4>Id Processo: </h4>
+						<h5>{{pi.id}}</h5>
+					</div>
+				</a>
+			</div>
+			<div *ngIf="processInstances.length===0">
+				<h4>Non ci sono processi avviati.</h4>
+			</div>
+		</ul>
+	</div>
+	
+	
+</div>

@@ -1,6 +1,7 @@
-<div class="ui grid">
+
+<div class="ui grid" id="content">
 	<div class="six wide column">
-		<h2>Lista Task</h2>
+		<h2>Processi Avviati</h2>
 		<ul class="tasks">
 			<div *ngFor="let task of tasks">
 				<a routerLink="/tasklist/{{task.id}}">
@@ -24,4 +25,3 @@
 		</div>
 	</div>
 </div>
-

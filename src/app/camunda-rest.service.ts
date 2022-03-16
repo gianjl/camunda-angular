@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProcessDefinition } from './schemas/ProcessDefinition';
 import { Task } from './schemas/Task';
+import { ProcessInstance } from './schemas/ProcessInstance';
+import { Activity } from './schemas/Activity';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -54,7 +56,7 @@ export class CamundaRestService {
     const url = `${this.engineRestUrl}process-definition/key/${processDefinitionKey}/startForm`;
     return this.http.get<any>(url).pipe(
       tap(form => this.log(`fetched formkey`)),
-      catchError(this.handleError('getProcessDeifnitionFormKey', []))
+      catchError(this.handleError('getProcessDefinitionFormKey', []))
     );
   }
 
@@ -80,6 +82,29 @@ export class CamundaRestService {
     formData.append('fileKey', fileToUpload, fileToUpload.name);
 
     return this.http.post(endpoint, formData);
+  }
+
+  getTask(taskId): Observable<Task> {
+    const endpoint = `${this.engineRestUrl}task/${taskId}`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(taskItem => this.log(`fetched task`)),
+      catchError(this.handleError('getTask', []))
+    );
+  }
+
+  getProcessInstances(): Observable<ProcessInstance[]> {
+    return this.http.get<ProcessInstance[]>(this.engineRestUrl + 'process-instance').pipe(
+      tap(processInstances => this.log(`fetched processInstances`)),
+      catchError(this.handleError('getProcessInstances', []))
+    );
+  }
+
+  getActivityInstances(piid): Observable<Activity> {
+    return this.http.get<any>(this.engineRestUrl + 'process-instance/'+ piid + '/activity-instances').pipe(
+      tap(activity => this.log(`fetched activity`)),
+      catchError(this.handleError('getActivityInstances', []))
+    );
+    
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

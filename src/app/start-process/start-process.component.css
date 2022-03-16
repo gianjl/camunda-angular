@@ -1,17 +1,6 @@
 /***********************************************************************************************/
 /* =Common Styles */
 /***********************************************************************************************/
-
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-    border-color: #001f5b;
-  }
-  
-  .three-cols-layout .column-left .list-unstyled>.item.active,
-  .three-cols-layout .column-center .list-unstyled>li.active,
-  .three-cols-layout .column-left .list-unstyled>.item.active:hover,
-  .three-cols-layout .column-center .list-unstyled>li.active:hover {
-    border-color: #001f5b;
-  }
   
   .ui.button, .ui.buttons .button, .ui.buttons .or {
     font-size: 1rem;

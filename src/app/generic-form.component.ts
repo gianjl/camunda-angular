@@ -5,6 +5,7 @@ import { Component, OnInit,
 
 import { TasklistComponent } from './tasklist/tasklist.component';
 import * as MyAddon from './forms/myAddon.module';
+import { CamundaRestService } from './camunda-rest.service';
 
 @Component({
   selector: 'generic-form',
@@ -16,8 +17,10 @@ export class GenericForm implements OnChanges {
 
   @Input() formKey:String = null;
   @Input() taskId:String = null;
+  @Input() piid:String = null;
   private rootViewContainer = null;
   private myAddonModule = null;
+  
 
   constructor(private factoryResolver: ComponentFactoryResolver) {
 

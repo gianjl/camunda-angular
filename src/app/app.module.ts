@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { GenericForm } from './generic-form.component';
 import { MyAddonModule } from './forms/myAddon.module';
+import { ProcessInstanceListComponent } from './processinstancelist/processinstancelist.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MyAddonModule } from './forms/myAddon.module';
     ProcesslistComponent,
     TasklistComponent,
     HomeComponent,
+    ProcessInstanceListComponent,
     StartProcessComponent,
     GenericForm
   ],
