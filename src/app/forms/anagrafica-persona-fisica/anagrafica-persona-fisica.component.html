@@ -1,0 +1,92 @@
+<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #anagrafica="ngForm" class="ui form">
+	<div [hidden]="submitted">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li id="breadcrumb-item-active" class="breadcrumb-item">Anagrafica</li>
+				<li id="breadcrumb-item" class="breadcrumb-item active" aria-current="page">Consensi</li>
+			</ol>
+		</nav>
+
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="cognome"> Cognome </label> <input type="text" id="cognome" required
+					[(ngModel)]="model.cognome" name="cognome" #name="ngModel">
+			</div>
+			<div class="eight wide field">
+				<label for="nome"> Nome </label> <input type="text" id="nome" [(ngModel)]="model.nome" name="nome"
+					#name="ngModel">
+			</div>
+		</div>
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="codiceFiscale"> Codice fiscale </label> <input type="text" id="codiceFiscale"
+					[(ngModel)]="model.codiceFiscale" name="codiceFiscale" #name="ngModel">
+			</div>
+			<div class="four wide field">
+				<label for="numeroFigli"> Numero Figli </label> <input type="number" id="numeroFigli"
+					[(ngModel)]="model.numeroFigli" name="numeroFigli" #name="ngModel">
+			</div>
+			<div class="four wide field">
+				<label for="sesso"> Sesso </label>
+				<div id="sesso">
+					<input type="radio" class="form-check form-check-inline" id="sessoM" [(ngModel)]="model.sesso"
+						name="sesso" value="M" #name="ngModel"> <label for="sessoM"> M </label>
+					<input type="radio" class="form-check form-check-inline" id="sessoF" [(ngModel)]="model.sesso"
+						name="sesso" value="F" #name="ngModel">
+					<label for="sessoF"> F </label>
+				</div>
+			</div>
+		</div>
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="date"> Data di Nascita </label>
+				<input type="date" id="date" [(ngModel)]="model.dataNascita" name="dataNascita" #name="ngModel"
+					value="dd-MM-yyyy">
+			</div>
+
+		</div>
+		<div class="fields">
+			<div class="twelve wide field">
+				<label for="luogoNascita"> Luogo di nascita </label> <input type="text" id="luogoNascita"
+					[(ngModel)]="model.luogoNascita" name="luogoNascita" #name="ngModel">
+			</div>
+			<div class="four wide field">
+				<label for="provinciaNascita"> Provincia di nascita </label> <input type="text" id="provinciaNascita"
+					[(ngModel)]="model.provinciaNascita" name="provinciaNascita" #name="ngModel">
+			</div>
+		</div>
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="statoCivile"> Stato Civile </label> <select id="statoCivile" class="form-control"
+					[(ngModel)]="model.statoCivile" name="statoCivile" #name="ngModel">
+					<option value=""></option>
+					<option value="01">Libero</option>
+					<option value="04">Coniugato</option>
+					<option value="05">Vedovo</option>
+					<option value="06">Separato</option>
+					<option value="07">Divorziato</option>
+					<option value="08">Convivente</option>
+
+				</select>
+			</div>
+			<div class="eight wide field">
+				<label for="titoloStudio"> Titolo di Studio </label> <select id="titoloStudio" class="form-control"
+					[(ngModel)]="model.titoloStudio" name="titoloStudio" #name="ngModel">
+					<option value=""></option>
+					<option value="A1">Nessun titolo di studio</option>
+					<option value="A2">Licenza elementare</option>
+					<option value="A3">Licenza media</option>
+					<option value="A4">Titolo di istruzione secondaria</option>
+					<option value="A5">Laurea triennale</option>
+					<option value="A6">Laurea magistrale</option>
+					<option value="A7">Master universitario</option>
+				</select>
+			</div>
+		</div>
+
+		<button type="submit" class="ui button" [disabled]="!anagrafica.form.valid">Conferma</button>
+	</div>
+	<div [hidden]="!submitted">
+		<p>Task completed.</p>
+	</div>
+</form>
