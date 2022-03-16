@@ -11,7 +11,7 @@ import { Contatti } from "../../schemas/Contatti";
 })
 export class contattiComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new Contatti('','','','','','',false,false,'','',null,null,'',null,null);
+  model = new Contatti('','','','','','',null,null,'','',null,null,'',null,null);
 
   constructor(route: ActivatedRoute,
               router: Router,

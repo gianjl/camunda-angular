@@ -59,12 +59,12 @@
                 <label for="sceltaContatto"> Preferenza contatto: </label>
                 <div>
                     <input type="radio" id="flagContattoVolutoCellulare" [(ngModel)]="model.flagContattoVolutoCellulare"
-                        name="flagContattoVolutoCellulare" #name="ngModel" value="true" onchange="setPreferenzaContatti()">
+                        name="flagContattoVolutoCellulare" #name="ngModel" value=true (change)="model.flagContattoVolutoEmail = false">
                     <label for="flagContattoVolutoCellulare"> Contatto via Cellulare </label>
                 </div>
                 <div>
                     <input type="radio" id="flacContattoVolutoEmail" [(ngModel)]="model.flagContattoVolutoEmail"
-                        name="flacContattoVolutoEmail" #name="ngModel" value=true onchange="setPreferenzaContatti()">
+                        name="flacContattoVolutoEmail" #name="ngModel" value=true (change)="model.flagContattoVolutoCellulare = false">
                     <label for="flacContattoVolutoEmail"> Contatto via E-Mail </label>
                 </div>
             </div>
