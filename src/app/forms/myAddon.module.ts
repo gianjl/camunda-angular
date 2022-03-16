@@ -6,13 +6,14 @@ import { codiceClienteComponent } from './codiceCliente/codiceCliente.component'
 import { consensiComponent } from './consensi/consensi.component';
 import { indirizzoComponent } from './indirizzo/indirizzo.component';
 import { responseComponent } from './response/response.component';
+import { documentiComponent } from './documenti/documenti.component';
 
 
 @NgModule({
-  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent],
-  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent],
+  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, documentiComponent],
+  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, documentiComponent],
   imports: [FormsModule],
-  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent]
+  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, documentiComponent]
 })
 export class MyAddonModule {}
 
@@ -22,3 +23,4 @@ export { codiceClienteComponent } from './codiceCliente/codiceCliente.component'
 export { consensiComponent } from './consensi/consensi.component';
 export { indirizzoComponent } from './indirizzo/indirizzo.component';
 export { responseComponent } from './response/response.component';
+export { documentiComponent } from './documenti/documenti.component';

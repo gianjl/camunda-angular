@@ -11,7 +11,7 @@ import {Indirizzo} from "../../schemas/Indirizzo";
 })
 export class indirizzoComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new Indirizzo('','','','','',null);
+  model = new Indirizzo('','','','','','',null,'','','','','',null,null);
 
   constructor(route: ActivatedRoute,
               router: Router,
