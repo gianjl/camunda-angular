@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../camunda-rest.service';
 import { CompleteTaskComponent } from '../general/complete-task.component';
-import { Consensi } from '../../schemas/Consensi';
-
+import { Contatti } from "../../schemas/Contatti";
 
 @Component({
-  selector: 'consensi',
-  templateUrl: './consensi.component.html',
-  styleUrls: ['./consensi.component.css']
+  selector: 'contatti',
+  templateUrl: './contatti.component.html',
+  styleUrls: ['./contatti.component.css']
 })
-export class consensiComponent extends CompleteTaskComponent implements OnInit {
+export class contattiComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new Consensi('','', '','',null);
- 
+  model = new Contatti('','','','','','',false,false,'','',null,null,'',null,null);
 
   constructor(route: ActivatedRoute,
               router: Router,
@@ -25,10 +23,16 @@ export class consensiComponent extends CompleteTaskComponent implements OnInit {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
-  
-  ngOnInit(){
-	
+
+  setPreferenzaContatti(): void {
+    if(this.model.flagContattoVolutoCellulare) {
+        
+        this.model.flagContattoVolutoEmail = false;
+    }
+    if(this.model.flagContattoVolutoEmail) {
+        this.model.flagContattoVolutoCellulare = false;
+
+    }
   }
- 
-  
+
 }

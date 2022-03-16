@@ -1,8 +1,12 @@
 export class Consensi {
 
   constructor(
-    public datiPersonali: boolean,
-    public finiCommerciali: boolean,
-  ) {  }
+    public codiceCliente: string,
+    public codiceConsenso: string,
+    public statoConsenso: string,
+    public email: string,
+    public cellulare: number
+  
+    ) {  }
 
 }

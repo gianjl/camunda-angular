@@ -1,0 +1,107 @@
+<div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #contatti="ngForm" class="ui form">
+        <nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li id="breadcrumb-item" class="breadcrumb-item">Anagrafica</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Consensi</li>
+                <li id="breadcrumb-item-active" class="breadcrumb-item active" aria-current="page">Contatti</li>
+			</ol>
+		</nav>
+        <!--Inserimento dei telefoni-->
+        <div class="fields">
+            <div class="four wide field">
+                <label for="telefonoPrincipale"> Telefono Principale </label>
+                <input type="tel" id="telefonoPrincipale" required [(ngModel)]="model.telefonoPrincipale"
+                    name="telefonoPrincipale" #name="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </div>
+            <div class="four wide field">
+                <label for="telefonoSecondario"> Telefono Fisso </label>
+                <input type="tel" id="telefonoSecondario" [(ngModel)]="model.telefonoSecondario"
+                    name="telefonoSecondario" #name="ngModel" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}">
+            </div>
+            <div class="four wide field">
+                <label for="fax"> Fax </label>
+                <input type="tel" id="fax" [(ngModel)]="model.fax" name="fax" #name="ngModel"
+                    pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}-[0-9]{4}">
+            </div>
+            <div class="four wide field">
+                <label for="telefonoPortatile"> Cellulare </label>
+                <input type="tel" id="telefonoPortatile" [(ngModel)]="model.telefonoPortatile" name="telefonoPortatile"
+                    #name="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </div>
+        </div>
+        <!--Inserimento di E-Mail e Sito-->
+        <div class="fields">
+            <div class="eight wide field">
+                <label for="email"> E-Mail </label>
+                <input type="email" id="email" required [(ngModel)]="model.email" name="email" #name="ngModel">
+            </div>
+            <div class="eight wide field">
+                <label for="sitoInternet"> Sito Internet </label>
+                <input type="text" id="sitoInternet" [(ngModel)]="model.sitoInternet" name="sitoInternet"
+                    #name="ngModel">
+            </div>
+        </div>
+        <!--Scegliere se essere contattato via Cellulare o E-Mail
+        <div class="fields" required>
+            <div class="five wide field">
+                <label for="flagContattoVolutoCellulare"> Contatto via Cellulare </label>
+                <input type="radio" id="flagContattoVolutoCellulare"
+                    [(ngModel)]="model.flagContattoVolutoCellulare" name="flagContattoVolutoCellulare" #name="ngModel">
+            </div>
+            <div class="five wide field">
+                <label for="flacContattoVolutoEmail"> Contatto via E-Mail </label>
+                <input type="radio" id="flacContattoVolutoEmail" [(ngModel)]="model.flacContattoVolutoEmail"
+                    name="flacContattoVolutoEmail" #name="ngModel">
+            </div>-->
+        <div class="field">
+            <div class="eight wide field">
+                <label for="sceltaContatto"> Preferenza contatto: </label>
+                <div>
+                    <input type="radio" id="flagContattoVolutoCellulare" [(ngModel)]="model.flagContattoVolutoCellulare"
+                        name="flagContattoVolutoCellulare" #name="ngModel" value="true" onchange="setPreferenzaContatti()">
+                    <label for="flagContattoVolutoCellulare"> Contatto via Cellulare </label>
+                </div>
+                <div>
+                    <input type="radio" id="flacContattoVolutoEmail" [(ngModel)]="model.flagContattoVolutoEmail"
+                        name="flacContattoVolutoEmail" #name="ngModel" value=true onchange="setPreferenzaContatti()">
+                    <label for="flacContattoVolutoEmail"> Contatto via E-Mail </label>
+                </div>
+            </div>
+            
+        </div>
+        <div class="sixteen wide field">
+            <label for="note"> Note </label>
+            <input type="text" id="note" [(ngModel)]="model.note" name="note" #name="ngModel">
+        </div>
+
+        <!-- ??? Contatto-->
+        <div class="fields" required>
+            <div class="four wide field">
+                <label for="idContatto"> Id Contatto </label>
+                <input type="text" id="idContatto" [(ngModel)]="model.idContatto" name="idContatto"
+                    #name="ngModel">
+            </div>
+            <div class="four wide field">
+                <label for="codiceTipoContatto"> Tipo Contatto </label>
+                <input type="text" id="codiceTipoContatto" [(ngModel)]="model.codiceTipoContatto"
+                    name="codiceTipoContatto" #name="ngModel">
+            </div>
+            <div class="four wide field">
+                <label for="codiceUsoContatto"> Uso Contatto </label>
+                <input type="text" id="codiceUsoContatto" [(ngModel)]="model.codiceUsoContatto" name="codiceUsoContatto"
+                    #name="ngModel">
+            </div>
+            <div class="four wide field">
+                <label for="contatto"> Contatto </label>
+                <input type="text" id="contatto" [(ngModel)]="model.contatto" name="contatto" #name="ngModel">
+            </div>
+        </div>
+        <button type="submit" class="ui button" >Conferma Informazioni di
+            Contatto</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <p>Task completed.</p>
+</div>

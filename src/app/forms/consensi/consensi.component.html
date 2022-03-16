@@ -6,7 +6,44 @@
 				<li id="breadcrumb-item-active" class="breadcrumb-item active" aria-current="page">Consensi</li>
 			</ol>
 		</nav>
-		
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="codiceConsenso"> Consenso </label> <select id="codiceConsenso" class="form-control"
+					[(ngModel)]="model.codiceConsenso" name="codiceConsenso" #name="ngModel">
+					<option value=""></option>
+					<option value="1">Consenso per fini MARKETING</option>
+					<option value="2">Consenso a firma grafometrica</option>
+					<option value="3">Consenso per invio Documentazione in formato elettronico</option>
+					<option value="4">Consenso Fidelizzazione</option>
+					<option value="5">Consenso Area Riservata</option>
+					<option value="6">Consenso FEA OTP</option>
+
+				</select>
+			</div>
+			<div class="eight wide field">
+				<label for="codiceConsenso"> Stato Consenso </label> <select id="statoConsenso" class="form-control"
+					[(ngModel)]="model.statoConsenso" name="statoConsenso" #name="ngModel">
+					<option value=""></option>
+					<option value="1">Da Validare</option>
+					<option value="2">Valido</option>
+					<option value="3">Non Valido</option>
+					<option value="4">Valido da firmare</option>
+					<option value="5">Non valido da firmare</option>
+					<option value="6">Informazioni Irrilevanti</option>
+
+				</select>
+			</div>
+		</div>
+		<div class="fields">
+			<div class="twelve wide field">
+				<label for="email"> e-Mail </label> <input type="email" id="email" [(ngModel)]="model.email"
+					name="email" #name="ngModel">
+			</div>
+			<div class="four wide field">
+				<label for="cellulare"> Cellulare </label> <input type="tel" id="cellulare"
+					[(ngModel)]="model.cellulare" name="cellulare" #name="ngModel">
+			</div>
+		</div>
 		<button type="submit" class="ui button" [disabled]="!consensi.form.valid">Conferma</button>
 	</form>
 </div>
