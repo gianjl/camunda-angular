@@ -17,7 +17,7 @@
           <camunda:inputParameter name="codiceCliente">${codiceCliente}</camunda:inputParameter>
         </camunda:inputOutput>
       </bpmn:extensionElements>
-      <bpmn:incoming>Flow_041z4dc</bpmn:incoming>
+      <bpmn:incoming>Flow_0zptd9x</bpmn:incoming>
       <bpmn:outgoing>Flow_1f82xqv</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1sja5f6" sourceRef="Event_09jud3o" targetRef="Activity_1su4c0a" />
@@ -27,27 +27,36 @@
       <bpmn:incoming>Flow_0f7grx4</bpmn:incoming>
       <bpmn:outgoing>Flow_041z4dc</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_041z4dc" sourceRef="Activity_1as8s06" targetRef="Activity_070e0de" />
+    <bpmn:sequenceFlow id="Flow_041z4dc" sourceRef="Activity_1as8s06" targetRef="Activity_1xh06y6" />
+    <bpmn:userTask id="Activity_1xh06y6" name="Contatti" camunda:formKey="contatti">
+      <bpmn:incoming>Flow_041z4dc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0zptd9x</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0zptd9x" sourceRef="Activity_1xh06y6" targetRef="Activity_070e0de" />
   </bpmn:process>
   <bpmn:error id="Error_0jklyko" name="Error boudary no response" errorCode="error-boundary-no-respose" />
   <bpmn:error id="Error_02ieoin" name="Error boudary no response" errorCode="error-boundary-no-respose" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="nuova-persona-fisica">
       <bpmndi:BPMNEdge id="Flow_041z4dc_di" bpmnElement="Flow_041z4dc">
-        <di:waypoint x="610" y="140" />
-        <di:waypoint x="840" y="140" />
+        <di:waypoint x="540" y="140" />
+        <di:waypoint x="630" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0f7grx4_di" bpmnElement="Flow_0f7grx4">
         <di:waypoint x="360" y="140" />
-        <di:waypoint x="510" y="140" />
+        <di:waypoint x="440" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1f82xqv_di" bpmnElement="Flow_1f82xqv">
-        <di:waypoint x="940" y="140" />
-        <di:waypoint x="1112" y="140" />
+        <di:waypoint x="920" y="140" />
+        <di:waypoint x="1042" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1sja5f6_di" bpmnElement="Flow_1sja5f6">
         <di:waypoint x="198" y="140" />
         <di:waypoint x="260" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zptd9x_di" bpmnElement="Flow_0zptd9x">
+        <di:waypoint x="730" y="140" />
+        <di:waypoint x="820" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_09jud3o_di" bpmnElement="Event_09jud3o">
         <dc:Bounds x="162" y="122" width="36" height="36" />
@@ -55,20 +64,23 @@
           <dc:Bounds x="160" y="158" width="40" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1m22nuc_di" bpmnElement="Event_1m22nuc">
-        <dc:Bounds x="1112" y="122" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1110" y="86" width="40" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1su4c0a_di" bpmnElement="Activity_1su4c0a">
         <dc:Bounds x="260" y="100" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_070e0de_di" bpmnElement="Activity_070e0de">
-        <dc:Bounds x="840" y="100" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1clh7dr_di" bpmnElement="Activity_1as8s06">
-        <dc:Bounds x="510" y="100" width="100" height="80" />
+        <dc:Bounds x="440" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xh06y6_di" bpmnElement="Activity_1xh06y6">
+        <dc:Bounds x="630" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_070e0de_di" bpmnElement="Activity_070e0de">
+        <dc:Bounds x="820" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1m22nuc_di" bpmnElement="Event_1m22nuc">
+        <dc:Bounds x="1042" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1040" y="86" width="40" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
