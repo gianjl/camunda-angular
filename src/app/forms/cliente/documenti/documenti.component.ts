@@ -11,7 +11,7 @@ import { Documenti } from '../../../schemas/Documenti';
 })
 export class documentiComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new Documenti('','','','',null,'','',null,null);
+  model = new Documenti('','','','',new Date,'','',new Date,null);
 
   constructor(route: ActivatedRoute,
               router: Router,

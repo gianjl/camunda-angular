@@ -5,13 +5,13 @@ import { CompleteTaskComponent } from '../../general/complete-task.component';
 import { DatiAnagrafica } from '../../../schemas/DatiAnagrafica';
 
 @Component({
-  selector: 'anagrafica',
+  selector: 'anagrafica-persona-fisica',
   templateUrl: './anagrafica-persona-fisica.component.html',
   styleUrls: ['./anagrafica-persona-fisica.component.css']
 })
 export class anagraficaPersonaFisicaComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+  model = new DatiAnagrafica('','','','',null,new Date,'','','','','');
 
   constructor(route: ActivatedRoute,
               router: Router,
