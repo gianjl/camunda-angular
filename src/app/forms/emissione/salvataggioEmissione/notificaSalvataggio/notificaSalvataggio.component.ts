@@ -9,7 +9,7 @@ import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
   templateUrl: './notificaSalvataggio.component.html',
   styleUrls: ['./notificaSalvataggio.component.css']
 })
-export class restituzionePacchettiGaranzieComponent extends CompleteTaskComponent {
+export class notificaSalvataggioComponent extends CompleteTaskComponent {
   submitted:boolean = false;
   model = new DatiAnagrafica('','','','',null,null,'','','','','');
 

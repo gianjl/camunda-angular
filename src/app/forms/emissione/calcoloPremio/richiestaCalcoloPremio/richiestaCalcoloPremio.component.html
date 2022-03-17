@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #richiestaCalcoloPremio="ngForm" class="ui form">
+	<div [hidden]="submitted">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Richiesta del Calcolo del Premio</li>
+			</ol>
+		</nav>
+		<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid">Conferma Richiesta</button>
+	</div>
+	<div [hidden]="!submitted">
+		<p>Task completed.</p>
+	</div>
+</form>

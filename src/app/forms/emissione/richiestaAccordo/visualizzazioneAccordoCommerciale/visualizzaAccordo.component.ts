@@ -5,11 +5,11 @@ import { CompleteTaskComponent } from '../../../general/complete-task.component'
 import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
 
 @Component({
-  selector: 'visualizzazionePremio',
-  templateUrl: './visualizzazionePremio.component.html',
-  styleUrls: ['./visualizzazionePremio.component.css']
+  selector: 'visualizzaAccordo',
+  templateUrl: './visualizzaAccordo.component.html',
+  styleUrls: ['./visualizzaAccordo.component.css']
 })
-export class visualizzazionePremioComponent extends CompleteTaskComponent {
+export class visualizzaAccordoComponent extends CompleteTaskComponent {
   submitted:boolean = false;
   model = new DatiAnagrafica('','','','',null,null,'','','','','');
 
