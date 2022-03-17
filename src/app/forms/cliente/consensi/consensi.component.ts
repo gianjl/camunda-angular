@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CamundaRestService } from '../../camunda-rest.service';
-import { CompleteTaskComponent } from '../general/complete-task.component';
-import { Consensi } from '../../schemas/Consensi';
+import { CamundaRestService } from '../../../camunda-rest.service';
+import { CompleteTaskComponent } from '../../general/complete-task.component';
+import { Consensi } from '../../../schemas/Consensi';
 
 
 @Component({

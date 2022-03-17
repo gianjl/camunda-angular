@@ -2,8 +2,7 @@
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li id="breadcrumb-item-active" class="breadcrumb-item">Anagrafica</li>
-				<li id="breadcrumb-item" class="breadcrumb-item active" aria-current="page">Consensi</li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Anagrafica</li>
 			</ol>
 		</nav>
 
@@ -57,7 +56,8 @@
 		</div>
 		<div class="fields">
 			<div class="eight wide field">
-				<label for="statoCivile"> Stato Civile </label> <select id="statoCivile" class="form-control"
+				<label for="statoCivile"> Stato Civile </label> 
+				<select  id="statoCivile" class="form-control"
 					[(ngModel)]="model.statoCivile" name="statoCivile" #name="ngModel">
 					<option value=""></option>
 					<option value="01">Libero</option>

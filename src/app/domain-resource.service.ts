@@ -1,29 +1,40 @@
-import {Component, Injectable} from '@angular/core';
-import { ServiceResponse } from './schemas/ServiceResponse';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { StatoCivile } from './domain-models/StatoCivile';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class DomainResourceService {
-  submitted:boolean = false;
-  model = new ServiceResponse(null,'','','','');
 
-  constructor() {
+export class DataService {
+  private restUrl = 'http://localhost:24772/api/v1/Domini/'
+  constructor(private http: HttpClient) { }
 
+  getStatoCivile(): Observable<StatoCivile[]> {
+    const endpoint =  `${this.restUrl}TipiStatoCivile/`;
+    return this.http.get<StatoCivile[]>(endpoint).pipe(
+      catchError(this.handleError('getTasks', []))
+    );
   }
 
-  getDomainOptions(): JSON {
-    let jsonObj = JSON.parse(this.model.outputJson);
-    let jsonList = jsonObj.elements;
-    return jsonList;
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 
-	init() {
-		let jsonObj = JSON.parse(this.model.outputJson);
-		var ele = document.getElementById('sel');
-        for (var i = 0; i < jsonObj.length; i++) {
-            // POPULATE SELECT ELEMENT WITH JSON.
-            ele.innerHTML = ele.innerHTML +
-                '<option value="' + jsonObj[i]['ID'] + '">' + jsonObj[i]['Bird_Name'] + '</option>';
-        }
-    }
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+    console.log(message);
+  }
 
 }

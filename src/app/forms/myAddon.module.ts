@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { startNewProcessComponent } from './startNewProcess/startNewProcess.component';
-import { anagraficaPersonaFisicaComponent } from './anagrafica-persona-fisica/anagrafica-persona-fisica.component';
+import { anagraficaPersonaFisicaComponent } from './cliente/anagrafica-persona-fisica/anagrafica-persona-fisica.component';
 import { codiceClienteComponent } from './codiceCliente/codiceCliente.component';
-import { consensiComponent } from './consensi/consensi.component';
-import { indirizzoComponent } from './indirizzo/indirizzo.component';
+import { consensiComponent } from './cliente/consensi/consensi.component';
+import { indirizzoComponent } from './cliente/indirizzo/indirizzo.component';
 import { responseComponent } from './response/response.component';
-import { contattiComponent } from './contatti/contatti.component';
+import { contattiComponent } from './cliente/contatti/contatti.component';
 
 
 @NgModule({
@@ -18,9 +18,9 @@ import { contattiComponent } from './contatti/contatti.component';
 export class MyAddonModule {}
 
 export { startNewProcessComponent } from './startNewProcess/startNewProcess.component';
-export { anagraficaPersonaFisicaComponent } from './anagrafica-persona-fisica/anagrafica-persona-fisica.component';
+export { anagraficaPersonaFisicaComponent } from './cliente/anagrafica-persona-fisica/anagrafica-persona-fisica.component';
 export { codiceClienteComponent } from './codiceCliente/codiceCliente.component';
-export { consensiComponent } from './consensi/consensi.component';
-export { indirizzoComponent } from './indirizzo/indirizzo.component';
+export { consensiComponent } from './cliente/consensi/consensi.component';
+export { indirizzoComponent } from './cliente/indirizzo/indirizzo.component';
 export { responseComponent } from './response/response.component';
-export { contattiComponent } from './contatti/contatti.component';
+export { contattiComponent } from './cliente/contatti/contatti.component';

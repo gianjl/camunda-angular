@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CamundaRestService } from '../../camunda-rest.service';
-import { CompleteTaskComponent } from '../general/complete-task.component';
-import { DatiAnagrafica } from '../../schemas/DatiAnagrafica';
+import { CamundaRestService } from '../../../camunda-rest.service';
+import { CompleteTaskComponent } from '../../general/complete-task.component';
+import { DatiAnagrafica } from '../../../schemas/DatiAnagrafica';
 
 @Component({
   selector: 'anagrafica',
