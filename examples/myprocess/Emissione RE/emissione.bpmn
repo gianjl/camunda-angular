@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_12vd37y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
-  <bpmn:process id="Process_071vinc" isExecutable="true">
+  <bpmn:process id="Emissione" name="Emissione" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Start Process">
       <bpmn:outgoing>Flow_0sucbuf</bpmn:outgoing>
     </bpmn:startEvent>
@@ -30,26 +30,26 @@
     </bpmn:callActivity>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_071vinc">
-      <bpmndi:BPMNEdge id="Flow_0sucbuf_di" bpmnElement="Flow_0sucbuf">
-        <di:waypoint x="208" y="117" />
-        <di:waypoint x="260" y="117" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0xzugwa_di" bpmnElement="Flow_0xzugwa">
-        <di:waypoint x="360" y="117" />
-        <di:waypoint x="420" y="117" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1cyb0sm_di" bpmnElement="Flow_1cyb0sm">
-        <di:waypoint x="520" y="117" />
-        <di:waypoint x="580" y="117" />
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Emissione">
+      <bpmndi:BPMNEdge id="Flow_1ylqxma_di" bpmnElement="Flow_1ylqxma">
+        <di:waypoint x="840" y="117" />
+        <di:waypoint x="902" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0s4vg0f_di" bpmnElement="Flow_0s4vg0f">
         <di:waypoint x="680" y="117" />
         <di:waypoint x="740" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1ylqxma_di" bpmnElement="Flow_1ylqxma">
-        <di:waypoint x="840" y="117" />
-        <di:waypoint x="902" y="117" />
+      <bpmndi:BPMNEdge id="Flow_1cyb0sm_di" bpmnElement="Flow_1cyb0sm">
+        <di:waypoint x="520" y="117" />
+        <di:waypoint x="580" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xzugwa_di" bpmnElement="Flow_0xzugwa">
+        <di:waypoint x="360" y="117" />
+        <di:waypoint x="420" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sucbuf_di" bpmnElement="Flow_0sucbuf">
+        <di:waypoint x="208" y="117" />
+        <di:waypoint x="260" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="172" y="99" width="36" height="36" />
