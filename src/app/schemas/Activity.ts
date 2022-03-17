@@ -1,7 +1,9 @@
 export class Activity {
-  id: string;
-  activityId: string;
-  activityName: string;
-  activityType: string;
-  childActivityInstances: Activity[] = [];
+  constructor(
+  public id: string,
+  public activityId: string,
+  public activityName: string,
+  public activityType: string,
+  public childActivityInstances: Activity[]
+  ) {  }
 }

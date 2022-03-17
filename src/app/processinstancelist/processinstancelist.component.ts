@@ -12,7 +12,7 @@ import { ProcessInstance } from '../schemas/ProcessInstance';
 export class ProcessInstanceListComponent implements OnInit {
   processInstances: ProcessInstance [] = [];
   piid:String = null;
-  mainActivity: Activity = new Activity();
+  mainActivity: Activity = new Activity('','','','', []);
   
 
   constructor(
