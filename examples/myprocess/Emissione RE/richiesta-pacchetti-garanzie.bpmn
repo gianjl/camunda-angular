@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_09qcoa9" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_1trijv7" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Ente esterno vuole pacchetti / garanzie">
+      <bpmn:outgoing>Flow_1ayrp1j</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1ayrp1j" sourceRef="StartEvent_1" targetRef="SelezionaAccordo" />
+    <bpmn:sequenceFlow id="Flow_0e55416" sourceRef="SelezionaAccordo" targetRef="ControlloIdAccordo" />
+    <bpmn:userTask id="SelezionaAccordo" name="Seleziona Accordo Commerciale">
+      <bpmn:incoming>Flow_1ayrp1j</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e55416</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="ControlloIdAccordo" name="Controllo Accordo ID, Restituzione oggetti correlati">
+      <bpmn:incoming>Flow_0e55416</bpmn:incoming>
+      <bpmn:outgoing>Flow_1w9nrom</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1w9nrom" sourceRef="ControlloIdAccordo" targetRef="VisualizzaArea" />
+    <bpmn:userTask id="VisualizzaArea" name="Visualizzazione Area Bisogno, Oggetti Assicurabili (+info)">
+      <bpmn:incoming>Flow_1w9nrom</bpmn:incoming>
+      <bpmn:outgoing>Flow_0xo1b1j</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0xo1b1j" sourceRef="VisualizzaArea" targetRef="SceltaArea" />
+    <bpmn:userTask id="SceltaArea" name="Scelta Area Bisogno e Oggetti Assicurabili">
+      <bpmn:incoming>Flow_0xo1b1j</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lptcfj</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0lptcfj" sourceRef="SceltaArea" targetRef="IdentificaRisorse" />
+    <bpmn:serviceTask id="IdentificaRisorse" name="Identificazione risorse compatibili">
+      <bpmn:incoming>Flow_0lptcfj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ke94gq</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0ke94gq" sourceRef="IdentificaRisorse" targetRef="VisualizzaPacchettiGaranzie" />
+    <bpmn:endEvent id="Event_0d8aecl" name="Calcolo Premio">
+      <bpmn:incoming>Flow_15zvp4s</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_15zvp4s" sourceRef="VisualizzaPacchettiGaranzie" targetRef="Event_0d8aecl" />
+    <bpmn:userTask id="VisualizzaPacchettiGaranzie" name="Restituzione Pacchetti e Garanzie Vendibili">
+      <bpmn:incoming>Flow_0ke94gq</bpmn:incoming>
+      <bpmn:outgoing>Flow_15zvp4s</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1trijv7">
+      <bpmndi:BPMNEdge id="Flow_1ayrp1j_di" bpmnElement="Flow_1ayrp1j">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e55416_di" bpmnElement="Flow_0e55416">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1w9nrom_di" bpmnElement="Flow_1w9nrom">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="590" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xo1b1j_di" bpmnElement="Flow_0xo1b1j">
+        <di:waypoint x="690" y="117" />
+        <di:waypoint x="750" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lptcfj_di" bpmnElement="Flow_0lptcfj">
+        <di:waypoint x="850" y="117" />
+        <di:waypoint x="910" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ke94gq_di" bpmnElement="Flow_0ke94gq">
+        <di:waypoint x="1010" y="117" />
+        <di:waypoint x="1070" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15zvp4s_di" bpmnElement="Flow_15zvp4s">
+        <di:waypoint x="1170" y="117" />
+        <di:waypoint x="1232" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="158" y="142" width="79" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0k2uamy_di" bpmnElement="SelezionaAccordo">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1t3n6k2_di" bpmnElement="ControlloIdAccordo">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jcx86e_di" bpmnElement="VisualizzaArea">
+        <dc:Bounds x="590" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yb049l_di" bpmnElement="SceltaArea">
+        <dc:Bounds x="750" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1n3joxz_di" bpmnElement="IdentificaRisorse">
+        <dc:Bounds x="910" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0d8aecl_di" bpmnElement="Event_0d8aecl">
+        <dc:Bounds x="1232" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1215" y="142" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18nzdje_di" bpmnElement="VisualizzaPacchettiGaranzie">
+        <dc:Bounds x="1070" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

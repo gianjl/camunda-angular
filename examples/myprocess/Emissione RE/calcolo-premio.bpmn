@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_08t57d2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_11zgekt" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Ente esterno vuole calcolo Premio">
+      <bpmn:outgoing>Flow_1bx8rq2</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1bx8rq2" sourceRef="StartEvent_1" targetRef="SceltaPacchetto" />
+    <bpmn:userTask id="SceltaPacchetto" name="Scelta Pacchetto">
+      <bpmn:incoming>Flow_1bx8rq2</bpmn:incoming>
+      <bpmn:incoming>Flow_0chwlpw</bpmn:incoming>
+      <bpmn:outgoing>Flow_16od13l</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_16od13l" sourceRef="SceltaPacchetto" targetRef="CompilaVariabili" />
+    <bpmn:userTask id="CompilaVariabili" name="Compilazione variabili Garanzie">
+      <bpmn:incoming>Flow_16od13l</bpmn:incoming>
+      <bpmn:outgoing>Flow_0isur00</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0isur00" sourceRef="CompilaVariabili" targetRef="InserisciInfo" />
+    <bpmn:sequenceFlow id="Flow_1hmtpec" sourceRef="RichiestaCalcolo" targetRef="Activity_15o5pzd" />
+    <bpmn:userTask id="RichiestaCalcolo" name="(Conferma informazioni e) Richiesta Calcolo Premio">
+      <bpmn:incoming>Flow_002qb1c</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hmtpec</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_15o5pzd" name="Calcolo Premio">
+      <bpmn:incoming>Flow_1hmtpec</bpmn:incoming>
+      <bpmn:outgoing>Flow_1a31ken</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:task id="VisualizzaPremio" name="Visualizzazione Premio Calclato">
+      <bpmn:incoming>Flow_1a31ken</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hprwqc</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1a31ken" sourceRef="Activity_15o5pzd" targetRef="VisualizzaPremio" />
+    <bpmn:boundaryEvent id="Event_1f9fjdv" name="Errori bloccanti, informativi, autorizzativi" attachedToRef="VisualizzaPremio">
+      <bpmn:outgoing>Flow_0chwlpw</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0g1952x" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_0chwlpw" name="Riciclo" sourceRef="Event_1f9fjdv" targetRef="SceltaPacchetto" />
+    <bpmn:sequenceFlow id="Flow_1hprwqc" sourceRef="VisualizzaPremio" targetRef="Event_0k3al34" />
+    <bpmn:endEvent id="Event_0k3al34" name="Salvataggio Polizza">
+      <bpmn:incoming>Flow_1hprwqc</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_002qb1c" sourceRef="InserisciInfo" targetRef="RichiestaCalcolo" />
+    <bpmn:userTask id="InserisciInfo" name="Inserimento informazioni cliente, modalità pagamento">
+      <bpmn:incoming>Flow_0isur00</bpmn:incoming>
+      <bpmn:outgoing>Flow_002qb1c</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_11zgekt">
+      <bpmndi:BPMNEdge id="Flow_1bx8rq2_di" bpmnElement="Flow_1bx8rq2">
+        <di:waypoint x="168" y="117" />
+        <di:waypoint x="220" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16od13l_di" bpmnElement="Flow_16od13l">
+        <di:waypoint x="320" y="117" />
+        <di:waypoint x="370" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0isur00_di" bpmnElement="Flow_0isur00">
+        <di:waypoint x="470" y="117" />
+        <di:waypoint x="520" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hmtpec_di" bpmnElement="Flow_1hmtpec">
+        <di:waypoint x="770" y="117" />
+        <di:waypoint x="830" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1a31ken_di" bpmnElement="Flow_1a31ken">
+        <di:waypoint x="930" y="117" />
+        <di:waypoint x="990" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0chwlpw_di" bpmnElement="Flow_0chwlpw">
+        <di:waypoint x="1040" y="188" />
+        <di:waypoint x="1040" y="208" />
+        <di:waypoint x="270" y="208" />
+        <di:waypoint x="270" y="157" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="554" y="213" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hprwqc_di" bpmnElement="Flow_1hprwqc">
+        <di:waypoint x="1090" y="117" />
+        <di:waypoint x="1172" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_002qb1c_di" bpmnElement="Flow_002qb1c">
+        <di:waypoint x="620" y="117" />
+        <di:waypoint x="670" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="132" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="119" y="142" width="63" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04wzwdk_di" bpmnElement="SceltaPacchetto">
+        <dc:Bounds x="220" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_03xuncx_di" bpmnElement="RichiestaCalcolo">
+        <dc:Bounds x="670" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lpbqdq_di" bpmnElement="Activity_15o5pzd">
+        <dc:Bounds x="830" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1iypbed_di" bpmnElement="VisualizzaPremio">
+        <dc:Bounds x="990" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0k3al34_di" bpmnElement="Event_0k3al34">
+        <dc:Bounds x="1172" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1162" y="142" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rewkni_di" bpmnElement="InserisciInfo">
+        <dc:Bounds x="520" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vc7uu1_di" bpmnElement="CompilaVariabili">
+        <dc:Bounds x="370" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1xhcato_di" bpmnElement="Event_1f9fjdv">
+        <dc:Bounds x="1022" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1002" y="213" width="75" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
