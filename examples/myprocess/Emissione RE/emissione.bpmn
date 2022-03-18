@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_12vd37y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_12vd37y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="Emissione" name="Emissione" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_1" name="Start Process">
+    <bpmn:startEvent id="StartEvent_1" name="Start Process" camunda:formKey="startNewProcess">
       <bpmn:outgoing>Flow_0sucbuf</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_0sucbuf" sourceRef="StartEvent_1" targetRef="richiesta-accordo-call" />
@@ -12,19 +12,19 @@
       <bpmn:incoming>Flow_1ylqxma</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1ylqxma" sourceRef="salvataggio-emissione-call" targetRef="Event_0p1ubxn" />
-    <bpmn:callActivity id="richiesta-accordo-call" name="Richiesta Accordo" calledElement="richiesta-accordo">
+    <bpmn:callActivity id="richiesta-accordo-call" name="Richiesta Accordo" calledElement="RichiestaAccordo">
       <bpmn:incoming>Flow_0sucbuf</bpmn:incoming>
       <bpmn:outgoing>Flow_0xzugwa</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="richiesta-pacchetti-garanzie-call" name="Richiesta Pacchetti Garanzie" calledElement="richiesta-pacchetti-garanzie">
+    <bpmn:callActivity id="richiesta-pacchetti-garanzie-call" name="Richiesta Pacchetti Garanzie" calledElement="RichiestaPacchettiGaranzie">
       <bpmn:incoming>Flow_0xzugwa</bpmn:incoming>
       <bpmn:outgoing>Flow_1cyb0sm</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="calcolo-premio-call" name="Calcolo Premio" calledElement="calcolo-premio">
+    <bpmn:callActivity id="calcolo-premio-call" name="Calcolo Premio" calledElement="CalcoloPremio">
       <bpmn:incoming>Flow_1cyb0sm</bpmn:incoming>
       <bpmn:outgoing>Flow_0s4vg0f</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="salvataggio-emissione-call" name="Salvataggio Emissione" calledElement="salvataggio-emissione">
+    <bpmn:callActivity id="salvataggio-emissione-call" name="Salvataggio Emissione" calledElement="SalvataggioEmissione">
       <bpmn:incoming>Flow_0s4vg0f</bpmn:incoming>
       <bpmn:outgoing>Flow_1ylqxma</bpmn:outgoing>
     </bpmn:callActivity>

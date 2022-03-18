@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0uitgq9" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0uitgq9" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="SalvataggioEmissione" name="Salvataggio Emissione" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Ente esterno vuole salvare l&#39;emissione">
       <bpmn:outgoing>Flow_1pufjv2</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1pufjv2" sourceRef="StartEvent_1" targetRef="RichiestaSalvataggio" />
-    <bpmn:userTask id="RichiestaSalvataggio" name="Richiesta Salvataggio">
+    <bpmn:userTask id="RichiestaSalvataggio" name="Richiesta Salvataggio" camunda:formKey="richiestaSalvataggio">
       <bpmn:incoming>Flow_1pufjv2</bpmn:incoming>
       <bpmn:outgoing>Flow_1ar8nly</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1ar8nly" sourceRef="RichiestaSalvataggio" targetRef="Salvataggio" />
-    <bpmn:serviceTask id="Salvataggio" name="Salvataggio">
-      <bpmn:incoming>Flow_1ar8nly</bpmn:incoming>
-      <bpmn:outgoing>Flow_07fk9ss</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_07fk9ss" sourceRef="Salvataggio" targetRef="NotificaSalvataggio" />
-    <bpmn:userTask id="NotificaSalvataggio" name="Notifica Avvenuto Salvataggio di Polizza N">
+    <bpmn:userTask id="NotificaSalvataggio" name="Notifica Avvenuto Salvataggio di Polizza N" camunda:formKey="notificaSalvataggio">
       <bpmn:incoming>Flow_07fk9ss</bpmn:incoming>
       <bpmn:outgoing>Flow_1uuyf2w</bpmn:outgoing>
     </bpmn:userTask>
@@ -23,6 +19,10 @@
       <bpmn:incoming>Flow_1uuyf2w</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1uuyf2w" sourceRef="NotificaSalvataggio" targetRef="Event_0mu87pl" />
+    <bpmn:task id="Salvataggio" name="Salvataggio">
+      <bpmn:incoming>Flow_1ar8nly</bpmn:incoming>
+      <bpmn:outgoing>Flow_07fk9ss</bpmn:outgoing>
+    </bpmn:task>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SalvataggioEmissione">
@@ -51,9 +51,6 @@
       <bpmndi:BPMNShape id="Activity_1dztufw_di" bpmnElement="RichiestaSalvataggio">
         <dc:Bounds x="260" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0mtyft4_di" bpmnElement="Salvataggio">
-        <dc:Bounds x="410" y="77" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_05x0dtl_di" bpmnElement="NotificaSalvataggio">
         <dc:Bounds x="560" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -62,6 +59,9 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="696" y="142" width="69" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ve66v2_di" bpmnElement="Salvataggio">
+        <dc:Bounds x="410" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

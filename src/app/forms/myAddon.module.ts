@@ -11,22 +11,22 @@ import { inserimentoInfoClienteComponent } from './emissione/calcoloPremio/inser
 import { compilazioneVariabiliComponent } from './emissione/calcoloPremio/compilazioneVariabili/compilazioneVariabili.component';
 import { richiestaCalcoloPremioComponent } from './emissione/calcoloPremio/richiestaCalcoloPremio/richiestaCalcoloPremio.component';
 import { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacchetto/sceltaPacchetto.component';
-import { visualizzazionePremioComponent } from './emissione/calcoloPremio/visualizzazionePremio/visualizzazionePremio.component';
-import { autenticazioneComponent } from './emissione/richiestaAccordo/autenticazioneEnte/autenticazione.component';
-import { visualizzaAccordoComponent } from './emissione/richiestaAccordo/visualizzazioneAccordoCommerciale/visualizzaAccordo.component';
+import { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
+import { autenticazioneComponent } from './emissione/richiestaAccordo/autenticazione/autenticazione.component';
+import { visualizzaAccordoComponent } from './emissione/richiestaAccordo/visualizzaAccordo/visualizzaAccordo.component';
 import { restituzionePacchettiGaranzieComponent } from './emissione/richiestaPacchettiGaranzie/restituzionePacchettiGaranzie/restituzionePacchettiGaranzie.component';
 import { sceltaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/sceltaAreaOggetti/sceltaAreaOggetti.component';
-import { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordoCommerciale/selezionaAccordo.component';
+import { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordo/selezionaAccordo.component';
 import { visualizzaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/visualizzaAreaOggetti/visualizzaAreaOggetti.component';
 import { notificaSalvataggioComponent } from './emissione/salvataggioEmissione/notificaSalvataggio/notificaSalvataggio.component';
 import { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/richiestaSalvataggio/richiestaSalvataggio.component';
 
 
 @NgModule({
-  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzazionePremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
-  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzazionePremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
   imports: [FormsModule],
-  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzazionePremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
+  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
 })
 export class MyAddonModule {}
 
@@ -41,12 +41,12 @@ export { inserimentoInfoClienteComponent } from './emissione/calcoloPremio/inser
 export { compilazioneVariabiliComponent } from './emissione/calcoloPremio/compilazioneVariabili/compilazioneVariabili.component';
 export { richiestaCalcoloPremioComponent } from './emissione/calcoloPremio/richiestaCalcoloPremio/richiestaCalcoloPremio.component';
 export { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacchetto/sceltaPacchetto.component';
-export { visualizzazionePremioComponent } from './emissione/calcoloPremio/visualizzazionePremio/visualizzazionePremio.component';
-export { autenticazioneComponent } from './emissione/richiestaAccordo/autenticazioneEnte/autenticazione.component';
-export { visualizzaAccordoComponent } from './emissione/richiestaAccordo/visualizzazioneAccordoCommerciale/visualizzaAccordo.component';
+export { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
+export { autenticazioneComponent } from './emissione/richiestaAccordo/autenticazione/autenticazione.component';
+export { visualizzaAccordoComponent } from './emissione/richiestaAccordo/visualizzaAccordo/visualizzaAccordo.component';
 export { restituzionePacchettiGaranzieComponent } from './emissione/richiestaPacchettiGaranzie/restituzionePacchettiGaranzie/restituzionePacchettiGaranzie.component';
 export { sceltaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/sceltaAreaOggetti/sceltaAreaOggetti.component';
-export { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordoCommerciale/selezionaAccordo.component';
+export { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordo/selezionaAccordo.component';
 export { visualizzaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/visualizzaAreaOggetti/visualizzaAreaOggetti.component';
 export { notificaSalvataggioComponent } from './emissione/salvataggioEmissione/notificaSalvataggio/notificaSalvataggio.component';
 export { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/richiestaSalvataggio/richiestaSalvataggio.component';
