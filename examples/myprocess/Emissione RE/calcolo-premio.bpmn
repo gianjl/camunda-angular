@@ -5,7 +5,7 @@
       <bpmn:outgoing>Flow_1bx8rq2</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1bx8rq2" sourceRef="StartEvent_1" targetRef="SceltaPacchetto" />
-    <bpmn:userTask id="SceltaPacchetto" name="Scelta Pacchetto" camunda:formKey="sceltaPacchetto">
+    <bpmn:userTask id="SceltaPacchetto" name="Scelta Pacchetto/Garanzie" camunda:formKey="sceltaPacchetto">
       <bpmn:incoming>Flow_1bx8rq2</bpmn:incoming>
       <bpmn:incoming>Flow_0chwlpw</bpmn:incoming>
       <bpmn:outgoing>Flow_16od13l</bpmn:outgoing>

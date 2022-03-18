@@ -12,21 +12,17 @@ import { compilazioneVariabiliComponent } from './emissione/calcoloPremio/compil
 import { richiestaCalcoloPremioComponent } from './emissione/calcoloPremio/richiestaCalcoloPremio/richiestaCalcoloPremio.component';
 import { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacchetto/sceltaPacchetto.component';
 import { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
-import { autenticazioneComponent } from './emissione/richiestaAccordo/autenticazione/autenticazione.component';
-import { visualizzaAccordoComponent } from './emissione/richiestaAccordo/visualizzaAccordo/visualizzaAccordo.component';
-import { restituzionePacchettiGaranzieComponent } from './emissione/richiestaPacchettiGaranzie/restituzionePacchettiGaranzie/restituzionePacchettiGaranzie.component';
 import { sceltaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/sceltaAreaOggetti/sceltaAreaOggetti.component';
 import { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordo/selezionaAccordo.component';
-import { visualizzaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/visualizzaAreaOggetti/visualizzaAreaOggetti.component';
 import { notificaSalvataggioComponent } from './emissione/salvataggioEmissione/notificaSalvataggio/notificaSalvataggio.component';
 import { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/richiestaSalvataggio/richiestaSalvataggio.component';
 
 
 @NgModule({
-  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
-  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
   imports: [FormsModule],
-  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,autenticazioneComponent,visualizzaAccordoComponent,restituzionePacchettiGaranzieComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,visualizzaAreaOggettiComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
+  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
 })
 export class MyAddonModule {}
 
@@ -42,11 +38,7 @@ export { compilazioneVariabiliComponent } from './emissione/calcoloPremio/compil
 export { richiestaCalcoloPremioComponent } from './emissione/calcoloPremio/richiestaCalcoloPremio/richiestaCalcoloPremio.component';
 export { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacchetto/sceltaPacchetto.component';
 export { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
-export { autenticazioneComponent } from './emissione/richiestaAccordo/autenticazione/autenticazione.component';
-export { visualizzaAccordoComponent } from './emissione/richiestaAccordo/visualizzaAccordo/visualizzaAccordo.component';
-export { restituzionePacchettiGaranzieComponent } from './emissione/richiestaPacchettiGaranzie/restituzionePacchettiGaranzie/restituzionePacchettiGaranzie.component';
 export { sceltaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/sceltaAreaOggetti/sceltaAreaOggetti.component';
 export { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordo/selezionaAccordo.component';
-export { visualizzaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/visualizzaAreaOggetti/visualizzaAreaOggetti.component';
 export { notificaSalvataggioComponent } from './emissione/salvataggioEmissione/notificaSalvataggio/notificaSalvataggio.component';
 export { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/richiestaSalvataggio/richiestaSalvataggio.component';
