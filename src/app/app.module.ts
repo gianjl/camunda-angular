@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { SuiModule } from 'ng2-semantic-ui';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import { ProcessInstanceListComponent } from './processinstancelist/processinsta
     GenericForm
   ],
   imports: [
+    CommonModule,
     FormsModule,
     SuiModule,
     BrowserModule,

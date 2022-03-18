@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { startNewProcessComponent } from './startNewProcess/startNewProcess.component';
 import { anagraficaPersonaFisicaComponent } from './cliente/anagrafica-persona-fisica/anagrafica-persona-fisica.component';
 import { codiceClienteComponent } from './codiceCliente/codiceCliente.component';
@@ -21,7 +22,7 @@ import { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/
 @NgModule({
   entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
   declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
 })
 export class MyAddonModule {}
