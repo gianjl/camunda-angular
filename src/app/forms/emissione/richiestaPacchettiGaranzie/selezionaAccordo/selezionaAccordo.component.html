@@ -5,6 +5,20 @@
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Seleziona Accordo</li>
 			</ol>
 		</nav>
+
+		<h2>Seleziona un Accordo</h2>
+
+		<div id="accordo" *ngFor="let accordo of accordi" (click)="onSelect(accordo)">
+			<span class="id">{{accordo.id}}</span>
+			<span class="nome">{{accordo.nome}}</span>
+		</div>
+
+		<div *ngIf="model">
+			<h4>Dettagli dell'accordo scelto</h4>
+			<div>ID: {{model.id}}</div>
+			<div>Nome Accordo: {{model.nome}}</div>
+		</div>
+
 		<button type="submit" class="ui button" [disabled]="!selezionaAccordo.form.valid">Conferma</button>
 	</div>
 	<div [hidden]="!submitted">

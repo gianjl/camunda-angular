@@ -2,16 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../../../camunda-rest.service';
 import { CompleteTaskComponent } from '../../../general/complete-task.component';
-import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
+//import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
+import { Accordo } from '../../../../schemas/Accordo';
+import { ACCORDI } from '../../../../mocks/MockAccordi';
+
 
 @Component({
   selector: 'selezionaAccordo',
   templateUrl: './selezionaAccordo.component.html',
   styleUrls: ['./selezionaAccordo.component.css']
 })
-export class selezionaAccordoComponent extends CompleteTaskComponent {
+export class selezionaAccordoComponent extends CompleteTaskComponent implements OnInit{
   submitted:boolean = false;
-  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+  model: Accordo = new Accordo(null,'');
+  accordi:Accordo[];
 
   constructor(route: ActivatedRoute,
               router: Router,
@@ -23,5 +27,16 @@ export class selezionaAccordoComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
+
+  ngOnInit(): void {
+    this.getAccordi();
+  }
+
+  onSelect(accordo: Accordo): void {
+    this.model=accordo;
+  }
   
+  getAccordi():void{
+    this.accordi=ACCORDI;
+  }
 }
