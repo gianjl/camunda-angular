@@ -49,6 +49,14 @@ li {
       color: #001f5b;
       background-color: #6cbad4;
   }
+
+  #area-oggetto{
+    background-color: #DDEBEB;
+    border: 2px #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
+  }
+  
   
   /***********************************************************************************************/
   /* =Common Styles */

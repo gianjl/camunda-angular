@@ -1,9 +1,10 @@
 export class Oggetto {
 
     constructor(
-      public id: number,
+      public id: string,
       public nome: string,
-      public descrizione: string
+      public descrizione: string,
+      public areaBisogno: string
     ) {  }
   
   }

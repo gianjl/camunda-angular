@@ -10,12 +10,7 @@
       <bpmn:incoming>Flow_0chwlpw</bpmn:incoming>
       <bpmn:outgoing>Flow_16od13l</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_16od13l" sourceRef="SceltaPacchetto" targetRef="CompilaVariabili" />
-    <bpmn:userTask id="CompilaVariabili" name="Compilazione Variabili Garanzie" camunda:formKey="compilazioneVariabili">
-      <bpmn:incoming>Flow_16od13l</bpmn:incoming>
-      <bpmn:outgoing>Flow_0isur00</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0isur00" sourceRef="CompilaVariabili" targetRef="InserisciInfo" />
+    <bpmn:sequenceFlow id="Flow_16od13l" sourceRef="SceltaPacchetto" targetRef="InserisciInfo" />
     <bpmn:sequenceFlow id="Flow_1hmtpec" sourceRef="RichiestaCalcolo" targetRef="Activity_15o5pzd" />
     <bpmn:userTask id="RichiestaCalcolo" name="(Conferma Informazioni e) Richiesta Calcolo Premio" camunda:formKey="richiestaCalcoloPremio">
       <bpmn:incoming>Flow_002qb1c</bpmn:incoming>
@@ -29,14 +24,14 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_002qb1c" sourceRef="InserisciInfo" targetRef="RichiestaCalcolo" />
     <bpmn:userTask id="InserisciInfo" name="Inserimento Informazioni Cliente, Modalità Pagamento" camunda:formKey="inserimentoInfoCliente">
-      <bpmn:incoming>Flow_0isur00</bpmn:incoming>
+      <bpmn:incoming>Flow_16od13l</bpmn:incoming>
       <bpmn:outgoing>Flow_002qb1c</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="VisualizzaPremio" name="Visualizzazione Premio" camunda:formKey="visualizzaPremio">
       <bpmn:incoming>Flow_1a31ken</bpmn:incoming>
       <bpmn:outgoing>Flow_1hprwqc</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:boundaryEvent id="Event_1f9fjdv" name="Errori bloccanti, informativi, autorizzativi" attachedToRef="VisualizzaPremio">
+    <bpmn:boundaryEvent id="Event_1f9fjdv" name="Errori bloccanti, informativi, autorizzativi" attachedToRef="Activity_15o5pzd">
       <bpmn:outgoing>Flow_0chwlpw</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_0lhwpwu" />
     </bpmn:boundaryEvent>
@@ -56,12 +51,12 @@
         <di:waypoint x="1172" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0chwlpw_di" bpmnElement="Flow_0chwlpw">
-        <di:waypoint x="1040" y="175" />
-        <di:waypoint x="1040" y="208" />
-        <di:waypoint x="270" y="208" />
-        <di:waypoint x="270" y="157" />
+        <di:waypoint x="880" y="175" />
+        <di:waypoint x="880" y="270" />
+        <di:waypoint x="400" y="270" />
+        <di:waypoint x="400" y="157" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="553" y="213" width="33" height="14" />
+          <dc:Bounds x="570" y="275" width="33" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1a31ken_di" bpmnElement="Flow_1a31ken">
@@ -72,30 +67,14 @@
         <di:waypoint x="770" y="117" />
         <di:waypoint x="830" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0isur00_di" bpmnElement="Flow_0isur00">
-        <di:waypoint x="470" y="117" />
+      <bpmndi:BPMNEdge id="Flow_16od13l_di" bpmnElement="Flow_16od13l">
+        <di:waypoint x="450" y="117" />
         <di:waypoint x="520" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_16od13l_di" bpmnElement="Flow_16od13l">
-        <di:waypoint x="320" y="117" />
-        <di:waypoint x="370" y="117" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1bx8rq2_di" bpmnElement="Flow_1bx8rq2">
-        <di:waypoint x="168" y="117" />
-        <di:waypoint x="220" y="117" />
+        <di:waypoint x="228" y="117" />
+        <di:waypoint x="350" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="132" y="99" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="119" y="142" width="63" height="40" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_04wzwdk_di" bpmnElement="SceltaPacchetto">
-        <dc:Bounds x="220" y="77" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0vc7uu1_di" bpmnElement="CompilaVariabili">
-        <dc:Bounds x="370" y="77" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_03xuncx_di" bpmnElement="RichiestaCalcolo">
         <dc:Bounds x="670" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -114,10 +93,19 @@
       <bpmndi:BPMNShape id="Activity_1rn7148_di" bpmnElement="Activity_15o5pzd">
         <dc:Bounds x="830" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0lp9ybe_di" bpmnElement="Event_1f9fjdv">
-        <dc:Bounds x="1022" y="139" width="36" height="36" />
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1001" y="200" width="77" height="40" />
+          <dc:Bounds x="179" y="142" width="64" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04wzwdk_di" bpmnElement="SceltaPacchetto">
+        <dc:Bounds x="350" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0lp9ybe_di" bpmnElement="Event_1f9fjdv">
+        <dc:Bounds x="862" y="139" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="890.5" y="170" width="77" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

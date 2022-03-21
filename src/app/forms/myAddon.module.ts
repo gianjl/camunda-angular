@@ -9,7 +9,6 @@ import { indirizzoComponent } from './cliente/indirizzo/indirizzo.component';
 import { responseComponent } from './response/response.component';
 import { contattiComponent } from './cliente/contatti/contatti.component';
 import { inserimentoInfoClienteComponent } from './emissione/calcoloPremio/inserimentoInfoCliente/inserimentoInfoCliente.component';
-import { compilazioneVariabiliComponent } from './emissione/calcoloPremio/compilazioneVariabili/compilazioneVariabili.component';
 import { richiestaCalcoloPremioComponent } from './emissione/calcoloPremio/richiestaCalcoloPremio/richiestaCalcoloPremio.component';
 import { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacchetto/sceltaPacchetto.component';
 import { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
@@ -20,10 +19,10 @@ import { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/
 
 
 @NgModule({
-  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
-  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
   imports: [FormsModule, CommonModule],
-  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,compilazioneVariabiliComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
+  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
 })
 export class MyAddonModule {}
 
@@ -35,7 +34,6 @@ export { indirizzoComponent } from './cliente/indirizzo/indirizzo.component';
 export { responseComponent } from './response/response.component';
 export { contattiComponent } from './cliente/contatti/contatti.component';
 export { inserimentoInfoClienteComponent } from './emissione/calcoloPremio/inserimentoInfoCliente/inserimentoInfoCliente.component';
-export { compilazioneVariabiliComponent } from './emissione/calcoloPremio/compilazioneVariabili/compilazioneVariabili.component';
 export { richiestaCalcoloPremioComponent } from './emissione/calcoloPremio/richiestaCalcoloPremio/richiestaCalcoloPremio.component';
 export { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacchetto/sceltaPacchetto.component';
 export { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
