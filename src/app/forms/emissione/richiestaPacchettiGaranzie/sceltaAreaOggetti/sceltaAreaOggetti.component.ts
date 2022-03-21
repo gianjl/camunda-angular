@@ -14,8 +14,8 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
   submitted:boolean = false;
   model: Oggetto = new Oggetto('','','','');
   areaSelezionata: AreaBisogno;
-  areaId: string;
-  oggettoId: string;
+  areaId: string = '';
+  oggettoId: string = '';
   private areeBisogno;
 
   constructor(route: ActivatedRoute,

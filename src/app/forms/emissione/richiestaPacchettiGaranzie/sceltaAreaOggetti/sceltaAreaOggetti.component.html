@@ -22,7 +22,7 @@
 					</select>
 				</div>
 			</div>
-				<div [hidden]="oggettoId == ''" class="sixteen wide field" id="area-oggetto">
+				<div *ngIf="oggettoId != ''" class="sixteen wide field" id="area-oggetto">
 					<h4>Informazioni oggetto {{model.nome}}</h4>
 					<p>{{model.descrizione}}</p>
 				</div>
