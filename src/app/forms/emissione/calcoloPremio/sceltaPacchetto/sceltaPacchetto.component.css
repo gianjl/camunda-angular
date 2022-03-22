@@ -9,10 +9,6 @@ li {
     border-radius: 0px 50px 50px 0px;
   }
   
-  li.done {
-    background: #CCFF99;
-  }
-  
   li.done::before {
     content: '';
     position: absolute;
@@ -50,6 +46,35 @@ li {
       background-color: #6cbad4;
   }
   
+  #choice{
+    background-color: azure;
+    border: 2px #001f5b;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  #choice:hover {
+    cursor: pointer;
+    background-color: #DDEBEB;
+    border: 2px #001f5b;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  .highlight {
+    background-color: #DDEBEB;
+    border: 2px #001f5b;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  #area-pacchetto{
+    background-color: #DDEBEB;
+    border: 2px #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
+  }
+
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/

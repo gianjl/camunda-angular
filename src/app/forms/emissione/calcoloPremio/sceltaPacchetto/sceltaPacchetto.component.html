@@ -5,7 +5,43 @@
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Scelta Pacchetto Polizza</li>
 			</ol>
 		</nav>
-		<button type="submit" class="ui button" [disabled]="!sceltaPacchetto.form.valid">Conferma Scelta</button>
+		<div class="fields">
+			<div class="eight wide field" id="choice" (click) = "setChoice('pacchetto')"
+			[ngClass]="{'highlight': sceltaPacchettoGaranzie == 'pacchetto'}">
+				<h4> Pacchetto </h4>
+			
+			</div>
+			<div class="eight wide field" id="choice" (click) = "setChoice('garanzie')"
+			[ngClass]="{'highlight': sceltaPacchettoGaranzie == 'garanzie'}">
+				<h4> Garanzie </h4>
+			</div>
+			
+		</div>
+		<div *ngIf="sceltaPacchettoGaranzie == 'garanzie'">
+			<h4> Scegli garanzie </h4>
+			<div id="choice" *ngFor="let garanzia of getGaranzie()"  (click)="selectGaranzie(garanzia)"
+			[ngClass]="{'highlight': isGaranziaSelected(garanzia.id)}">
+				<h5> {{garanzia.nome}} </h5>
+				<div id="area-pacchetto" *ngIf="isGaranziaSelected(garanzia.id)">
+					<h4> Informazioni garanzia {{garanzia.nome}} </h4>
+					<h5> {{garanzia.informazioni}} </h5>
+				</div>
+			</div>
+		</div> 
+		<!------------------------------------------------------------------->
+		<div *ngIf="sceltaPacchettoGaranzie == 'pacchetto'">
+			<h4> Scegli Pacchetto </h4>
+			<div id="choice" *ngFor="let pacchetto of getPacchetti()" (click)="setPacchettoSelezionato(pacchetto)">
+				<h5> {{pacchetto.nome}} </h5>
+				<div id="area-pacchetto" *ngIf="model.id == pacchetto.id">
+					<h4> Informazioni pacchetto  {{model.nome}} </h4>
+					<h5> {{model.informazioni}} </h5>
+				</div>
+			</div>
+			
+		</div>
+		
+		<button type="submit" class="ui button" [disabled]="model.id == ''">Conferma Scelta</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

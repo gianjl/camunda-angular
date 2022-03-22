@@ -20,5 +20,4 @@ export class ProcesslistComponent implements OnInit {
       .getProcessDefinitions()
       .subscribe(processDefinitions => this.processDefinitions = processDefinitions);
   }
-
 }

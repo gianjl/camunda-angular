@@ -1,9 +1,14 @@
+import { Garanzia } from "./Garanzia";
+
 export class Pacchetto {
+  public garanzie: Garanzia[];
 
     constructor(
-      public id: number,
+      public id: string,
       public nome: string,
-      //public garanzie: Garanzia[]
-    ) {  }
+      public informazioni: string
+    ) { 
+      this.garanzie = [];
+     }
   
   }
