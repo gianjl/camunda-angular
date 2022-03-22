@@ -13,7 +13,7 @@ import { ACCORDI } from '../../../../mocks/MockAccordi';
 })
 export class selezionaAccordoComponent extends CompleteTaskComponent implements OnInit{
   submitted:boolean = false;
-  model: Accordo = new Accordo(null,'');
+  model: Accordo = new Accordo('','');
   accordi:Accordo[];
 
   constructor(route: ActivatedRoute,

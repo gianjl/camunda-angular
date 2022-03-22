@@ -8,7 +8,7 @@
 
 		<h2>Seleziona un Accordo</h2>
 
-		<div id="accordo" *ngFor="let accordo of accordi" (click)="onSelect(accordo)">
+		<div id="accordo" [class.selected]="accordo===model" required *ngFor="let accordo of accordi" (click)="onSelect(accordo)">
 			<span class="id">{{accordo.id}}</span>
 			<span class="nome">{{accordo.nome}}</span>
 		</div>
@@ -19,7 +19,7 @@
 			<div>Nome Accordo: {{model.nome}}</div>
 		</div>
 
-		<button type="submit" class="ui button" [disabled]="!selezionaAccordo.form.valid">Conferma</button>
+		<button type="submit" class="ui button" [disabled]="model.id==''">Conferma</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>
