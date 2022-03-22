@@ -1,11 +1,48 @@
-<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #richiestaCalcoloPremio="ngForm" class="ui form">
+<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #richiestaCalcoloPremio="ngForm"
+	class="ui form">
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li id="breadcrumb-item-active" class="breadcrumb-item active">Richiesta del Calcolo del Premio</li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Riepilogo Dati</li>
 			</ol>
 		</nav>
-		<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid">Conferma Richiesta</button>
+
+			<div class="field" name="codiceCliente">
+				<p>
+					Codice identificativo: {{model.codiceCliente}}
+				</p>
+			</div>
+			<div class="field" name="nomeCliente">
+				<p>
+					Nome: {{model.nomeCliente}}
+				</p>
+			</div>
+			<div class="field" name="cognomeCliente">
+				<p>
+					Cognome: {{model.cognomeCliente}}
+				</p>
+			</div>
+			<div class="field" name="codiceFiscaleCliente">
+				<p>
+					Codice Fiscale: {{model.codiceFiscaleCliente}}
+				</p>
+			</div>
+			<div class="field" name="partitaIvaCliente">
+				<p>
+					Partita IVA: {{model.partitaIvaCliente}}
+				</p>
+			</div>
+			<div class="fields" name="garanzie">
+				<p>Garanzie Scelte:</p>
+				<ol>
+					<li *ngFor="let garanzia of garanzie"></li>
+				</ol>
+			</div>
+			<div class="field" name="metodoPagamento">
+				<p>Metodo di Pagamento Scelto: {{model.metodoPagamentoCliente}}</p>
+			</div>
+		<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid">Conferma
+			Richiesta</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

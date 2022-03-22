@@ -1,10 +1,73 @@
-<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #inserimentoInfoCliente="ngForm" class="ui form">
+<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #inserimentoInfoCliente="ngForm"
+	class="ui form">
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li id="breadcrumb-item-active" class="breadcrumb-item active">Inserimento delle Informazioni del Cliente</li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Inserimento delle Informazioni del
+					Cliente</li>
 			</ol>
 		</nav>
+
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="nomeCliente"> Nome </label>
+				<input type="text" id="nomeCliente" required [(ngModel)]="model.nomeCliente" name="nomeCliente"
+					#name="ngModel">
+			</div>
+			<div class="eight wide field">
+				<label for="cognomeCliente"> Cognome </label>
+				<input type="text" id="cognomeCliente" required [(ngModel)]="model.cognomeCliente"
+					name="cognomeCliente" #name="ngModel">
+			</div>
+		</div>
+		<div class="fields">
+			<div class="eight wide field">
+				<label for="codiceFiscale"> Codice Fiscale </label>
+				<input type="text" id="codFisCli" [(ngModel)]="model.codiceFiscaleCliente"
+					name="codiceFiscaleCliente" #name="ngModel" (change)=disabilita()>
+			</div>
+			<div class="eight wide field">
+				<label for="partitaIvaCliente"> Partita Iva </label>
+				<input type="text" id="parIvaCli" [(ngModel)]="model.partitaIvaCliente"
+					name="partitaIvaCliente" #name="ngModel" (change)=disabilita()>
+			</div>
+		</div>
+		<div class="control">
+			<div class="sixteen wide field">
+				<label for="metodoPagamentoCliente"> Modalità di Pagamento </label>
+				<div>
+					<input type="radio" id="cartaCredito" [(ngModel)]="model.metodoPagamentoCliente"
+						name="metodoPagamentoCliente" #name="ngModel" value="Carta di Credito">
+					<label for="cartaCredito">Carta di Credito</label>
+				</div>
+				<div>
+					<input type="radio" id="cartaPrepagata" [(ngModel)]="model.metodoPagamentoCliente"
+						name="metodoPagamentoCliente" #name="ngModel" value="Carta Prepagata">
+					<label for="cartaPrepagata">Carta Prepagata</label>
+				</div>
+				<div>
+					<input type="radio" id="assegno" [(ngModel)]="model.metodoPagamentoCliente"
+						name="metodoPagamentoCliente" #name="ngModel" value="Assegno">
+					<label for="assegno">Assegno</label>
+				</div>
+				<div>
+					<input type="radio" id="bonifico" [(ngModel)]="model.metodoPagamentoCliente"
+						name="metodoPagamentoCliente" #name="ngModel" value="Bonifico">
+					<label for="bonifico">Bonifico</label>
+				</div>
+				<div>
+					<input type="radio" id="bancomat" [(ngModel)]="model.metodoPagamentoCliente"
+						name="metodoPagamentoCliente" #name="ngModel" value="Bancomat">
+					<label for="bancomat">Bancomat</label>
+				</div>
+				<div>
+					<input type="radio" id="cambiale" [(ngModel)]="model.metodoPagamentoCliente"
+						name="metodoPagamentoCliente" #name="ngModel" value="cambiale">
+					<label for="cambiale">Cambiale</label>
+				</div>
+			</div>
+		</div>
+
 		<button type="submit" class="ui button" [disabled]="!inserimentoInfoCliente.form.valid">Conferma Dati</button>
 	</div>
 	<div [hidden]="!submitted">

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../../../camunda-rest.service';
 import { CompleteTaskComponent } from '../../../general/complete-task.component';
-import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
+import { InfoCliente } from '../../../../schemas/InfoCliente';
 
 @Component({
   selector: 'inserimentoInfoCliente',
@@ -11,7 +11,7 @@ import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
 })
 export class inserimentoInfoClienteComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+  model = new InfoCliente('','','','','','');
 
   constructor(route: ActivatedRoute,
               router: Router,
@@ -23,5 +23,13 @@ export class inserimentoInfoClienteComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
-  
+  /*disabilita():void{
+    if (this.model.partitaIvaCliente){
+      this.model.codFisCli(text).disabled=true;}
+      else{this.model.codFisCli.disabled=false;}
+    if (this.model.partitaIvaCliente){
+      .disabled=true;}
+      else{this.model.parIvaCli.disabled=false;}
+    
+  }*/
 }
