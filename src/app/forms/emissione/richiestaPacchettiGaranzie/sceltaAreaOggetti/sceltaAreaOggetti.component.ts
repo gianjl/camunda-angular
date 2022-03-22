@@ -4,6 +4,8 @@ import { CamundaRestService } from '../../../../camunda-rest.service';
 import { CompleteTaskComponent } from '../../../general/complete-task.component';
 import { AreaBisogno } from '../../../../schemas/AreaBisogno';
 import { Oggetto } from '../../../../schemas/Oggetto';
+import { AREE_BISOGNO } from '../../../../mocks/MockAreeBisogno';
+import * as MockOggettiAssicurabili from '../../../../mocks/MockOggettiAssicurabili';
 
 @Component({
   selector: 'sceltaAreaOggetti',
@@ -35,7 +37,7 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
   }
 
   getAreeBisogno(): void {
-    this.areeBisogno = [new AreaBisogno('famiglia', 'Area Famiglia'),new AreaBisogno('auto', 'Area Auto'),new AreaBisogno('sci', 'Area Sci')];
+    this.areeBisogno = AREE_BISOGNO;
   }
 
   popolaOggettiSelezionabili(): void {
@@ -45,17 +47,13 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
       this.oggettoId = '';
     }
     if(this.areaId == 'famiglia'){
-      this.areaSelezionata.oggetti.push(new Oggetto('vita', 'Assicurazione Vita', 'aaaaaaaaaaaaaa', this.areaId));
-      this.areaSelezionata.oggetti.push(new Oggetto('casa', 'Assicurazione Immobile', 'aaaaaaaaaaaaaa', this.areaId));
+      this.areaSelezionata.oggetti = MockOggettiAssicurabili.OGGETTI_FAM;
     }
     if(this.areaId == 'auto'){
-      this.areaSelezionata.oggetti.push(new Oggetto('rca', 'Assicurazione RCA', 'aaaaaaaaaaaaaa', this.areaId));
-      this.areaSelezionata.oggetti.push(new Oggetto('furtoIncendio', 'Assicurazione Furto-Incendio', 'aaaaaaaaaaaaaa', this.areaId));
-      this.areaSelezionata.oggetti.push(new Oggetto('kasko', 'Assicurazione Kasko', 'aaaaaaaaaaaaaa', this.areaId));
-      this.areaSelezionata.oggetti.push(new Oggetto('ambientali', 'Assicurazione Danni Ambientali', 'aaaaaaaaaaaaaa', this.areaId));
+      this.areaSelezionata.oggetti = MockOggettiAssicurabili.OGGETTI_AUTO;
     }
     if(this.areaId == 'sci'){
-      this.areaSelezionata.oggetti.push(new Oggetto('sci', 'Assicurazione Neve', 'aaaaaaaaaaaaaa', this.areaId));
+      this.areaSelezionata.oggetti = MockOggettiAssicurabili.OGGETTI_SCI;
     }
   }
 
