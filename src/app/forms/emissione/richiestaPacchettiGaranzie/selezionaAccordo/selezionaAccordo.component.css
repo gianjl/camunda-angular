@@ -52,18 +52,31 @@ li {
   
   #accordo{
     background-color: azure;
-    border: 2px #001f5b;
+    border: 2px dotted #001f5b;
     padding: 10px;
     margin-bottom: 5px;
   }
   
   #accordo:hover {
-    background-color: #DDEBEB;
-    border: 2px #001f5b;
+    background-color: #979999;
+    color:white;
+    border: 2px dotted #001f5b;
     padding: 10px;
     margin-bottom: 5px;
   }
-
+  #accordo.selected {
+    background-color: rgb(13, 6, 82);
+    color: white;
+    border: 2px dashed #001f5b;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  #accordo.selected:hover{
+      background-color: #291f52;
+      border: 2px dashed #003a5b;
+      padding: 10px;
+      margin-bottom: 5px;
+  }
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/
