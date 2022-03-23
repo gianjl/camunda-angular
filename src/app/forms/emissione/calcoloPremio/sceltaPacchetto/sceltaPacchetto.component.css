@@ -48,7 +48,7 @@ li {
   
   #choice{
     background-color: azure;
-    border: 2px #001f5b;
+    border: 2px solid #DDEBEB;
     padding: 10px;
     margin-bottom: 5px;
   }
@@ -56,21 +56,28 @@ li {
   #choice:hover {
     cursor: pointer;
     background-color: #DDEBEB;
-    border: 2px #001f5b;
+    border: 2px solid #003a5b;
     padding: 10px;
     margin-bottom: 5px;
   }
 
-  .highlight {
+  #choice.selected {
     background-color: #DDEBEB;
-    border: 2px #001f5b;
+    color: white;
+    border: 1px solid #DDEBEB;
     padding: 10px;
     margin-bottom: 5px;
+  }
+  #choice.selected:hover{
+      background-color: #DDEBEB;
+      border: 2px solid #003a5b;
+      padding: 10px;
+      margin-bottom: 5px;
   }
 
   #area-pacchetto{
-    background-color: #DDEBEB;
-    border: 2px #001f5b;
+    background-color: azure;
+    border: 1px solid #001f5b;
     padding: 10px 10px 40px 10px;
     margin-bottom: 5px;
   }

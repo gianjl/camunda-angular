@@ -2,7 +2,8 @@ export class Accordo {
 
     constructor(
       public id: string,
-      public nome: string
+      public nome: string,
+      public info: string
     ) {  }
   
   }

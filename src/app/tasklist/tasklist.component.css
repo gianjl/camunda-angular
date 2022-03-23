@@ -31,16 +31,29 @@
   
   #task-item{
     background-color: azure;
-    border: 2px #001f5b;
-    padding: 10px 10px 40px 10px;
+    border: 2px solid #DDEBEB;
+    padding: 10px;
     margin-bottom: 5px;
   }
   
   #task-item:hover {
     background-color: #DDEBEB;
-    border: 2px #001f5b;
+    border: 2px solid #003a5b;
   }
 
+  #task-item.selected {
+    background-color: #DDEBEB;
+    color: white;
+    border: 1px solid #DDEBEB;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  #task-item.selected:hover{
+      background-color: #DDEBEB;
+      border: 2px solid #003a5b;
+      padding: 10px;
+      margin-bottom: 5px;
+  }
   
   body {
     font-family: 'Open Sans', sans-serif;

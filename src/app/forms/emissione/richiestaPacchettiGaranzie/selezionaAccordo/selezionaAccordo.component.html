@@ -9,14 +9,11 @@
 		<h2>Seleziona un Accordo</h2>
 
 		<div id="accordo" [class.selected]="accordo===model" required *ngFor="let accordo of accordi" (click)="onSelect(accordo)">
-			<span class="id">{{accordo.id}}</span>
-			<span class="nome">{{accordo.nome}}</span>
-		</div>
-
-		<div *ngIf="model">
-			<h4>Dettagli dell'accordo scelto</h4>
-			<div>ID: {{model.id}}</div>
-			<div>Nome Accordo: {{model.nome}}</div>
+			<h5> {{accordo.nome}} </h5>
+				<div id="area-pacchetto" *ngIf="model.id == accordo.id">
+					<h4> Informazioni garanzia {{accordo.nome}} </h4>
+					<h5> {{accordo.info}} </h5>
+				</div>
 		</div>
 
 		<button type="submit" class="ui button" [disabled]="model.id==''">Conferma</button>

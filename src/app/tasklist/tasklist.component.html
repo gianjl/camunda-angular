@@ -3,9 +3,9 @@
 	<div class="six wide column">
 		<h2>Processi Avviati</h2>
 		<ul class="tasks">
-			<div *ngFor="let task of tasks">
+			<div *ngFor="let task of tasks" (click)="refresh()">
 				<a routerLink="/tasklist/{{task.id}}">
-					<div id="task-item">
+					<div id="task-item" [class.selected]="task.id == taskId">
 						<h4>{{task.name}}</h4>
 						<h5>{{task.id}}</h5>
 					</div>

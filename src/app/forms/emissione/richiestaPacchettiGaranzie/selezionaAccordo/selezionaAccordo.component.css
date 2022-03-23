@@ -9,23 +9,6 @@ li {
     border-radius: 0px 50px 50px 0px;
   }
   
-  li.done {
-    background: #CCFF99;
-  }
-  
-  li.done::before {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 0 0.3em 0.25em 0;
-    height: 1em;
-    top: 1.3em;
-    left: 0.6em;
-    margin-top: -1em;
-    transform: rotate(45deg);
-    width: 0.5em;
-  }
-  
   .breadcrumb {
       
       display: flex;
@@ -52,28 +35,28 @@ li {
   
   #accordo{
     background-color: azure;
-    border: 2px dotted #001f5b;
+    border: 1px solid #DDEBEB;
     padding: 10px;
     margin-bottom: 5px;
   }
   
   #accordo:hover {
-    background-color: #979999;
+    background-color: #DDEBEB;
     color:white;
-    border: 2px dotted #001f5b;
+    border: 2px solid #003a5b;
     padding: 10px;
     margin-bottom: 5px;
   }
   #accordo.selected {
-    background-color: rgb(13, 6, 82);
+    background-color: #DDEBEB;
     color: white;
-    border: 2px dashed #001f5b;
+    border: 1px solid #DDEBEB;
     padding: 10px;
     margin-bottom: 5px;
   }
   #accordo.selected:hover{
-      background-color: #291f52;
-      border: 2px dashed #003a5b;
+      background-color: #DDEBEB;
+      border: 2px solid #003a5b;
       padding: 10px;
       margin-bottom: 5px;
   }

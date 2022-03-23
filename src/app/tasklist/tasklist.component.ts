@@ -12,10 +12,10 @@ import { Task } from '../schemas/Task';
 })
 export class TasklistComponent implements OnInit {
   tasks: Task[] = [];
-  taskId: String;
+  taskId: string;
   formKey: String;
-  processInstances: ProcessInstance [] = [];
- 
+  processInstances: ProcessInstance[] = [];
+
 
   constructor(
     private camundaRestService: CamundaRestService,
@@ -35,7 +35,10 @@ export class TasklistComponent implements OnInit {
         }
       });
     }
-    
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   getFormKey(): void {

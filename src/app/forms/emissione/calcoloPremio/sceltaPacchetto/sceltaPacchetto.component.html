@@ -6,12 +6,12 @@
 			</ol>
 		</nav>
 		<div class="fields">
-			<div class="eight wide field" id="choice" (click) = "setChoice('pacchetto')"
+			<div class="eight wide field" id="choice" [class.selected]="sceltaPacchettoGaranzie == 'pacchetto'"  (click) = "setChoice('pacchetto')"
 			[ngClass]="{'highlight': sceltaPacchettoGaranzie == 'pacchetto'}">
 				<h4> Pacchetto </h4>
 			
 			</div>
-			<div class="eight wide field" id="choice" (click) = "setChoice('garanzie')"
+			<div class="eight wide field" id="choice" [class.selected]="sceltaPacchettoGaranzie == 'garanzie'" (click) = "setChoice('garanzie')"
 			[ngClass]="{'highlight': sceltaPacchettoGaranzie == 'garanzie'}">
 				<h4> Garanzie </h4>
 			</div>
@@ -19,8 +19,7 @@
 		</div>
 		<div *ngIf="sceltaPacchettoGaranzie == 'garanzie'">
 			<h4> Scegli garanzie </h4>
-			<div id="choice" *ngFor="let garanzia of getGaranzie()"  (click)="selectGaranzie(garanzia)"
-			[ngClass]="{'highlight': isGaranziaSelected(garanzia.id)}">
+			<div id="choice" [class.selected]="isGaranziaSelected(garanzia.id)" *ngFor="let garanzia of getGaranzie()"  (click)="selectGaranzie(garanzia)">
 				<h5> {{garanzia.nome}} </h5>
 				<div id="area-pacchetto" *ngIf="isGaranziaSelected(garanzia.id)">
 					<h4> Informazioni garanzia {{garanzia.nome}} </h4>
@@ -31,7 +30,7 @@
 		<!------------------------------------------------------------------->
 		<div *ngIf="sceltaPacchettoGaranzie == 'pacchetto'">
 			<h4> Scegli Pacchetto </h4>
-			<div id="choice" *ngFor="let pacchetto of getPacchetti()" (click)="setPacchettoSelezionato(pacchetto)">
+			<div id="choice" [class.selected]="model.id == pacchetto.id" *ngFor="let pacchetto of getPacchetti()" (click)="setPacchettoSelezionato(pacchetto)">
 				<h5> {{pacchetto.nome}} </h5>
 				<div id="area-pacchetto" *ngIf="model.id == pacchetto.id">
 					<h4> Informazioni pacchetto  {{model.nome}} </h4>

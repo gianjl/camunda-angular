@@ -4,14 +4,14 @@
 
   #process-item{
     background-color: azure;
-    border: 2px #001f5b;
+    border: 2px solid #DDEBEB;
     padding: 10px;
     margin-bottom: 5px;
   }
   
   #process-item:hover {
     background-color: #DDEBEB;
-    border: 2px #001f5b;
+    border: 2px solid #003a5b;
     padding: 10px;
     margin-bottom: 5px;
   }
