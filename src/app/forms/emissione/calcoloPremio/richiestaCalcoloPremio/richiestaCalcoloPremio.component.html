@@ -7,42 +7,78 @@
 			</ol>
 		</nav>
 
-			<div class="field" name="codiceCliente">
-				<p>
-					Codice identificativo: {{model.codiceCliente}}
-				</p>
+		<div class="field" name="codiceCliente">
+			<p>
+				Codice identificativo: {{model.codiceCliente}}
+			</p>
+		</div>
+		<div class="field" name="nomeCliente">
+			<p>
+				Nome: {{model.nomeCliente}}
+			</p>
+		</div>
+		<div class="field" name="cognomeCliente">
+			<p>
+				Cognome/Ragione Sociale: {{model.cognomeCliente}}
+			</p>
+		</div>
+		<div class="field" name="codiceFiscaleCliente">
+			<p>
+				Codice Fiscale: {{model.codiceFiscaleCliente}}
+			</p>
+		</div>
+		<div class="field" name="partitaIvaCliente" [ngClass]="{'codiceFiscaleCliente':disabled}">
+			<p>
+				Partita IVA: {{model.partitaIvaCliente}}
+			</p>
+		</div>
+		<div class="field" name="garanzie">
+			<p>Garanzie Scelte:</p>
+			<p><span style="text-transform:uppercase;">Id:</span>{{model.id}}</p>
+			<p>{{model.nome}}</p>
+			<p>{{model.informazioni}}</p>
+			<!--<ol>
+				<li *ngFor="let pacchetto of pacchetti"></li>
+			</ol>-->
+		</div>
+		<div class="field" name="metodoPagamento">
+			<p>Metodo di Pagamento Scelto: {{model.metodoPagamentoCliente}}</p>
+		</div>
+		<button type="popup" class="ui button" id="popupOpen" (click)="openPopup()">Richiedi il Calcolo</button>
+		<div id="overlay"></div>
+		<div id="popup">
+			<div class="popupcontrols">
+				<span id="popupClose"><strong>X</strong></span>
 			</div>
-			<div class="field" name="nomeCliente">
-				<p>
-					Nome: {{model.nomeCliente}}
-				</p>
+			<div class="popupcontent">
+				<h4>Ne sei sicuro?</h4>
+				<p><span><br>Una volta confermato, i dati potrebbero non essere modificabili per alcuni minuti</span></p>
+				<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid">
+					Conferma Richiesta</button>
+				<button type="submit" class="uibutton" id="popupClose" (click)="closePopup">Annulla</button>
 			</div>
-			<div class="field" name="cognomeCliente">
-				<p>
-					Cognome: {{model.cognomeCliente}}
-				</p>
-			</div>
-			<div class="field" name="codiceFiscaleCliente">
-				<p>
-					Codice Fiscale: {{model.codiceFiscaleCliente}}
-				</p>
-			</div>
-			<div class="field" name="partitaIvaCliente">
-				<p>
-					Partita IVA: {{model.partitaIvaCliente}}
-				</p>
-			</div>
-			<div class="fields" name="garanzie">
-				<p>Garanzie Scelte:</p>
-				<ol>
-					<li *ngFor="let garanzia of garanzie"></li>
-				</ol>
-			</div>
-			<div class="field" name="metodoPagamento">
-				<p>Metodo di Pagamento Scelto: {{model.metodoPagamentoCliente}}</p>
-			</div>
-		<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid">Conferma
-			Richiesta</button>
+		</div>
+		<!--<script type="text/javascript">
+			// Initialize Variables
+			var openPopup = document.getElementById("popupOpen");
+			var closePopup = document.getElementById("popupClose");
+			var overlay = document.getElementById("overlay");
+			var popup = document.getElementById("popup");
+		    // Open Popup Event
+			openPopup.onclick = function(){
+				overlay.style.display = 'block';
+				popup.style.display = 'block';
+			}
+			
+			// Close Popup Event
+			closePopup.onclick = function() {
+				overlay.style.display = 'none';
+				popup.style.display = 'none';
+			}
+		</script>-->
+		
+		<!--<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid" (click)="funPop()">Conferma
+			Richiesta</button>-->
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

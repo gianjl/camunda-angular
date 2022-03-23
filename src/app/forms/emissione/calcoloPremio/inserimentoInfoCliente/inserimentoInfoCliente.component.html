@@ -15,7 +15,7 @@
 					#name="ngModel">
 			</div>
 			<div class="eight wide field">
-				<label for="cognomeCliente"> Cognome </label>
+				<label for="cognomeCliente"> Cognome/Ragione sociale </label>
 				<input type="text" id="cognomeCliente" required [(ngModel)]="model.cognomeCliente"
 					name="cognomeCliente" #name="ngModel">
 			</div>
@@ -23,13 +23,13 @@
 		<div class="fields">
 			<div class="eight wide field">
 				<label for="codiceFiscale"> Codice Fiscale </label>
-				<input type="text" id="codFisCli" [(ngModel)]="model.codiceFiscaleCliente"
-					name="codiceFiscaleCliente" #name="ngModel" (change)=disabilita()>
+				<input type="text" id="codFisCli" [(ngModel)]="model.codiceFiscaleCliente" [disabled]="model.partitaIvaCliente!=''"
+					name="codiceFiscaleCliente" #name="ngModel">
 			</div>
 			<div class="eight wide field">
 				<label for="partitaIvaCliente"> Partita Iva </label>
-				<input type="text" id="parIvaCli" [(ngModel)]="model.partitaIvaCliente"
-					name="partitaIvaCliente" #name="ngModel" (change)=disabilita()>
+				<input type="text" id="parIvaCli" [(ngModel)]="model.partitaIvaCliente" [disabled]="model.codiceFiscaleCliente!=''"
+					name="partitaIvaCliente" #name="ngModel">
 			</div>
 		</div>
 		<div class="control">

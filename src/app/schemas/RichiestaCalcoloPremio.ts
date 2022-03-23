@@ -6,7 +6,10 @@ export class RichiestaCalcoloPremio {
       public cognomeCliente: string,
       public codiceFiscaleCliente: string,
       public partitaIvaCliente: string,
-      public garanzie: string[],
+      //public pacchetto: [string, string, string],
+      public id: string,
+      public nome: string,
+      public informazioni: string,
       public metodoPagamentoCliente: string
     ) {  }
   

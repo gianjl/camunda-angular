@@ -49,8 +49,41 @@ li {
       color: #001f5b;
       background-color: #6cbad4;
   }
-  
-  
+
+  #overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #999;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 100;
+}
+
+#popup {
+    display: none;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    width: 600px;
+    height: 400px;
+    border: limegreen, double, 5px;
+    margin-left: -250px; /*Half the value of width to center div*/
+    margin-top: -250px; /*Half the value of height to center div*/
+    z-index: 200;
+}
+#popupClose {
+  float: right;
+  background-color: crimson;
+  padding: 10px;
+  cursor: pointer;
+}
+#popupOpen {
+  cursor: pointer;
+}
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/
