@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class CamundaRestService {
-  private engineRestUrl = '/engine-rest/'
+  private engineRestUrl = '/engine-rest/';
 
   constructor(private http: HttpClient) {
 
@@ -92,6 +92,14 @@ export class CamundaRestService {
     );
   }
 
+  deleteProcessInstance(instructions): Observable<any> {
+    const endpoint = `${this.engineRestUrl}process-instance/delete`;
+    return this.http.post(endpoint, instructions, httpOptions).pipe(
+      tap(pIItem => this.log(`process instance deleted`)),
+      catchError(this.handleError('deleteProcessInstance', []))
+    );
+  }
+
   getProcessInstances(): Observable<ProcessInstance[]> {
     return this.http.get<ProcessInstance[]>(this.engineRestUrl + 'process-instance').pipe(
       tap(processInstances => this.log(`fetched processInstances`)),
@@ -115,7 +123,6 @@ export class CamundaRestService {
 
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

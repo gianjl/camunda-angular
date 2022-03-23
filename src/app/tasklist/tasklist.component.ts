@@ -12,9 +12,13 @@ import { Task } from '../schemas/Task';
 })
 export class TasklistComponent implements OnInit {
   tasks: Task[] = [];
+  trashbin: string = '../../assets/resources/recycle-bin.png'
   taskId: string;
+  processInstanceId: string;
   formKey: String;
   processInstances: ProcessInstance[] = [];
+  deletePopUp: boolean;
+  
 
 
   constructor(
@@ -51,6 +55,30 @@ export class TasklistComponent implements OnInit {
     this.camundaRestService
       .getTasks()
       .subscribe(tasks => this.tasks = tasks);
+  }
+
+  deleteProcessInstance(pIId: string): void{
+    const instructions = this.generateDeleteInstructions(pIId);
+    this.camundaRestService
+      .deleteProcessInstance(instructions)
+      .subscribe();
+    this.refresh();
+  }
+
+  generateDeleteInstructions(pIId: string) {
+    const instructions = {
+      "deleteReason" : "",
+      "processInstanceIds": [pIId],
+      "skipCustomListeners" : true,
+      "skipSubprocesses" : true
+      };
+    return instructions;
+  }
+
+  setProcessInstanceToDelete(pIId: string): void{
+    this.taskId = '';
+    this.deletePopUp = true;
+    this.processInstanceId = pIId;
   }
 
 }

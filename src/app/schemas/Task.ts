@@ -2,7 +2,8 @@ export class Task {
   constructor(
     public id: string,
     public name: string,
-    public key: string
+    public key: string,
+    public processInstanceId: string
   ) { 
     
   }

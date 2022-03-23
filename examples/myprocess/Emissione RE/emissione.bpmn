@@ -32,11 +32,11 @@
       <bpmn:startEvent id="Event_1o3k1ol" name="Ente esterno vuole pacchetti / garanzie">
         <bpmn:outgoing>Flow_18n7rrz</bpmn:outgoing>
       </bpmn:startEvent>
-      <bpmn:userTask id="Activity_1a2dzi2" name="Seleziona Accordo Commerciale" camunda:formKey="selezionaAccordo">
+      <bpmn:userTask id="Activity_1a2dzi2" name="Seleziona Accordo Commerciale" camunda:formKey="selezionaAccordo" camunda:assignee="demo">
         <bpmn:incoming>Flow_18n7rrz</bpmn:incoming>
         <bpmn:outgoing>Flow_1wu6w8x</bpmn:outgoing>
       </bpmn:userTask>
-      <bpmn:userTask id="Activity_0eynin0" name="Scelta Area Bisogno e Oggetti Assicurabili" camunda:formKey="sceltaAreaOggetti">
+      <bpmn:userTask id="Activity_0eynin0" name="Scelta Area Bisogno e Oggetti Assicurabili" camunda:formKey="sceltaAreaOggetti" camunda:assignee="demo">
         <bpmn:incoming>Flow_0bghmjs</bpmn:incoming>
         <bpmn:outgoing>Flow_0q92uxb</bpmn:outgoing>
       </bpmn:userTask>
@@ -64,23 +64,23 @@
       <bpmn:startEvent id="Event_1ywjsi2" name="Ente esterno vuole calcolo Premio">
         <bpmn:outgoing>Flow_0vljk09</bpmn:outgoing>
       </bpmn:startEvent>
-      <bpmn:userTask id="Activity_1hzssnk" name="Scelta Pacchetto/Garanzie" camunda:formKey="sceltaPacchetto">
+      <bpmn:userTask id="Activity_1hzssnk" name="Scelta Pacchetto/Garanzie" camunda:formKey="sceltaPacchetto" camunda:assignee="demo">
         <bpmn:incoming>Flow_0vljk09</bpmn:incoming>
         <bpmn:incoming>Flow_1e3m3sg</bpmn:incoming>
         <bpmn:outgoing>Flow_0xgp29c</bpmn:outgoing>
       </bpmn:userTask>
-      <bpmn:userTask id="Activity_0axhfe6" name="(Conferma Informazioni e) Richiesta Calcolo Premio" camunda:formKey="richiestaCalcoloPremio">
+      <bpmn:userTask id="Activity_0axhfe6" name="(Conferma Informazioni e) Richiesta Calcolo Premio" camunda:formKey="richiestaCalcoloPremio" camunda:assignee="demo">
         <bpmn:incoming>Flow_0ds9lj6</bpmn:incoming>
         <bpmn:outgoing>Flow_09o83ly</bpmn:outgoing>
       </bpmn:userTask>
       <bpmn:endEvent id="Event_1m83ucp" name="Salvataggio Polizza">
         <bpmn:incoming>Flow_1fe6a3h</bpmn:incoming>
       </bpmn:endEvent>
-      <bpmn:userTask id="Activity_0ikv0ww" name="Inserimento Informazioni Cliente, Modalità Pagamento" camunda:formKey="inserimentoInfoCliente">
+      <bpmn:userTask id="Activity_0ikv0ww" name="Inserimento Informazioni Cliente, Modalità Pagamento" camunda:formKey="inserimentoInfoCliente" camunda:assignee="demo">
         <bpmn:incoming>Flow_0xgp29c</bpmn:incoming>
         <bpmn:outgoing>Flow_0ds9lj6</bpmn:outgoing>
       </bpmn:userTask>
-      <bpmn:userTask id="Activity_0ep42mw" name="Visualizzazione Premio" camunda:formKey="visualizzaPremio">
+      <bpmn:userTask id="Activity_0ep42mw" name="Visualizzazione Premio" camunda:formKey="visualizzaPremio" camunda:assignee="demo">
         <bpmn:incoming>Flow_0vzgyis</bpmn:incoming>
         <bpmn:outgoing>Flow_1fe6a3h</bpmn:outgoing>
       </bpmn:userTask>
@@ -106,11 +106,11 @@
       <bpmn:startEvent id="Event_1gyu8ii" name="Ente esterno vuole salvare l&#39;emissione">
         <bpmn:outgoing>Flow_0sovetq</bpmn:outgoing>
       </bpmn:startEvent>
-      <bpmn:userTask id="Activity_02b8p6n" name="Richiesta Salvataggio" camunda:formKey="richiestaSalvataggio">
+      <bpmn:userTask id="Activity_02b8p6n" name="Richiesta Salvataggio" camunda:formKey="richiestaSalvataggio" camunda:assignee="demo">
         <bpmn:incoming>Flow_0sovetq</bpmn:incoming>
         <bpmn:outgoing>Flow_0oqs2oy</bpmn:outgoing>
       </bpmn:userTask>
-      <bpmn:userTask id="Activity_19e9c1w" name="Notifica Avvenuto Salvataggio di Polizza N" camunda:formKey="notificaSalvataggio">
+      <bpmn:userTask id="Activity_19e9c1w" name="Notifica Avvenuto Salvataggio di Polizza N" camunda:formKey="notificaSalvataggio" camunda:assignee="demo">
         <bpmn:incoming>Flow_1d8vfdb</bpmn:incoming>
         <bpmn:outgoing>Flow_0dra202</bpmn:outgoing>
       </bpmn:userTask>
