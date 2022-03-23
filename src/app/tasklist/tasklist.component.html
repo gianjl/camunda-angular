@@ -1,49 +1,50 @@
 <div class="ui grid" id="content">
-	
+
+	<div class="six wide column">
+		<h2>Processi Avviati</h2>
 		
-		<div class="six wide column">
-			<h2>Processi Avviati</h2>
-			<div class="overlay" *ngIf="deletePopUp">
-				<div class="popup">
-					<h2>Elimina processo</h2>
-					<a class="close" (click)="deletePopUp = false">&times;</a>
-					<div class="content">
-						Sei sicuro di voler eliminare questo processo?
-					</div>
+		<div class="overlay" *ngIf="deletePopUp">
+			<div class="popup">
+				<h2>Elimina processo</h2>
+				<a class="close" (click)="deletePopUp = false">&times;</a>
+				<div class="content">
+					Sei sicuro di voler eliminare questo processo?
+				</div>
+				<div align="right">
 					<button type="submit" class="ui button" (click)="deletePopUp = false">Annulla</button>
 					<button type="submit" class="ui button" id="destructive"
 						(click)="deleteProcessInstance(processInstanceId)">Elimina</button>
 				</div>
 			</div>
-			<ul class="tasks">
-				<div *ngFor="let task of tasks">
-					<div id="task-item" [class.selected]="task.id == taskId">
-						<div (click)="refresh()">
-							<a routerLink="/tasklist/{{task.id}}">
-								<h4>{{task.name}}</h4>
-								<h5>Process Instance Id:</h5>
-								<h5>{{task.processInstanceId}}</h5>
-							</a>
-						</div>
-						<div align="right">
-							<img src="../../assets/resources/recycle-bin.png" id="trashbin" alt=""
-								(click)="setProcessInstanceToDelete(task.processInstanceId)">
-						</div>
+		</div>
+		<ul class="tasks">
+			<div *ngFor="let task of tasks">
+				<div id="task-item" [class.selected]="task.id == taskId">
+					<div (click)="refresh()">
+						<a routerLink="/tasklist/{{task.id}}">
+							<h4>{{task.name}}</h4>
+							<h5>Process Instance Id:</h5>
+							<h5>{{task.processInstanceId}}</h5>
+						</a>
+					</div>
+					<div align="right">
+						<img src="../../assets/resources/recycle-bin.png" id="trashbin" alt=""
+							(click)="setProcessInstanceToDelete(task.processInstanceId)">
 					</div>
 				</div>
-				<div class=" one wide field" *ngIf="tasks.length===0">
-					<h4>Non ci sono processi avviati.</h4>
-				</div>
-			</ul>
+			</div>
+			<div class=" one wide field" *ngIf="tasks.length===0">
+				<h4>Non ci sono processi avviati.</h4>
+			</div>
+		</ul>
 
+	</div>
+	<div class="ten wide column">
+		<div *ngIf="!taskId">
+			<p>Selezionare un task</p>
 		</div>
-		<div class="ten wide column">
-			
-			<div *ngIf="taskId">
-				<generic-form [taskId]="taskId" [formKey]="formKey"></generic-form>
-			</div>
-			<div *ngIf="!taskId">
-				<p>Selezionare un task</p>
-			</div>
+		<div *ngIf="taskId">
+			<generic-form [taskId]="taskId" [formKey]="formKey"></generic-form>
 		</div>
+	</div>
 </div>

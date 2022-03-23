@@ -14,15 +14,14 @@ import { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacche
 import { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
 import { sceltaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/sceltaAreaOggetti/sceltaAreaOggetti.component';
 import { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordo/selezionaAccordo.component';
-import { notificaSalvataggioComponent } from './emissione/salvataggioEmissione/notificaSalvataggio/notificaSalvataggio.component';
-import { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/richiestaSalvataggio/richiestaSalvataggio.component';
+import { notificaSalvataggioComponent } from './emissione/calcoloPremio/notificaSalvataggio/notificaSalvataggio.component';
 
 
 @NgModule({
-  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
-  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent],
+  entryComponents: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent],
+  declarations: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent],
   imports: [FormsModule, CommonModule],
-  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent,richiestaSalvataggioComponent]
+  exports: [startNewProcessComponent,anagraficaPersonaFisicaComponent,codiceClienteComponent,consensiComponent,indirizzoComponent,responseComponent, contattiComponent,inserimentoInfoClienteComponent,richiestaCalcoloPremioComponent,sceltaPacchettoComponent,visualizzaPremioComponent,sceltaAreaOggettiComponent,selezionaAccordoComponent,notificaSalvataggioComponent]
 })
 export class MyAddonModule {}
 
@@ -39,5 +38,4 @@ export { sceltaPacchettoComponent } from './emissione/calcoloPremio/sceltaPacche
 export { visualizzaPremioComponent } from './emissione/calcoloPremio/visualizzaPremio/visualizzaPremio.component';
 export { sceltaAreaOggettiComponent } from './emissione/richiestaPacchettiGaranzie/sceltaAreaOggetti/sceltaAreaOggetti.component';
 export { selezionaAccordoComponent } from './emissione/richiestaPacchettiGaranzie/selezionaAccordo/selezionaAccordo.component';
-export { notificaSalvataggioComponent } from './emissione/salvataggioEmissione/notificaSalvataggio/notificaSalvataggio.component';
-export { richiestaSalvataggioComponent } from './emissione/salvataggioEmissione/richiestaSalvataggio/richiestaSalvataggio.component';
+export { notificaSalvataggioComponent } from './emissione/calcoloPremio/notificaSalvataggio/notificaSalvataggio.component';
