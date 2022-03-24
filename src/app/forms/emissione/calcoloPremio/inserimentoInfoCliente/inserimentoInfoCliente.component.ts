@@ -11,7 +11,7 @@ import { InfoCliente } from '../../../../schemas/InfoCliente';
 })
 export class inserimentoInfoClienteComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new InfoCliente('','','','','','','','','',[],null,null);
+  model = new InfoCliente('','','','','','','','','',[],null);
 
   constructor(route: ActivatedRoute,
               router: Router,

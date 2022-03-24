@@ -13,8 +13,7 @@ export class InfoCliente {
       public nomePacchetto: string,
       public infoPacchetto: string,
       public garanzie: Garanzia[],
-      public premio: number,
-      public accettazione: boolean
+      public premio: number
     ) {  }
   
   }

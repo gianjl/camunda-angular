@@ -28,17 +28,17 @@
 			
 		</div>
 		<button type="button" class="ui button" (click)="openPopup()">Richiedi il Calcolo</button>
-		<!------------------POP UP----------------->
+		<!------------------POP UP------------------>
 		<div class="overlay" *ngIf="comfirmPopUp">
 			<div class="popup">
-				<h2>Elimina processo</h2>
+				<h2>Conferma Emissione</h2>
 				<a class="close" (click)="comfirmPopUp = false">&times;</a>
 				<div class="content">
-					Sei sicuro di voler eliminare questo processo?
+					Vuoi confermare questa emissione?
 				</div>
 				<div align="right">
-					<button type="submit" class="ui button" (click)="comfirmPopUp = false">Annulla</button>
-					<button type="submit" class="ui button" id="confirm">Accetta</button>
+					<button class="ui button" (click)="comfirmPopUp = false">Annulla</button>
+					<button type="submit" class="ui button" id="confirm">Conferma</button>
 				</div>
 			</div>
 		</div>

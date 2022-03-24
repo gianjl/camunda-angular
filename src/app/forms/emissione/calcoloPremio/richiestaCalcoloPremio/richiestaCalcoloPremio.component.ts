@@ -12,7 +12,7 @@ import { InfoCliente } from '../../../../schemas/InfoCliente';
 export class richiestaCalcoloPremioComponent extends CompleteTaskComponent {
   submitted:boolean = false;
   comfirmPopUp:boolean = false;
-  model = new InfoCliente('','','','','','','','','',[],null,null);
+  model = new InfoCliente('','','','','','','','','',[],null);
 
   constructor(route: ActivatedRoute,
               router: Router,
