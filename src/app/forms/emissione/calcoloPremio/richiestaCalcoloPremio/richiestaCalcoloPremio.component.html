@@ -6,79 +6,42 @@
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Riepilogo Dati</li>
 			</ol>
 		</nav>
-
-		<div class="field" name="codiceCliente">
-			<p>
-				Codice identificativo: {{model.codiceCliente}}
-			</p>
-		</div>
-		<div class="field" name="nomeCliente">
-			<p>
-				Nome: {{model.nomeCliente}}
-			</p>
-		</div>
-		<div class="field" name="cognomeCliente">
-			<p>
-				Cognome/Ragione Sociale: {{model.cognomeCliente}}
-			</p>
-		</div>
-		<div class="field" name="codiceFiscaleCliente">
-			<p>
-				Codice Fiscale: {{model.codiceFiscaleCliente}}
-			</p>
-		</div>
-		<div class="field" name="partitaIvaCliente" [ngClass]="{'codiceFiscaleCliente':disabled}">
-			<p>
-				Partita IVA: {{model.partitaIvaCliente}}
-			</p>
-		</div>
-		<div class="field" name="garanzie">
-			<p>Garanzie Scelte:</p>
-			<p><span style="text-transform:uppercase;">Id:</span>{{model.id}}</p>
-			<p>{{model.nome}}</p>
-			<p>{{model.informazioni}}</p>
-			<!--<ol>
-				<li *ngFor="let pacchetto of pacchetti"></li>
-			</ol>-->
-		</div>
-		<div class="field" name="metodoPagamento">
+		<div class="field" name="infoCliente" id="area-info">
+			<p>Codice identificativo: {{model.codiceCliente}}</p>		
+			<p>Nome: {{model.nomeCliente}}</p>
+			<p>Cognome/Ragione Sociale: {{model.cognomeCliente}}</p>
+			<p>Codice Fiscale: {{model.codiceFiscaleCliente}}</p>
+			<p>Partita IVA: {{model.partitaIvaCliente}}</p>
 			<p>Metodo di Pagamento Scelto: {{model.metodoPagamentoCliente}}</p>
 		</div>
-		<button type="popup" class="ui button" id="popupOpen" (click)="openPopup()">Richiedi il Calcolo</button>
-		<div id="overlay"></div>
-		<div id="popup">
-			<div class="popupcontrols">
-				<span id="popupClose"><strong>X</strong></span>
+		<div *ngIf="model.nomePacchetto != ''" class="field" name="pacchetto" id="area-info">
+			<h4>Pacchetto</h4>
+			<h5>{{model.nomePacchetto}}</h5>
+			<p id="area-info">{{model.infoPacchetto}}</p>
+		</div>
+		<div class="field" name="garanzie" id="area-info">
+			<h4>Garanzie</h4>
+			<div *ngFor=" let gar of model.garanzie">
+				<h5 >{{gar.nomeGaranzia}}</h5>
+				<p id="area-info">{{gar.infoGaranzia}}</p>
 			</div>
-			<div class="popupcontent">
-				<h4>Ne sei sicuro?</h4>
-				<p><span><br>Una volta confermato, i dati potrebbero non essere modificabili per alcuni minuti</span></p>
-				<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid">
-					Conferma Richiesta</button>
-				<button type="submit" class="uibutton" id="popupClose" (click)="closePopup">Annulla</button>
+			
+		</div>
+		<button type="button" class="ui button" (click)="openPopup()">Richiedi il Calcolo</button>
+		<!------------------POP UP----------------->
+		<div class="overlay" *ngIf="comfirmPopUp">
+			<div class="popup">
+				<h2>Elimina processo</h2>
+				<a class="close" (click)="comfirmPopUp = false">&times;</a>
+				<div class="content">
+					Sei sicuro di voler eliminare questo processo?
+				</div>
+				<div align="right">
+					<button type="submit" class="ui button" (click)="comfirmPopUp = false">Annulla</button>
+					<button type="submit" class="ui button" id="confirm">Accetta</button>
+				</div>
 			</div>
 		</div>
-		<!--<script type="text/javascript">
-			// Initialize Variables
-			var openPopup = document.getElementById("popupOpen");
-			var closePopup = document.getElementById("popupClose");
-			var overlay = document.getElementById("overlay");
-			var popup = document.getElementById("popup");
-		    // Open Popup Event
-			openPopup.onclick = function(){
-				overlay.style.display = 'block';
-				popup.style.display = 'block';
-			}
-			
-			// Close Popup Event
-			closePopup.onclick = function() {
-				overlay.style.display = 'none';
-				popup.style.display = 'none';
-			}
-		</script>-->
-		
-		<!--<button type="submit" class="ui button" [disabled]="!richiestaCalcoloPremio.form.valid" (click)="funPop()">Conferma
-			Richiesta</button>-->
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

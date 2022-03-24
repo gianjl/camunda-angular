@@ -19,28 +19,28 @@
 		</div>
 		<div *ngIf="sceltaPacchettoGaranzie == 'garanzie'">
 			<h4> Scegli garanzie </h4>
-			<div id="choice" [class.selected]="isGaranziaSelected(garanzia.id)" *ngFor="let garanzia of getGaranzie()"  (click)="selectGaranzie(garanzia)">
-				<h5> {{garanzia.nome}} </h5>
-				<div id="area-pacchetto" *ngIf="isGaranziaSelected(garanzia.id)">
+			<div id="choice" [class.selected]="isGaranziaSelected(garanzia.idGaranzia)" *ngFor="let garanzia of getGaranzie()"  (click)="selectGaranzie(garanzia)">
+				<h5> {{garanzia.nomeGaranzia}} </h5>
+				<div id="area-pacchetto" *ngIf="isGaranziaSelected(garanzia.idGaranzia)">
 					<h4> Informazioni garanzia {{garanzia.nome}} </h4>
-					<h5> {{garanzia.informazioni}} </h5>
+					<h5> {{garanzia.infoGaranzia}} </h5>
 				</div>
 			</div>
 		</div> 
 		<!------------------------------------------------------------------->
 		<div *ngIf="sceltaPacchettoGaranzie == 'pacchetto'">
 			<h4> Scegli Pacchetto </h4>
-			<div id="choice" [class.selected]="model.id == pacchetto.id" *ngFor="let pacchetto of getPacchetti()" (click)="setPacchettoSelezionato(pacchetto)">
-				<h5> {{pacchetto.nome}} </h5>
-				<div id="area-pacchetto" *ngIf="model.id == pacchetto.id">
-					<h4> Informazioni pacchetto  {{model.nome}} </h4>
-					<h5> {{model.informazioni}} </h5>
+			<div id="choice" [class.selected]="model.idPacchetto == pacchetto.idPacchetto" *ngFor="let pacchetto of getPacchetti()" (click)="setPacchettoSelezionato(pacchetto)">
+				<h5> {{pacchetto.nomePacchetto}} </h5>
+				<div id="area-pacchetto" *ngIf="model.idPacchetto == pacchetto.idPacchetto">
+					<h4> Informazioni pacchetto  {{model.nomePacchetto}} </h4>
+					<h5> {{model.infoPacchetto}} </h5>
 				</div>
 			</div>
 			
 		</div>
 		
-		<button type="submit" class="ui button" [disabled]="model.id == ''">Conferma Scelta</button>
+		<button type="submit" class="ui button" [disabled]="model.idPacchetto == ''">Conferma Scelta</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

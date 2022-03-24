@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../../../camunda-rest.service';
 import { CompleteTaskComponent } from '../../../general/complete-task.component';
-import { RichiestaCalcoloPremio } from '../../../../schemas/RichiestaCalcoloPremio';
-import { Pacchetto } from '../../../../schemas/Pacchetto';
+import { InfoCliente } from '../../../../schemas/InfoCliente';
 
 @Component({
   selector: 'richiestaCalcoloPremio',
@@ -12,8 +11,8 @@ import { Pacchetto } from '../../../../schemas/Pacchetto';
 })
 export class richiestaCalcoloPremioComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  //model = new RichiestaCalcoloPremio('','','','','','','','','');
-  model = new RichiestaCalcoloPremio('','','','','','','','','');
+  comfirmPopUp:boolean = false;
+  model = new InfoCliente('','','','','','','','','',[],null,null);
 
   constructor(route: ActivatedRoute,
               router: Router,
@@ -25,11 +24,8 @@ export class richiestaCalcoloPremioComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
-  /*open(): void{
-    this.model.overlay.style.display = 'block';
-    popup.style.display = 'block';
-  }
-  funPop():void{
 
-  }*/
+  openPopup(): void{
+    this.comfirmPopUp = true;
+  }
 }

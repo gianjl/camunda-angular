@@ -1,14 +1,5 @@
 
-li {
-    list-style-type: none;
-    position: relative;
-    margin: 2px;
-    padding: 0.5em 0.5em 0.5em 2em;
-    background: lightgrey;
-    font-family: sans-serif;
-    border-radius: 0px 50px 50px 0px;
-  }
-  
+ 
   .breadcrumb {
       
       display: flex;
@@ -18,19 +9,30 @@ li {
       margin-bottom: 1rem;
       list-style: none;
       background-color: #e9ecef;
-      border-radius: 0.25rem;
-      
+      border-radius: 0px 50px 50px 0px;
   }
   
   #breadcrumb-item{
-      
-      background-color: #e9ecef;
+    cursor: pointer;
+    list-style-type: none;
+    position: relative;
+    margin: 2px;
+    padding: 0.5em 0.5em 0.5em 2em;
+    background: lightgrey;
+    font-family: sans-serif;
+    border-radius: 0px 50px 50px 0px;
   }
   
   
   #breadcrumb-item-active{
+    list-style-type: none;
+    position: relative;
+    margin: 2px;
+    padding: 0.5em 0.5em 0.5em 2em;
       color: #001f5b;
       background-color: #6cbad4;
+      font-family: sans-serif;
+      border-radius: 0px 50px 50px 0px;
   }
   
   #accordo{

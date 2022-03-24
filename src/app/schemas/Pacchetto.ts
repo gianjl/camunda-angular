@@ -4,9 +4,9 @@ export class Pacchetto {
   public garanzie: Garanzia[];
 
     constructor(
-      public id: string,
-      public nome: string,
-      public informazioni: string
+      public idPacchetto: string,
+      public nomePacchetto: string,
+      public infoPacchetto: string
     ) { 
       this.garanzie = [];
      }

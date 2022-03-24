@@ -1,9 +1,9 @@
 export class Oggetto {
 
     constructor(
-      public id: string,
-      public nome: string,
-      public descrizione: string,
+      public idOggetto: string,
+      public nomeOggetto: string,
+      public descrizioneOggetto: string,
       public areaBisogno: string
     ) {  }
   

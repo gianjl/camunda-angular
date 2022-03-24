@@ -1,9 +1,9 @@
 export class Accordo {
 
     constructor(
-      public id: string,
-      public nome: string,
-      public info: string
+      public idAccordo: string,
+      public nomeAccordo: string,
+      public infoAccordo: string
     ) {  }
   
   }

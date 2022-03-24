@@ -6,17 +6,17 @@
 			</ol>
 		</nav>
 
-		<h2>Seleziona un Accordo</h2>
+		<h3>Seleziona un Accordo</h3>
 
 		<div id="accordo" [class.selected]="accordo===model" required *ngFor="let accordo of accordi" (click)="onSelect(accordo)">
-			<h5> {{accordo.nome}} </h5>
-				<div id="area-pacchetto" *ngIf="model.id == accordo.id">
-					<h4> Informazioni garanzia {{accordo.nome}} </h4>
-					<h5> {{accordo.info}} </h5>
+			<h5> {{accordo.nomeAccordo}} </h5>
+				<div id="area-pacchetto" *ngIf="model.idAccordo == accordo.idAccordo">
+					<h4> Informazioni garanzia {{accordo.nomeAccordo}} </h4>
+					<h5> {{accordo.infoAccordo}} </h5>
 				</div>
 		</div>
 
-		<button type="submit" class="ui button" [disabled]="model.id==''">Conferma</button>
+		<button type="submit" class="ui button" [disabled]="model.idAccordo==''">Conferma</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

@@ -50,40 +50,63 @@ li {
       background-color: #6cbad4;
   }
 
-  #overlay {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background: #999;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-    z-index: 100;
+/*-------------PopUp-----------------*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
 }
 
-#popup {
-    display: none;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    background: #fff;
-    width: 600px;
-    height: 400px;
-    border: limegreen, double, 5px;
-    margin-left: -250px; /*Half the value of width to center div*/
-    margin-top: -250px; /*Half the value of height to center div*/
-    z-index: 200;
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
 }
-#popupClose {
-  float: right;
-  background-color: crimson;
-  padding: 10px;
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family:  'Open Sans', sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #0074b8;
   cursor: pointer;
 }
-#popupOpen {
-  cursor: pointer;
+.popup .content {
+  font-family: 'Open Sans', sans-serif;
+  max-height: 30%;
+  overflow: auto;
+  padding-bottom: 10px;
 }
+
+@media screen and (max-width: 700px){
+
+  .popup{
+    width: 70%;
+  }
+}
+
+/*-------------End PopUp-----------------*/
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/
@@ -104,6 +127,18 @@ li {
       background-color: #6cbad4;
   }
   
+  #destructive {
+    font-size: 1rem;
+    color: white;
+	  background-color: red;
+  }
+
+  #confirm {
+    font-size: 1rem;
+    color: white;
+	  background-color: rgb(74, 255, 98);
+  }
+
   #success {
     text-align: center;
     color: #fff;
@@ -127,6 +162,15 @@ li {
   #breadcrumb {
       background-color: #6cbad4;
       border-radius: 0px 50px 50px 0px;
+  }
+
+  #area-info{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #7dcae4;
+    border: 1px solid #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
   }
   
   body {

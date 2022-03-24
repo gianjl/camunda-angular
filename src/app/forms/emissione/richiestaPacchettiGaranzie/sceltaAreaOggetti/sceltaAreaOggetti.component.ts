@@ -18,7 +18,9 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
   areaSelezionata: AreaBisogno;
   areaId: string = '';
   oggettoId: string = '';
-  private areeBisogno;
+  areeBisogno;
+  goBack: boolean = false;
+  task: string;
 
   constructor(route: ActivatedRoute,
               router: Router,
@@ -26,7 +28,7 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
     super(route, router, camundaRestService);
     this.route.params.subscribe(params => {
       const taskId = params['id'];
-      const variableNames = Object.keys(this.model).join(',');
+      const variableNames = Object.keys(this.model).join(',').concat(',goBack,task');
       this.loadExistingVariables(taskId, variableNames);
     });
   }
@@ -34,6 +36,7 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
   ngOnInit(): void {    
     this.getAreeBisogno();
     this.areaSelezionata = new AreaBisogno(this.areaId, '');
+    this.goBack = false;
   }
 
   getAreeBisogno(): void {
@@ -59,6 +62,11 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
 
   selezionaOggetto(): void {
     this.model = this.areaSelezionata.getOggettoById(this.oggettoId);
+  }
+
+  goTo(taskId: string): void{
+    this.task = taskId;
+    this.goBack = true;
   }
 
 }

@@ -2,31 +2,33 @@
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
+				<li id="breadcrumb-item" class="breadcrumb-item " >Seleziona accordo</li>
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Scelta Area Oggetti</li>
 			</ol>
+		</nav>
 			<div class="fields">
 				<div class="eight wide field">
 					<label for="areaBisogno"> Area di Bisogno </label>
 					<select id="areaBisogno" class="form-control" [(ngModel)]="areaId" name="areaBisogno"
 						#name="ngModel" (change)="popolaOggettiSelezionabili()" required>
 						<option></option>
-						<option *ngFor="let area of areeBisogno" value="{{area.id}}">{{area.nome}}</option>
+						<option *ngFor="let area of areeBisogno" value="{{area.idArea}}">{{area.nomeArea}}</option>
 					</select>
 				</div>
 				<div class="eight wide field">
 					<label for="oggetto"> Oggetto </label>
 					<select id="oggetto" class="form-control" [(ngModel)]="oggettoId" name="oggetto" #name="ngModel"
 						[disabled]="areaId == ''" (change)="selezionaOggetto()">
-						<option *ngFor="let oggetto of areaSelezionata.oggetti" value="{{oggetto.id}}">{{oggetto.nome}}
+						<option *ngFor="let oggetto of areaSelezionata.oggetti" value="{{oggetto.idOggetto}}">{{oggetto.nomeOggetto}}
 						</option>
 					</select>
 				</div>
 			</div>
 			<div *ngIf="oggettoId != ''" class="sixteen wide field" id="area-oggetto">
-				<h4>Informazioni oggetto {{model.nome}}</h4>
-				<p>{{model.descrizione}}</p>
+				<h4>Informazioni oggetto {{model.nomeOggetto}}</h4>
+				<p>{{model.descrizioneOggetto}}</p>
 			</div>
-		</nav>
+		
 		<button type="submit" class="ui button" [disabled]="!areaOggetti.form.valid">Conferma</button>
 	</div>
 	<div [hidden]="!submitted">

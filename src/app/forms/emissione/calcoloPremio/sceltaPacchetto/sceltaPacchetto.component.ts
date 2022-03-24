@@ -40,10 +40,10 @@ export class sceltaPacchettoComponent extends CompleteTaskComponent implements O
     if (this.model.garanzie.length == 0) {
       this.model.garanzie.push(garanziaSel);
     } else {
-      if (this.model.garanzie.filter(garanzia => garanzia.id == garanziaSel.id).length == 0) {
+      if (this.model.garanzie.filter(garanzia => garanzia.idGaranzia == garanziaSel.idGaranzia).length == 0) {
         this.model.garanzie.push(garanziaSel);
       } else {
-        if (this.model.garanzie.filter(garanzia => garanzia.id == garanziaSel.id).length > 0) {
+        if (this.model.garanzie.filter(garanzia => garanzia.idGaranzia == garanziaSel.idGaranzia).length > 0) {
 
           const index = this.model.garanzie.indexOf(garanziaSel, 0);
           if (index > -1) {
@@ -53,15 +53,15 @@ export class sceltaPacchettoComponent extends CompleteTaskComponent implements O
       }
     }
     if (this.model.garanzie.length > 0) {
-      this.model.id = 'custom';
+      this.model.idPacchetto = 'custom';
     } else {
-      this.model.id = '';
+      this.model.idPacchetto = '';
     }
   }
 
   public isGaranziaSelected(idGaranzia: string): boolean {
     if (this.model.garanzie.length > 0) {
-      if (this.model.garanzie.filter(garanzia => garanzia.id == idGaranzia).length > 0) {
+      if (this.model.garanzie.filter(garanzia => garanzia.idGaranzia == idGaranzia).length > 0) {
         return true;
       } else {
         return false;
