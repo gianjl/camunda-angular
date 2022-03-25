@@ -50,6 +50,10 @@ li {
       background-color: #6cbad4;
   }
   
+  .ui.button.rifiutaButton{
+    color: red;
+  }
+
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/
@@ -68,6 +72,10 @@ li {
     font-size: 1rem;
     color: #001f5b;
       background-color: #6cbad4;
+  }
+
+  button.rifiutaButton:hover{
+    background-color: red;
   }
   
   #success {

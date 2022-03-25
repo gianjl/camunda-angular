@@ -11,7 +11,7 @@ export class DatiAnagrafica {
     public luogoNascita: string,
     public provinciaNascita: string,
     public statoCivile: string,
-    public titoloStudio: string,
+    public titoloStudio: string
   ) {  }
 
 }

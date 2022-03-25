@@ -5,6 +5,10 @@
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Salvataggio</li>
 			</ol>
 		</nav>
+
+		<div>
+			<p>Il server ha preso in carico la tua richiesta di salvataggio del preventivo {{model.idPreventivo}} ed è andata <span><strong>a buon fine. </strong></span></p>
+		</div>
 		<button type="submit" class="ui button" [disabled]="!salvataggio.form.valid">Conferma</button>
 	</div>
 	<div [hidden]="!submitted">
