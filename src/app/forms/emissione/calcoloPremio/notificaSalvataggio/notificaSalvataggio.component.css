@@ -94,6 +94,15 @@ li {
       background-color: #6cbad4;
       border-radius: 0px 50px 50px 0px;
   }
+
+  #area-info{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #7dcae4;
+    border: 1px solid #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
+  }
   
   body {
     font-family: 'Open Sans', sans-serif;

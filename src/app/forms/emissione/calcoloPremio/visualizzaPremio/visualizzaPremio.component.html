@@ -27,11 +27,11 @@
 			</div>
 
 		</div>
-		<div class="field">
+		<div class="field" id="risultatoPremio">
 			<p>Secondo i dati inseriti, il totale di quanto scelto è {{model.premio}} €.</p>
 		</div>
 		<div id="accettazione">
-			<p><span>Dichiaro che <br></span></p>
+			<p><span>Dichiaro che <br> </span></p>
 			<input type="radio" class="form-check form-check-inline" id="Sì" [(ngModel)]="model.accettazione"
 				name="accettazione" #name="ngModel">
 			<label for="Sì"> Accetto </label>
