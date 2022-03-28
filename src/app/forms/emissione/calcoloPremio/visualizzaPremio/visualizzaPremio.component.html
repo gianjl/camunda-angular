@@ -1,11 +1,52 @@
-<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #visualizzazionePremio="ngForm" class="ui form">
+<form (ngSubmit)="onSubmit()" (ngModelChange)="changedExtraHandler($event)" #visualizzazionePremio="ngForm"
+	class="ui form">
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Visualizzazione Premio Calcolato</li>
 			</ol>
 		</nav>
-		<button type="submit" class="ui button" [disabled]="!visualizzazionePremio.form.valid">Conferma</button>
+		<div class="field" name="infoCliente" id="area-info">
+			<p>Codice identificativo: {{model.codiceCliente}}</p>
+			<p>Nome: {{model.nomeCliente}}</p>
+			<p>Cognome/Ragione Sociale: {{model.cognomeCliente}}</p>
+			<p>Codice Fiscale: {{model.codiceFiscaleCliente}}</p>
+			<p>Partita IVA: {{model.partitaIvaCliente}}</p>
+			<p>Metodo di Pagamento Scelto: {{model.metodoPagamentoCliente}}</p>
+		</div>
+		<div *ngIf="model.nomePacchetto != ''" class="field" name="pacchetto" id="area-info">
+			<h4>Pacchetto</h4>
+			<h5>{{model.nomePacchetto}}</h5>
+			<p id="area-info">{{model.infoPacchetto}}</p>
+		</div>
+		<div class="field" name="garanzie" id="area-info">
+			<h4>Garanzie</h4>
+			<div *ngFor=" let gar of model.garanzie">
+				<h5>{{gar.nomeGaranzia}}</h5>
+				<p id="area-info">{{gar.infoGaranzia}}</p>
+			</div>
+
+		</div>
+		<div class="field" id="risultatoPremio">
+			<p>Secondo i dati inseriti, il totale di quanto scelto è {{model.premio}} €.</p>
+		</div>
+		<div id="accettazione">
+			<p><span>Dichiaro che <br> </span></p>
+			<input type="radio" class="form-check form-check-inline" id="Sì" [(ngModel)]="model.accettazione"
+				name="accettazione" #name="ngModel">
+			<label for="Sì"> Accetto </label>
+
+			<input type="radio" class="form-check form-check-inline" id="No" [(ngModel)]="model.accettazione"
+				name="accettazione" value="false" #name="ngModel">
+			<label for="No"> Rifiuto </label>
+			<p><span><br>il preventivo da voi fornito.</span></p>
+		</div>
+		<div class="fields" name="bottoni scelta">
+			<button type="submit" class="ui button" [disabled]="!visualizzazionePremio.form.valid">Richiedi
+				Salvataggio</button>
+			<!--<button type="button" name="rifiutaButton" class="ui button" [disabled]="!visualizzazionePremio.form.valid" ng-click="rifiuta()">Rifiuta</button>
+			-->
+		</div>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

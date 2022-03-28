@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../../../camunda-rest.service';
 import { CompleteTaskComponent } from '../../../general/complete-task.component';
-import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
+import { InfoCliente } from '../../../../schemas/InfoCliente';
 
 @Component({
   selector: 'visualizzaPremio',
@@ -11,7 +11,7 @@ import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
 })
 export class visualizzaPremioComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+  model = new InfoCliente('','','','','','','','','',[],null);
 
   constructor(route: ActivatedRoute,
               router: Router,
@@ -23,5 +23,4 @@ export class visualizzaPremioComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
-  
 }

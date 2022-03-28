@@ -50,6 +50,10 @@ li {
       background-color: #6cbad4;
   }
   
+  .ui.button.rifiutaButton{
+    color: red;
+  }
+
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/
@@ -68,6 +72,10 @@ li {
     font-size: 1rem;
     color: #001f5b;
       background-color: #6cbad4;
+  }
+
+  button.rifiutaButton:hover{
+    background-color: red;
   }
   
   #success {
@@ -93,6 +101,33 @@ li {
   #breadcrumb {
       background-color: #6cbad4;
       border-radius: 0px 50px 50px 0px;
+  }
+
+  #area-info{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #7dcae4;
+    border: 1px solid #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
+  }
+
+  #risultatoPremio{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #7dcae4;
+    border: 1px solid #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
+  }
+
+  #accettazione{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #7dcae4;
+    border: 1px solid #001f5b;
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 5px;
   }
   
   body {

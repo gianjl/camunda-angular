@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../../../camunda-rest.service';
 import { CompleteTaskComponent } from '../../../general/complete-task.component';
-import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
+import { Preventivo } from '../../../../schemas/Preventivo';
 
 @Component({
   selector: 'notificaSalvataggio',
@@ -11,7 +11,7 @@ import { DatiAnagrafica } from '../../../../schemas/DatiAnagrafica';
 })
 export class notificaSalvataggioComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+  model = new Preventivo('','','','','');
 
   constructor(route: ActivatedRoute,
               router: Router,
