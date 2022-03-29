@@ -9,52 +9,45 @@ li {
     border-radius: 0px 50px 50px 0px;
   }
   
-  li.done {
-    background: #CCFF99;
-  }
-  
-  li.done::before {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 0 0.3em 0.25em 0;
-    height: 1em;
-    top: 1.3em;
-    left: 0.6em;
-    margin-top: -1em;
-    transform: rotate(45deg);
-    width: 0.5em;
-  }
-  
+
   .breadcrumb {
       
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      padding: 0.75rem 1rem;
-      margin-bottom: 1rem;
-      list-style: none;
-      background-color: #e9ecef;
-      border-radius: 0.25rem;
-      
-  }
-  
-  #breadcrumb-item{
-      
-    background-color: #bdc0c2;
-  }
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    
+}
 
-  #breadcrumb-item-back{
-    border: #001f5b;
-    background-color: #bdc0c2;
-    cursor:pointer;
-  }
-  
-  
-  #breadcrumb-item-active{
-      color: #001f5b;
-      background-color: #6cbad4;
-  }
+#breadcrumb-item{
+  border: #001f5b;
+  background-color: #e9ecef;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#breadcrumb-item-back{
+  border: #bdc0c2;
+  background-color: #bdc0c2;
+  cursor:pointer;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#breadcrumb-item-back:hover{
+  border: #bdc0c2;
+  color: #001f5b;
+  background-color: #6cbad4;
+  cursor:pointer;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#breadcrumb-item-active{
+    color: #001f5b;
+    background-color: #6cbad4;
+}
 
 /*-------------PopUp-----------------*/
 .overlay {
@@ -163,11 +156,6 @@ li {
     padding: 5px;
     text-transform: uppercase;
     border-radius: 5px;
-  }
-  
-  #breadcrumb {
-      background-color: #6cbad4;
-      border-radius: 0px 50px 50px 0px;
   }
 
   #area-info{
