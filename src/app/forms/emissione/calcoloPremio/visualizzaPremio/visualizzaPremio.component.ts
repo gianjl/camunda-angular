@@ -23,4 +23,7 @@ export class visualizzaPremioComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
+  setAction(taskId: string): void{
+    this.model.action=taskId;
+  }
 }

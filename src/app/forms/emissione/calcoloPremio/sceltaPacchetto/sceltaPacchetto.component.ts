@@ -80,5 +80,7 @@ export class sceltaPacchettoComponent extends CompleteTaskComponent implements O
   setPacchettoSelezionato(pacchetto: Pacchetto): void {
     this.model = pacchetto;
   }
-
+  setAction(taskId: string): void{
+    this.model.action=taskId;
+  }
 }

@@ -23,13 +23,7 @@ export class inserimentoInfoClienteComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
-  /*disabilita():void{
-    if (this.model.partitaIvaCliente){
-      this.model.codFisCli(text).disabled=true;}
-      else{this.model.codFisCli.disabled=false;}
-    if (this.model.partitaIvaCliente){
-      .disabled=true;}
-      else{this.model.parIvaCli.disabled=false;}
-    
-  }*/
+  setAction(taskId: string): void{
+    this.model.action=taskId;
+  }
 }

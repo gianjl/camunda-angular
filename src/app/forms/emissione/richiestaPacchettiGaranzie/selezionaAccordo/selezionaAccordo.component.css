@@ -13,7 +13,6 @@
   }
   
   #breadcrumb-item{
-    cursor: pointer;
     list-style-type: none;
     position: relative;
     margin: 2px;

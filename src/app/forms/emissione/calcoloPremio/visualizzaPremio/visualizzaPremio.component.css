@@ -44,6 +44,15 @@ li {
       background-color: #e9ecef;
   }
   
+  #breadcrumb-item{
+      
+    background-color: #bdc0c2;
+  }
+
+  #breadcrumb-item-back{
+    border: #001f5b;
+    background-color: #bdc0c2;
+  }
   
   #breadcrumb-item-active{
       color: #001f5b;

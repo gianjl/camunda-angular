@@ -1,7 +1,7 @@
 import { Garanzia } from "./Garanzia";
 
 export class InfoCliente {
-    
+    public action: string;
     constructor(
       public codiceCliente: string,
       public nomeCliente: string,
@@ -14,7 +14,8 @@ export class InfoCliente {
       public infoPacchetto: string,
       public garanzie: Garanzia[],
       public premio: number
-    ) {  }
+    ) { 
+      this.action = ''; }
   
   }
   

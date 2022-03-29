@@ -3,7 +3,7 @@
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li id="breadcrumb-item-active" class="breadcrumb-item active">Visualizzazione Premio Calcolato</li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Visualizzazione Premio Calcolato</li>				
 			</ol>
 		</nav>
 		<div class="field" name="infoCliente" id="area-info">
@@ -31,21 +31,14 @@
 			<p>Secondo i dati inseriti, il totale di quanto scelto è {{model.premio}} €.</p>
 		</div>
 		<div id="accettazione">
-			<p><span>Dichiaro che <br> </span></p>
-			<input type="radio" class="form-check form-check-inline" id="Sì" [(ngModel)]="model.accettazione"
-				name="accettazione" #name="ngModel">
-			<label for="Sì"> Accetto </label>
-
-			<input type="radio" class="form-check form-check-inline" id="No" [(ngModel)]="model.accettazione"
-				name="accettazione" value="false" #name="ngModel">
-			<label for="No"> Rifiuto </label>
-			<p><span><br>il preventivo da voi fornito.</span></p>
+			<p><span><br>Il cliente, {{model.nomeCliente}} {{model.cognomeCliente}}, dichiara di avere l'intenzione di diventare il contraente del contratto:<br>
+				Per confermare, clicca su "Richiedi Salvataggio"</span></p>
 		</div>
 		<div class="fields" name="bottoni scelta">
-			<button type="submit" class="ui button" [disabled]="!visualizzazionePremio.form.valid">Richiedi
+			<button type="submit" name="rifiuta button" class="ui button" [disabled]="!visualizzazionePremio.form.valid" (click)="setAction('rifiuta')">Rifiuta</button>
+			<button type="submit" name="rifiuta button" class="ui button" [disabled]="!visualizzazionePremio.form.valid" (click)="setAction('sceltaPacchetto')">Richiedi Modifica</button>
+			<button type="submit" class="ui button" [disabled]="!visualizzazionePremio.form.valid" (click)="setAction('')">Richiedi
 				Salvataggio</button>
-			<!--<button type="button" name="rifiutaButton" class="ui button" [disabled]="!visualizzazionePremio.form.valid" ng-click="rifiuta()">Rifiuta</button>
-			-->
 		</div>
 	</div>
 	<div [hidden]="!submitted">

@@ -3,9 +3,15 @@
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li id="breadcrumb-item-active" class="breadcrumb-item active">Inserimento delle Informazioni del
-					Cliente</li>
-			</ol>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('selezionaAccordo')">Seleziona Accordo</button></li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('sceltaAreaOggetti')">Scelta Area Oggetti</button></li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('sceltaPacchetto')">Scelta Pacchetto</button></li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Informazioni Cliente</li>
+					<li id="breadcrumb-item" class="breadcrumb-item">Riepilogo Dati</li>
+				</ol>
 		</nav>
 
 		<div class="fields">
@@ -68,7 +74,7 @@
 			</div>
 		</div>
 
-		<button type="submit" class="ui button" [disabled]="!inserimentoInfoCliente.form.valid">Conferma Dati</button>
+		<button type="submit" class="ui button" [disabled]="!inserimentoInfoCliente.form.valid" (click)="setAction('')">Conferma Dati</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

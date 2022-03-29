@@ -40,10 +40,15 @@ li {
   }
   
   #breadcrumb-item{
-      
-      background-color: #e9ecef;
+    border: #001f5b;
+    background-color: #bdc0c2;
   }
-  
+
+  #breadcrumb-item-back{
+    border: #001f5b;
+    background-color: #bdc0c2;
+    cursor:pointer;
+  }
   
   #breadcrumb-item-active{
       color: #001f5b;

@@ -3,6 +3,10 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Seleziona Accordo</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Scelta Area Oggetti</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Scelta Pacchetto</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Informazioni Cliente</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Riepilogo Dati</li>
 			</ol>
 		</nav>
 
@@ -16,7 +20,7 @@
 				</div>
 		</div>
 
-		<button type="submit" class="ui button" [disabled]="model.idAccordo==''">Conferma</button>
+		<button type="submit" class="ui button" [disabled]="model.idAccordo==''" (click)="setAction('')">Conferma</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

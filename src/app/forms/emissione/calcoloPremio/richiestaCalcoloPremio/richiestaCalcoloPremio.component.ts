@@ -24,7 +24,9 @@ export class richiestaCalcoloPremioComponent extends CompleteTaskComponent {
       this.loadExistingVariables(taskId, variableNames);
     });
   }
-
+  setAction(taskId: string): void{
+    this.model.action=taskId;
+  }
   openPopup(): void{
     this.comfirmPopUp = true;
   }

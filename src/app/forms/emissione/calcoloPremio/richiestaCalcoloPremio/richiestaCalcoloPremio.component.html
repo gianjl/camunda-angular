@@ -3,6 +3,15 @@
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('selezionaAccordo')">Seleziona Accordo</button></li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('sceltaAreaOggetti')">Scelta Area Oggetti</button></li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('sceltaPacchetto')">Scelta Pacchetto</button></li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('inserimentoInfoCliente')">
+						Informazioni Cliente</button></li>			
 				<li id="breadcrumb-item-active" class="breadcrumb-item active">Riepilogo Dati</li>
 			</ol>
 		</nav>
@@ -38,7 +47,7 @@
 				</div>
 				<div align="right">
 					<button class="ui button" (click)="comfirmPopUp = false">Annulla</button>
-					<button type="submit" class="ui button" id="confirm">Conferma</button>
+					<button type="submit" class="ui button" id="confirm" (click)="setAction('')">Conferma</button>
 				</div>
 			</div>
 		</div>

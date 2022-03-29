@@ -64,9 +64,14 @@ export class sceltaAreaOggettiComponent extends CompleteTaskComponent implements
     this.model = this.areaSelezionata.getOggettoById(this.oggettoId);
   }
 
+  setAction(taskId: string): void{
+    this.model.action=taskId;
+  }
+
   goTo(taskId: string): void{
     this.task = taskId;
     this.goBack = true;
   }
+
 
 }

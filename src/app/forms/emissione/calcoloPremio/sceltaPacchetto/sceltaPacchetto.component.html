@@ -2,7 +2,13 @@
 	<div [hidden]="submitted">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li id="breadcrumb-item-active" class="breadcrumb-item active">Scelta Pacchetto Polizza</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('selezionaAccordo')">Seleziona Accordo</button></li>
+				<li id="breadcrumb-item" class="breadcrumb-item">
+					<button name="breadcrumb-item-back" type="submit" id="breadcrumb-item-back" class="breadcrumb-item-back" (click)="setAction('sceltaAreaOggetti')">Scelta Area Oggetti</button></li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active">Scelta Pacchetto</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Informazioni Cliente</li>
+				<li id="breadcrumb-item" class="breadcrumb-item">Riepilogo Dati</li>
 			</ol>
 		</nav>
 		<div class="fields">
@@ -40,7 +46,7 @@
 			
 		</div>
 		
-		<button type="submit" class="ui button" [disabled]="model.idPacchetto == ''">Conferma Scelta</button>
+		<button type="submit" class="ui button" [disabled]="model.idPacchetto == ''" (click)="setAction('')">Conferma Scelta</button>
 	</div>
 	<div [hidden]="!submitted">
 		<p>Task completed.</p>

@@ -2,17 +2,17 @@ import { Input } from "@angular/core";
 import { Oggetto } from "../schemas/Oggetto";
 
 export const OGGETTI_FAM: Oggetto[] = [
-    { idOggetto: 'vita', nomeOggetto: 'Assicurazione Vita', descrizioneOggetto: 'aaaaaaaa', areaBisogno: 'famiglia' },
-    { idOggetto: 'casa', nomeOggetto: 'Assicurazione Immobile', descrizioneOggetto: 'aaaaaaaa', areaBisogno: 'famiglia' }
+    new Oggetto('vita', 'Assicurazione Vita', 'aaaaaaaa', 'famiglia'),
+    new Oggetto('casa', 'Assicurazione Immobile', 'aaaaaaaa', 'famiglia')
 ]
 
 export const OGGETTI_AUTO: Oggetto[] = [
-    { idOggetto: 'rca', nomeOggetto: 'Assicurazione RCA', descrizioneOggetto: 'aaaaaaaa', areaBisogno: 'auto' },
-    { idOggetto: 'furto-incendio', nomeOggetto: 'Furto-Incendio', descrizioneOggetto: 'aaaaaaaa', areaBisogno: 'auto' },
-    { idOggetto: 'kasko', nomeOggetto: 'KASKO', descrizioneOggetto: 'aaaaaaaa', areaBisogno: 'auto' },
-    { idOggetto: 'ambientali', nomeOggetto: 'Danni Ambientali', descrizioneOggetto: 'aaaaaaaa', areaBisogno: 'auto' }
+    new Oggetto( 'rca', 'Assicurazione RCA', 'aaaaaaaa', 'auto', ),
+    new Oggetto( 'furto-incendio', 'Furto-Incendio', 'aaaaaaaa', 'auto'),
+    new Oggetto( 'kasko', 'KASKO', 'aaaaaaaa', 'auto'),
+    new Oggetto( 'ambientali', 'Danni Ambientali', 'aaaaaaaa', 'auto')
 ]
 
 export const OGGETTI_SCI: Oggetto[] = [
-    { idOggetto: 'sci', nomeOggetto: 'Assicurazione Neve', descrizioneOggetto: 'aaaaaaaaaaaaaa', areaBisogno:'sci'}
+    new Oggetto( 'sci', 'Assicurazione Neve', 'aaaaaaaaaaaaaa', 'sci')
 ]
