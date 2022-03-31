@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_12vd37y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_12vd37y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="Emissione" name="Emissione" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Start Process" camunda:formKey="startNewProcess">
       <bpmn:outgoing>Flow_0sucbuf</bpmn:outgoing>
@@ -170,7 +170,7 @@
         <bpmn:incoming>Flow_086tkjg</bpmn:incoming>
         <bpmn:outgoing>Flow_0h0mh5l</bpmn:outgoing>
         <bpmn:timerEventDefinition id="TimerEventDefinition_0uysb1d">
-          <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P1D</bpmn:timeDuration>
+          <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT6H</bpmn:timeDuration>
         </bpmn:timerEventDefinition>
       </bpmn:intermediateCatchEvent>
       <bpmn:endEvent id="Event_0dnq15y" name="Processo Cancellato">
@@ -228,6 +228,11 @@
       <bpmndi:BPMNShape id="Activity_13dvil5_di" bpmnElement="Activity_13dvil5" isExpanded="true">
         <dc:Bounds x="155" y="560" width="1700" height="1240" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1q8opt2_di" bpmnElement="Flow_1q8opt2">
+        <di:waypoint x="1215" y="1590" />
+        <di:waypoint x="1215" y="1646" />
+        <di:waypoint x="1312" y="1646" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0h0mh5l_di" bpmnElement="Flow_0h0mh5l">
         <di:waypoint x="448" y="910" />
         <di:waypoint x="567" y="910" />
@@ -360,11 +365,6 @@
         <di:waypoint x="1095" y="1225" />
         <di:waypoint x="1095" y="1380" />
         <di:waypoint x="1287" y="1380" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1q8opt2_di" bpmnElement="Flow_1q8opt2">
-        <di:waypoint x="1215" y="1590" />
-        <di:waypoint x="1215" y="1646" />
-        <di:waypoint x="1312" y="1646" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1f4oazq_di" bpmnElement="Event_1f4oazq">
         <dc:Bounds x="1287" y="1362" width="36" height="36" />
