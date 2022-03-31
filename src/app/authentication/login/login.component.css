@@ -69,24 +69,31 @@ li {
       background-color: #6cbad4;
   }
   
-  #success {
+  .alert-success {
     text-align: center;
     color: #fff;
     background-color: rgba(74, 255, 97, 0.54);
     font-weight: 700;
     padding: 5px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     border-radius: 5px;
   }
-  
-  #error {
+
+  .alert-danger {
     text-align: center;
-    color: #fff;
-    background-color: #ff003b;
+    color: #ff003b;
+    border: solid 2px #ff003b;
+    background-color: white;
     font-weight: 700;
     padding: 5px;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    border-radius: 5px;
+    border-radius: 4px;
+  }
+
+  .help-block{
+    color: #ff003b;
   }
   
   #breadcrumb {
@@ -294,6 +301,13 @@ li {
     border-color: #6cbad4;
   }
   
+  .btn-link {
+    padding: 7.5px 25px;
+    text-transform: uppercase;
+    background-color: #001f5b;
+    border-color: #6cbad4;
+  }
+
   .btn-black {
     text-transform: uppercase;
     color: #fff;
@@ -319,6 +333,7 @@ li {
   }
   
   .btn-dark {
+    padding: 7.5px 25px;
     color: #FFF;
     text-transform: uppercase;
     background: #001f5b;
@@ -330,7 +345,7 @@ li {
     color: rgba(255,255,255, .85);
     background: #001f5b;;
     outline: 0;
-    box-shadow: none;
+    box-shadow: #6cbad4;
   }
   
   .btn-light {

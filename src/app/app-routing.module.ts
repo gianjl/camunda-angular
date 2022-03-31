@@ -14,19 +14,19 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent, canActivate: [AuthGuard] },
+  { path: '', component: ProcesslistComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '', component: AppComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'processlist', component: ProcesslistComponent },
-  { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent },
-  { path: 'tasklist', component: TasklistComponent },
-  { path: 'tasklist/:id', component: TasklistComponent },
-  { path: 'processinstancelist', component: ProcessInstanceListComponent},
-  { path: 'processinstancelist/:id', component: ProcessInstanceListComponent },
-  { path: 'emissione', component: EmissioneComponent },
-  { path: 'emissione/:id', component: EmissioneComponent }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  },
+  { path: 'processlist', component: ProcesslistComponent, canActivate: [AuthGuard] },
+  { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent, canActivate: [AuthGuard]  },
+  { path: 'tasklist', component: TasklistComponent, canActivate: [AuthGuard]  },
+  { path: 'tasklist/:id', component: TasklistComponent, canActivate: [AuthGuard]  },
+  { path: 'processinstancelist', component: ProcessInstanceListComponent, canActivate: [AuthGuard] },
+  { path: 'processinstancelist/:id', component: ProcessInstanceListComponent, canActivate: [AuthGuard]  },
+  { path: 'emissione', component: EmissioneComponent, canActivate: [AuthGuard]  },
+  { path: 'emissione/:id', component: EmissioneComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
