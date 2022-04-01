@@ -15,7 +15,6 @@ import { StartProcessComponent } from './start-process/start-process.component';
 import { GenericForm } from './generic-form.component';
 import { MyAddonModule } from './forms/myAddon.module';
 import { ProcessInstanceListComponent } from './processinstancelist/processinstancelist.component';
-import { EmissioneComponent } from './emissioneProcess/emissione.component'
 
 import { fakeBackendProvider } from './authentication/helpers/fake-backend';
 import { AuthGuard } from './authentication/guards/auth.guard';
@@ -35,7 +34,6 @@ import { RegisterComponent } from './authentication/register/register.component'
     ProcessInstanceListComponent,
     StartProcessComponent,
     GenericForm,
-    EmissioneComponent,
     LoginComponent,
     RegisterComponent
   ],

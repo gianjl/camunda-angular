@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './authentication/guards/auth.guard';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { EmissioneComponent } from './emissioneProcess/emissione.component';
 
 import { HomeComponent } from './home/home.component';
 import { ProcessInstanceListComponent } from './processinstancelist/processinstancelist.component';
@@ -24,8 +23,6 @@ const routes: Routes = [
   { path: 'tasklist/:id', component: TasklistComponent, canActivate: [AuthGuard]  },
   { path: 'processinstancelist', component: ProcessInstanceListComponent, canActivate: [AuthGuard] },
   { path: 'processinstancelist/:id', component: ProcessInstanceListComponent, canActivate: [AuthGuard]  },
-  { path: 'emissione', component: EmissioneComponent, canActivate: [AuthGuard]  },
-  { path: 'emissione/:id', component: EmissioneComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 
