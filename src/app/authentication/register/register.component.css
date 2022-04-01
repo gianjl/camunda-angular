@@ -69,6 +69,12 @@ li {
       background-color: #6cbad4;
   }
   
+  #secondary-btn {
+    font-size: 1rem;
+    color: white;
+    background-color: #001f5b;
+  }
+
   #success {
     text-align: center;
     color: #fff;
