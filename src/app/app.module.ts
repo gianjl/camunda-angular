@@ -24,6 +24,7 @@ import { UserService } from './authentication/services/user.service';
 import { AlertService } from './authentication/services/alert.service';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { UserComponent } from './authentication/user/user.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RegisterComponent } from './authentication/register/register.component'
     ProcesslistComponent,
     TasklistComponent,
     HomeComponent,
+    UserComponent,
     ProcessInstanceListComponent,
     StartProcessComponent,
     GenericForm,

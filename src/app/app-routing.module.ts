@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './authentication/guards/auth.guard';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { UserComponent } from './authentication/user/user.component';
+
 
 import { HomeComponent } from './home/home.component';
 import { ProcessInstanceListComponent } from './processinstancelist/processinstancelist.component';
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard]  },
   { path: 'processlist', component: ProcesslistComponent, canActivate: [AuthGuard] },
   { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent, canActivate: [AuthGuard]  },
   { path: 'tasklist', component: TasklistComponent, canActivate: [AuthGuard]  },

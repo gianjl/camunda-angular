@@ -41,7 +41,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return Observable.of(new HttpResponse({ status: 200, body: body }));
                 } else {
                     // else return 400 bad request
-                    return Observable.throw('Username or password is incorrect');
+                    return Observable.throw('Credenziali non corrette');
                 }
             }
 
@@ -81,7 +81,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // validation
                 let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
                 if (duplicateUser) {
-                    return Observable.throw('Username "' + newUser.username + '" is already taken');
+                    return Observable.throw('Username "' + newUser.username + '" già in uso');
                 }
 
                 // save new user

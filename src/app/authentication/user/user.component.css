@@ -1,17 +1,64 @@
-
-li {
-    list-style-type: none;
-    position: relative;
-    margin: 2px;
-    padding: 0.5em 0.5em 0.5em 2em;
-    background: lightgrey;
-    font-family: sans-serif;
-    border-radius: 0px 50px 50px 0px;
+/*-------------PopUp-----------------*/
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
   }
   
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    z-index: 2;
+  }
   
-  .breadcrumb {
-      
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family:  'Open Sans', sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #0074b8;
+    cursor: pointer;
+  }
+  .popup .content {
+    font-family: 'Open Sans', sans-serif;
+    max-height: 30%;
+    overflow: auto;
+    padding-bottom: 10px;
+  }
+  
+  @media screen and (max-width: 700px){
+  
+    .popup{
+      width: 70%;
+    }
+  }
+  
+/*-------------End PopUp-----------------*/
+
+.breadcrumb {  
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -22,6 +69,19 @@ li {
     border-radius: 0.25rem;
     
 }
+
+#destructive {
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+	  background-color: red;
+  }
+
+  #link-destructive {
+    cursor: pointer;
+    font-size: 1rem;
+    color: red;
+  }
 
 #breadcrumb-item{
   border: #001f5b;
@@ -52,28 +112,7 @@ li {
   /***********************************************************************************************/
   /* =Common Styles */
   /***********************************************************************************************/
-  .alert-success {
-    text-align: center;
-    color: #fff;
-    background-color: rgba(74, 255, 97, 0.54);
-    font-weight: 700;
-    padding: 5px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    border-radius: 5px;
-  }
-
-  .alert-danger {
-    text-align: center;
-    color: #ff003b;
-    border: solid 2px #ff003b;
-    background-color: white;
-    font-weight: 700;
-    padding: 5px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    border-radius: 4px;
-  }
+  
   .help-block{
     color: #ff003b;
   }
@@ -264,7 +303,7 @@ li {
     height: 1px;
     border-bottom: 1px solid #EAEAEA;
   }
-  
+ 
   /***********************************************************************************************/
   /* =Buttons */
   /***********************************************************************************************/

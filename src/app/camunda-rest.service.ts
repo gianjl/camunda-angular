@@ -92,9 +92,9 @@ export class CamundaRestService {
     );
   }
 
-  deleteProcessInstance(instructions): Observable<any> {
+  deleteProcessInstance(requestBody): Observable<any> {
     const endpoint = `${this.engineRestUrl}process-instance/delete`;
-    return this.http.post(endpoint, instructions, httpOptions).pipe(
+    return this.http.post(endpoint, requestBody, httpOptions).pipe(
       tap(pIItem => this.log(`process instance deleted`)),
       catchError(this.handleError('deleteProcessInstance', []))
     );
@@ -113,6 +113,14 @@ export class CamundaRestService {
       catchError(this.handleError('getActivityInstances', []))
     );
     
+  }
+
+  verifyUser(requestBody): Observable<any> {
+    const endpoint = `${this.engineRestUrl}identity/verify`;
+    return this.http.post(endpoint, requestBody, httpOptions).pipe(
+      tap(user => this.log(`User authenticated`)),
+      catchError(this.handleError('verifyUser', []))
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
