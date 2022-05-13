@@ -7,27 +7,27 @@
     <bpmn:sequenceFlow id="Flow_0sucbuf" sourceRef="StartEvent_1" targetRef="RichiestaAccordo" />
     <bpmn:subProcess id="Activity_13dvil5" name="Emissione">
       <bpmn:incoming>Flow_1ckedsw</bpmn:incoming>
-      <bpmn:intermediateThrowEvent id="Event_1f4oazq" name="Inserimento Info Cliente">
+      <bpmn:intermediateThrowEvent id="Event_1f4oazq" name="inserimentoInfoCliente">
         <bpmn:incoming>Flow_1gptrl0</bpmn:incoming>
         <bpmn:linkEventDefinition id="LinkEventDefinition_0a43sz7" name="inserimentoInfoCliente" />
       </bpmn:intermediateThrowEvent>
-      <bpmn:intermediateThrowEvent id="Event_0zfgxcm" name="Scelta Pacchetto">
+      <bpmn:intermediateThrowEvent id="Event_0zfgxcm" name="sceltaPacchetto">
         <bpmn:incoming>Flow_0koplpy</bpmn:incoming>
         <bpmn:linkEventDefinition id="LinkEventDefinition_1bvxfjf" name="sceltaPacchetto" />
       </bpmn:intermediateThrowEvent>
-      <bpmn:intermediateThrowEvent id="Event_005zord" name="Scelta Area Oggetti">
+      <bpmn:intermediateThrowEvent id="Event_005zord" name="sceltaAreaOggetti">
         <bpmn:incoming>Flow_07gfvh9</bpmn:incoming>
         <bpmn:linkEventDefinition id="LinkEventDefinition_0gfml69" name="sceltaAreaOggetti" />
       </bpmn:intermediateThrowEvent>
-      <bpmn:intermediateThrowEvent id="Event_1hleus5" name="Seleziona Accordo">
+      <bpmn:intermediateThrowEvent id="Event_1hleus5" name="selezionaAccordo">
         <bpmn:incoming>Flow_0csthts</bpmn:incoming>
         <bpmn:linkEventDefinition id="LinkEventDefinition_1x1uhhm" name="selezionaAccordo" />
       </bpmn:intermediateThrowEvent>
-      <bpmn:intermediateCatchEvent id="Event_0ytz7ry">
+      <bpmn:intermediateCatchEvent id="Event_0ytz7ry" name="inserimentoInfoCliente">
         <bpmn:outgoing>Flow_0gjngas</bpmn:outgoing>
         <bpmn:linkEventDefinition id="LinkEventDefinition_0o5z0oh" name="inserimentoInfoCliente" />
       </bpmn:intermediateCatchEvent>
-      <bpmn:intermediateCatchEvent id="Event_1u78f4t">
+      <bpmn:intermediateCatchEvent id="Event_1u78f4t" name="sceltaPacchetto">
         <bpmn:outgoing>Flow_16pv5wa</bpmn:outgoing>
         <bpmn:linkEventDefinition id="LinkEventDefinition_1nf2iom" name="sceltaPacchetto" />
       </bpmn:intermediateCatchEvent>
@@ -106,11 +106,11 @@
         <bpmn:incoming>Flow_15qzq8w</bpmn:incoming>
         <bpmn:outgoing>Flow_1s5zc4w</bpmn:outgoing>
       </bpmn:task>
-      <bpmn:intermediateCatchEvent id="Event_00tdb0d">
+      <bpmn:intermediateCatchEvent id="Event_00tdb0d" name="selezionaAccordo">
         <bpmn:outgoing>Flow_040wirf</bpmn:outgoing>
         <bpmn:linkEventDefinition id="LinkEventDefinition_106fd3p" name="selezionaAccordo" />
       </bpmn:intermediateCatchEvent>
-      <bpmn:intermediateCatchEvent id="Event_1iemt2a">
+      <bpmn:intermediateCatchEvent id="Event_1iemt2a" name="sceltaAreaOggetti">
         <bpmn:outgoing>Flow_04yf6yo</bpmn:outgoing>
         <bpmn:linkEventDefinition id="LinkEventDefinition_0d08062" name="sceltaAreaOggetti" />
       </bpmn:intermediateCatchEvent>
@@ -369,32 +369,38 @@
       <bpmndi:BPMNShape id="Event_1f4oazq_di" bpmnElement="Event_1f4oazq">
         <dc:Bounds x="1287" y="1362" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1266" y="1405" width="80" height="27" />
+          <dc:Bounds x="1263" y="1405" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0zfgxcm_di" bpmnElement="Event_0zfgxcm">
         <dc:Bounds x="1287" y="1242" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1264" y="1285" width="83" height="14" />
+          <dc:Bounds x="1267" y="1285" width="78" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_005zord_di" bpmnElement="Event_005zord">
         <dc:Bounds x="1287" y="1132" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1277" y="1175" width="58" height="27" />
+          <dc:Bounds x="1262" y="1175" width="88" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1hleus5_di" bpmnElement="Event_1hleus5">
         <dc:Bounds x="1287" y="1022" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1282" y="1065" width="49" height="27" />
+          <dc:Bounds x="1263" y="1065" width="88" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0ytz7ry_di" bpmnElement="Event_0ytz7ry">
         <dc:Bounds x="707" y="1392" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="683" y="1362" width="86" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1u78f4t_di" bpmnElement="Event_1u78f4t">
         <dc:Bounds x="537" y="1392" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="518" y="1362" width="78" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0mtt5u0_di" bpmnElement="Gateway_0mtt5u0" isMarkerVisible="true">
         <dc:Bounds x="900" y="1175" width="50" height="50" />
@@ -449,9 +455,15 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_00tdb0d_di" bpmnElement="Event_00tdb0d">
         <dc:Bounds x="534" y="622" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="509" y="592" width="88" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1iemt2a_di" bpmnElement="Event_1iemt2a">
         <dc:Bounds x="944" y="622" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="918" y="592" width="88" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_14yzabw_di" bpmnElement="Gateway_08twn9i">
         <dc:Bounds x="405" y="765" width="50" height="50" />

@@ -2,11 +2,64 @@
 /* =Common Styles */
 /***********************************************************************************************/
 
+
+
+li {
+  list-style-type: none;
+  position: relative;
+  margin: 2px;
+  padding: 0.5em 0.5em 0.5em 2em;
+  background: lightgrey;
+  font-family: sans-serif;
+  border-radius: 0px 50px 50px 0px;
+}
+
+li.done {
+  background: #CCFF99;
+}
+
+li.done::before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 0 0.3em 0.25em 0;
+  height: 1em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;
+  transform: rotate(45deg);
+  width: 0.5em;
+}
+
+.breadcrumb {
+    
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    
+}
+#breadcrumb-item{
+	
+	background-color: #e9ecef;
+}
+
+
+#breadcrumb-item-active{
+	color: #323232;
+	background-color: #ff8400;
+}
+
+
 .ui.form .field>label {
   display: block;
   margin: 0 0 0.28571429rem 0;
   font-family: 'Open Sans', sans-serif;
-  color: #001f5b;
+  color: #323232;
   font-size: .92857143em;
   font-weight: 700;
   text-transform: none;
@@ -14,14 +67,8 @@
 
 .ui.button, .ui.buttons .button, .ui.buttons .or {
   font-size: 1rem;
-  background-color: #DDEBEB;
-  color: #6cbad4;
-}
-
-.ui.button:hover{
-  font-size: 1rem;
-  background-color: #6cbad4;
-  color: #001f5b;
+  color: #323232;
+	background-color: #ff8400;
 }
 
 #success {
@@ -44,6 +91,11 @@
   border-radius: 5px;
 }
 
+#breadcrumb {
+	background-color: #ff8400;
+	border-radius: 0px 50px 50px 0px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: #706f6f;
@@ -56,7 +108,7 @@ body {
 }
 
 a {
-  color: #6cbad4;
+  color: #ff8400;
   -webkit-transition: all .25s ease-in-out;
   -moz-transition: all .25s ease-in-out;
   -ms-transition: all .25s ease-in-out;
@@ -101,25 +153,36 @@ img {
 }
 
 .form-control::-moz-placeholder {
-  color: #001f5b;
-  border-color: #001f5b;
+  color: #323232;
+  border-color: #323232;
 }
 .form-control:-ms-input-placeholder {
-  color: #001f5b;
-  border-color: #001f5b;
+  color: #323232;
+  border-color: #323232;
 }
 .form-control::-webkit-input-placeholder {
-  color: #001f5b;
-  border-color: #001f5b;
+  color: #323232;
+  border-color: #323232;
+}
+
+input[type=checkbox] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
 }
 
 /***********************************************************************************************/
 /* =Typography */
 /***********************************************************************************************/
 
+label {
+  display: inline-block;
+  vertical-align: top;
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 700;
-  color: #001f5b;
+  color: #323232;
   text-transform: uppercase;
 }
 
@@ -215,8 +278,8 @@ p {
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus,
 .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
   color: #fff;
-  background-color: #001f5b;
-  border-color: #001f5b;
+  background-color: #323232;
+  border-color: #323232;
 }
 
 .btn-xs {
@@ -240,8 +303,8 @@ p {
 
 .btn-primary {
   text-transform: uppercase;
-  background-color: #6cbad4;
-  border-color: #6cbad4;
+  background-color: #ff8400;
+  border-color: #ff8400;
 }
 
 .btn-black {
@@ -252,8 +315,8 @@ p {
 }
 
 .btn-black:hover {
-  background-color: #6cbad4;
-  border-color: #6cbad4;
+  background-color: #ff8400;
+  border-color: #ff8400;
   color: #fff;
 }
 
@@ -315,8 +378,8 @@ p {
 
 .form-control {
   font-size: 12px;
-  color: #001f5b;
-  border-color: #001f5b;
+  color: #323232;
+  border-color: #323232;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -378,11 +441,11 @@ p {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav >
 .active > a:focus {
   background: transparent;
-  color: #6cbad4;
+  color: #ff8400;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #6cbad4;
+  color: #ff8400;
 }
 
 .dropdown-menu {
@@ -404,12 +467,12 @@ p {
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   background-color: #fff;
-  color: #6cbad4;
+  color: #ff8400;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
   background-color: #fff;
-  color: #6cbad4;
+  color: #ff8400;
 }
 
 .navbar-default .dropdown:hover>.dropdown-menu {

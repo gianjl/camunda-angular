@@ -2,24 +2,25 @@
 
 	<div class="six wide column">
 		<h2>Processi Avviati</h2>
-		<!------------------POP UP----------------->
-		<div class="overlay" *ngIf="deletePopUp">
-			<div class="popup">
-				<h2>Elimina processo</h2>
-				<a class="close" (click)="deletePopUp = false">&times;</a>
-				<div class="content">
-					Sei sicuro di voler eliminare questo processo?
-				</div>
-				<div align="right">
-					<button type="submit" class="ui button" (click)="deletePopUp = false">Annulla</button>
-					<button type="submit" class="ui button" id="destructive"
-						(click)="deleteProcessInstance(processInstanceId)">Elimina</button>
-				</div>
-			</div>
-		</div>
-		<!------------------POP UP END----------------->
+
 		<ul class="tasks">
 			<div *ngFor="let task of tasks">
+				<!------------------POP UP----------------->
+				<div class="overlay" *ngIf="deletePopUp">
+					<div class="popup">
+						<h2>Elimina processo</h2>
+						<a class="close" (click)="deletePopUp = false">&times;</a>
+						<div class="content">
+							Sei sicuro di voler eliminare questo processo?
+						</div>
+						<div align="right">
+							<button type="submit" class="ui button" (click)="deletePopUp = false">Annulla</button>
+							<button type="submit" class="ui button" id="destructive"
+								(click)="deleteProcessInstance(processInstanceId)">Elimina</button>
+						</div>
+					</div>
+				</div>
+				<!------------------POP UP END----------------->
 				<div id="task-item" [class.selected]="task.id == taskId">
 					<div (click)="refresh()">
 						<a routerLink="/tasklist/{{task.id}}">
@@ -32,6 +33,7 @@
 						<img src="../../assets/resources/recycle-bin.png" id="trashbin" alt=""
 							(click)="setProcessInstanceToDelete(task.processInstanceId)">
 					</div>
+					
 				</div>
 			</div>
 			<div class=" one wide field" *ngIf="tasks.length===0">

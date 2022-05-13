@@ -6,7 +6,6 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { UserComponent } from './authentication/user/user.component';
 
-
 import { HomeComponent } from './home/home.component';
 import { ProcessInstanceListComponent } from './processinstancelist/processinstancelist.component';
 import { ProcesslistComponent } from './processlist/processlist.component';
@@ -15,7 +14,7 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 
 
 const routes: Routes = [
-  { path: '', component: ProcesslistComponent, canActivate: [AuthGuard] },
+  { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  },
@@ -26,7 +25,7 @@ const routes: Routes = [
   { path: 'tasklist/:id', component: TasklistComponent, canActivate: [AuthGuard]  },
   { path: 'processinstancelist', component: ProcessInstanceListComponent, canActivate: [AuthGuard] },
   { path: 'processinstancelist/:id', component: ProcessInstanceListComponent, canActivate: [AuthGuard]  },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'user', canActivate: [AuthGuard]  }
 ];
 
 @NgModule({

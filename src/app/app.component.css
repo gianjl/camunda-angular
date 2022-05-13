@@ -3,7 +3,7 @@
 /***********************************************************************************************/
 
 .ui.inverted.menu {
-    background-color: #001f5b;
+    background-color: #424242;
   }
   
   .ui.menu .item {
@@ -64,8 +64,7 @@
   body {
     font-family: 'Open Sans', sans-serif;
     color: #706f6f;
-    background-color: #003e7e;
-    background-image: url(https://www.vittoriaassicurazioni.com/wp-content/themes/vittoria-theme/img/hero-caption-bg.svg);
+    background-color: #ff8400;
     background-repeat: no-repeat;
     background-position: right;
     line-height: 20px;
@@ -118,16 +117,16 @@
   }
   
   .form-control::-moz-placeholder {
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
   }
   .form-control:-ms-input-placeholder {
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
   }
   .form-control::-webkit-input-placeholder {
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
   }
   
   /***********************************************************************************************/
@@ -138,7 +137,7 @@
     font-weight: 700;
     color: #fff;
     text-transform: uppercase;
-    vertical-align: top;
+    vertical-align: text-top;
   }
   
   h1, .h1, h2, .h2, h3, .h3 {
@@ -148,9 +147,10 @@
   
   h1, .h1 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 46px;
+    font-size: 60px;
     font-weight: 400;
     letter-spacing: 2px;
+    vertical-align: top;
   }
   
   h2 {
@@ -233,8 +233,8 @@
   .btn-primary:hover, .btn-primary:focus, .btn-primary.focus,
   .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #001f5b;
-    border-color: #001f5b;
+    background-color: #323232;
+    border-color: #323232;
   }
   
   .btn-xs {
@@ -258,8 +258,8 @@
   
   .btn-primary {
     text-transform: uppercase;
-    background-color: #6cbad4;
-    border-color: #6cbad4;
+    background-color: #ff8400;
+    border-color: #ff8400;
   }
   
   .btn-black {
@@ -270,8 +270,8 @@
   }
   
   .btn-black:hover {
-    background-color: #6cbad4;
-    border-color: #6cbad4;
+    background-color: #ff8400;
+    border-color: #ff8400;
     color: #fff;
   }
   
@@ -333,8 +333,8 @@
   
   .form-control {
     font-size: 12px;
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
@@ -396,11 +396,11 @@
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav >
   .active > a:focus {
     background: transparent;
-    color: #6cbad4;
+    color: #ff8400;
   }
   
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #6cbad4;
+    color: #ff8400;
   }
   
   .dropdown-menu {

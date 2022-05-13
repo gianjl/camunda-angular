@@ -18,7 +18,7 @@ export class TasklistComponent implements OnInit {
   formKey: String;
   processInstances: ProcessInstance[] = [];
   deletePopUp: boolean;
-  
+  taskToDel: string;
 
 
   constructor(
@@ -55,6 +55,19 @@ export class TasklistComponent implements OnInit {
     this.camundaRestService
       .getTasks()
       .subscribe(tasks => this.tasks = tasks);
+  }
+
+  deleteTask(taskId: string): void{
+    this.camundaRestService
+      .deleteTask(taskId)
+      .subscribe();
+    this.refresh();
+  }
+
+  setTaskToDelete(taskId: string): void{
+    this.taskId = '';
+    this.deletePopUp = true;
+    this.taskToDel = taskId;
   }
 
   deleteProcessInstance(pIId: string): void{

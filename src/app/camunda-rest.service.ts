@@ -7,9 +7,13 @@ import { ProcessDefinition } from './schemas/ProcessDefinition';
 import { Task } from './schemas/Task';
 import { ProcessInstance } from './schemas/ProcessInstance';
 import { Activity } from './schemas/Activity';
+import { User } from './authentication/models/user.model';
+import { Auth } from './authentication/models/auth.model';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 
+    'Content-Type': 'application/json'
+  })
 };
 
 @Injectable()
@@ -19,7 +23,7 @@ export class CamundaRestService {
   constructor(private http: HttpClient) {
 
   }
-
+  /*---------- Tasks Services ---------------*/
   getTasks(): Observable<Task[]> {
     const endpoint = `${this.engineRestUrl}task?sortBy=created&sortOrder=desc&maxResults=10`;
     return this.http.get<any>(endpoint).pipe(
@@ -52,6 +56,14 @@ export class CamundaRestService {
     );
   }
 
+  getTask(taskId): Observable<Task> {
+    const endpoint = `${this.engineRestUrl}task/${taskId}`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(taskItem => this.log(`fetched task`)),
+      catchError(this.handleError('getTask', []))
+    );
+  }
+
   getProcessDefinitionTaskKey(processDefinitionKey): Observable<any> {
     const url = `${this.engineRestUrl}process-definition/key/${processDefinitionKey}/startForm`;
     return this.http.get<any>(url).pipe(
@@ -59,6 +71,16 @@ export class CamundaRestService {
       catchError(this.handleError('getProcessDefinitionFormKey', []))
     );
   }
+
+  deleteTask(taskId): Observable<any> {
+    const endpoint = `${this.engineRestUrl}task/${taskId}`;
+    return this.http.delete(endpoint, httpOptions).pipe(
+      tap(task => this.log(`task deleted`)),
+      catchError(this.handleError('deleteTask', []))
+    );
+  }
+
+  /*---------- Processes Services ---------------*/
 
   getProcessDefinitions(): Observable<ProcessDefinition[]> {
     return this.http.get<ProcessDefinition[]>(this.engineRestUrl + 'process-definition?latestVersion=true').pipe(
@@ -84,14 +106,6 @@ export class CamundaRestService {
     return this.http.post(endpoint, formData);
   }
 
-  getTask(taskId): Observable<Task> {
-    const endpoint = `${this.engineRestUrl}task/${taskId}`;
-    return this.http.get<any>(endpoint).pipe(
-      tap(taskItem => this.log(`fetched task`)),
-      catchError(this.handleError('getTask', []))
-    );
-  }
-
   deleteProcessInstance(requestBody): Observable<any> {
     const endpoint = `${this.engineRestUrl}process-instance/delete`;
     return this.http.post(endpoint, requestBody, httpOptions).pipe(
@@ -112,16 +126,40 @@ export class CamundaRestService {
       tap(activity => this.log(`fetched activity`)),
       catchError(this.handleError('getActivityInstances', []))
     );
-    
   }
 
-  verifyUser(requestBody): Observable<any> {
+  /*---------- Users Services ---------------*/
+
+  verifyUser(requestBody): Observable<Auth> {
     const endpoint = `${this.engineRestUrl}identity/verify`;
-    return this.http.post(endpoint, requestBody, httpOptions).pipe(
+    return this.http.post<any>(endpoint, requestBody, httpOptions).pipe(
       tap(user => this.log(`User authenticated`)),
       catchError(this.handleError('verifyUser', []))
     );
   }
+
+  createUser(requestBody): Observable<any> {
+    const endpoint = `${this.engineRestUrl}user/create`;
+    return this.http.post(endpoint, requestBody, httpOptions).pipe(
+      tap(user => this.log(`User created`)),
+      catchError(this.handleError('createUser', []))
+    );
+  }
+
+  getUserProfile(userId): Observable<User> {
+    return this.http.get<any>(this.engineRestUrl + 'user/' +userId+'/profile', httpOptions).pipe(
+      tap(user => this.log(`fetched user`)),
+      catchError(this.handleError('getUserProfile', []))
+    );
+  }
+
+  deleteUser(userId): Observable<any> {
+    return this.http.delete(this.engineRestUrl + 'user/'+userId, httpOptions).pipe(
+      tap(user => this.log(`User deleted`)),
+      catchError(this.handleError('deleteUser', []))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

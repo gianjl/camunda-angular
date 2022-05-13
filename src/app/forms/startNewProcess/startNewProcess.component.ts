@@ -10,10 +10,12 @@ import { DatiAnagrafica } from '../../schemas/DatiAnagrafica';
   styleUrls: ['./startNewProcess.component.css']
 })
 export class startNewProcessComponent extends StartProcessInstanceComponent {
-  submitted:boolean = false;
-  model = new DatiAnagrafica('','','','',null,null,'','','','','');
+  submitted: boolean = false;
+  model = new DatiAnagrafica('', '', '', '', null, null, '', '', '', '', '');
 
- 
+  refresh() {
+    window.location.reload();
+  }
 
   constructor(route: ActivatedRoute,
     camundaRestService: CamundaRestService,) {

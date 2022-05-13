@@ -8,6 +8,6 @@ import { Component, ViewChild, AfterViewInit  } from '@angular/core';
 
 
 export class AppComponent {
-  title = 'White Label';
+  title = 'CAMUNDA TASKLIST APP';
 }
 

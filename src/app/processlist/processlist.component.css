@@ -3,19 +3,19 @@
 /***********************************************************************************************/
 
   #process-item{
-    background-color: azure;
-    border: 2px solid #DDEBEB;
+    background-color: rgb(255, 188, 88);
+    border: 2px solid #ff8400;
     padding: 10px;
     margin-bottom: 5px;
   }
   
   #process-item:hover {
-    background-color: #DDEBEB;
-    border: 2px solid #003a5b;
+    background-color: #ff8400;
+    border: 2px solid #323232;
     padding: 10px;
     margin-bottom: 5px;
   }
-  
+    
   #success {
     text-align: center;
     color: #fff;
@@ -48,7 +48,7 @@
   }
   
   a {
-    color: #6cbad4;
+    color: #ff8400;
     -webkit-transition: all .25s ease-in-out;
     -moz-transition: all .25s ease-in-out;
     -ms-transition: all .25s ease-in-out;
@@ -66,10 +66,12 @@
   
   .dark-bg {
     background: #c6c6c6;
+    opacity: 0.6;
   }
   
   .white-bg {
     background: #c6c6c6;
+    opacity: 0.6;
   }
   
   .without-padding {
@@ -90,19 +92,20 @@
   
   .bg-gray {
     background: #c6c6c6;
+    opacity: 0.6;
   }
   
   .form-control::-moz-placeholder {
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
   }
   .form-control:-ms-input-placeholder {
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
   }
   .form-control::-webkit-input-placeholder {
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
   }
   
   /***********************************************************************************************/
@@ -110,14 +113,13 @@
   /***********************************************************************************************/
   
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
-    color: #001f5b;
+    color: #323232;
     text-transform: uppercase;
+    vertical-align: top;
   }
   
   h1, .h1, h2, .h2, h3, .h3 {
-    font-family: 'Open Sans', sans-serif;
     margin-top: 0;
     margin-bottom: 20px;
   }
@@ -130,33 +132,26 @@
   }
   
   h2 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 24px;
   }
   
   h3 {
-    font-family: 'Open Sans', sans-serif;
-    color: #6cbad4;
     font-size: 17px;
   }
   
   h4 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 15px;
   }
   
   h5 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
   }
   
   h6 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 10px;
   }
   
   p {
-    font-family: 'Open Sans', sans-serif;
     margin: 0;
   }
   
@@ -216,8 +211,8 @@
   .btn-primary:hover, .btn-primary:focus, .btn-primary.focus,
   .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #001f5b;
-    border-color: #001f5b;
+    background-color: #323232;
+    border-color: #323232;
   }
   
   .btn-xs {
@@ -241,8 +236,8 @@
   
   .btn-primary {
     text-transform: uppercase;
-    background-color: #6cbad4;
-    border-color: #6cbad4;
+    background-color: #ff8400;
+    border-color: #ff8400;
   }
   
   .btn-black {
@@ -253,8 +248,8 @@
   }
   
   .btn-black:hover {
-    background-color: #6cbad4;
-    border-color: #6cbad4;
+    background-color: #ff8400;
+    border-color: #ff8400;
     color: #fff;
   }
   
@@ -316,8 +311,8 @@
   
   .form-control {
     font-size: 12px;
-    color: #001f5b;
-    border-color: #001f5b;
+    color: #323232;
+    border-color: #323232;
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
@@ -379,11 +374,11 @@
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav >
   .active > a:focus {
     background: transparent;
-    color: #6cbad4;
+    color: #ff8400;
   }
   
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #6cbad4;
+    color: #ff8400;
   }
   
   .dropdown-menu {
@@ -405,12 +400,12 @@
   
   .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
     background-color: #fff;
-    color: #6cbad4;
+    color: #ff8400;
   }
   
   .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     background-color: #fff;
-    color: #6cbad4;
+    color: #ff8400;
   }
   
   .navbar-default .dropdown:hover>.dropdown-menu {
