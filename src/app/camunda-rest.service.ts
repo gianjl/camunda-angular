@@ -106,9 +106,9 @@ export class CamundaRestService {
     return this.http.post(endpoint, formData);
   }
 
-  deleteProcessInstance(requestBody): Observable<any> {
-    const endpoint = `${this.engineRestUrl}process-instance/delete`;
-    return this.http.post(endpoint, requestBody, httpOptions).pipe(
+  deleteProcessInstance(piid: string): Observable<any> {
+    const endpoint = `${this.engineRestUrl}process-instance/${piid}`;
+    return this.http.delete(endpoint, httpOptions).pipe(
       tap(pIItem => this.log(`process instance deleted`)),
       catchError(this.handleError('deleteProcessInstance', []))
     );

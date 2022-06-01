@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../camunda-rest.service';
 import { StartProcessInstanceComponent } from '../general/start-process-instance.component';
 import { DatiAnagrafica } from '../../schemas/DatiAnagrafica';
@@ -11,11 +11,8 @@ import { DatiAnagrafica } from '../../schemas/DatiAnagrafica';
 })
 export class startNewProcessComponent extends StartProcessInstanceComponent {
   submitted: boolean = false;
+  router: Router;
   model = new DatiAnagrafica('', '', '', '', null, null, '', '', '', '', '');
-
-  refresh() {
-    window.location.reload();
-  }
 
   constructor(route: ActivatedRoute,
     camundaRestService: CamundaRestService,) {

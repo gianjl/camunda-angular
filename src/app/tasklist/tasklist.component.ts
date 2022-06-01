@@ -71,21 +71,10 @@ export class TasklistComponent implements OnInit {
   }
 
   deleteProcessInstance(pIId: string): void{
-    const instructions = this.generateDeleteInstructions(pIId);
     this.camundaRestService
-      .deleteProcessInstance(instructions)
+      .deleteProcessInstance(pIId)
       .subscribe();
     this.refresh();
-  }
-
-  generateDeleteInstructions(pIId: string) {
-    const instructions = {
-      "deleteReason" : "",
-      "processInstanceIds": [pIId],
-      "skipCustomListeners" : true,
-      "skipSubprocesses" : true
-      };
-    return instructions;
   }
 
   setProcessInstanceToDelete(pIId: string): void{
