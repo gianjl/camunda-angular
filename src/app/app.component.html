@@ -9,16 +9,19 @@
 		
 		<div class="twelve wide column centered" >
 			<div class="ui pointing inverted menu">
-				<a class="item" routerLink="/processlist" class="item">Operazioni</a>
-				<a class="item" routerLink="/tasklist" class="item">Lista dei Processi</a>
+				<a class="item" routerLink="/home" class="item">Process Deploy</a>
+				<a class="item" routerLink="/processlist" class="item">Process List</a>
+				<a class="item" routerLink="/tasklist" class="item">Task List</a>
 				<div class="right menu">
+					<a class="blue item" [routerLink]="['/admin']">Admin Dashboard</a>
 					<a class="blue item" [routerLink]="['/user']">
 						<img src="assets/resources/icons8-user-50.png" alt="">
 					</a>
-					<a class="blue item" [routerLink]="['/login']">Logout</a>
+					<a class="blue item" [routerLink]="['/login']">
+						<img src="assets/resources/icons8-logout-50.png" alt="">
+					</a>
 				</div>
 				
-				<!--<a class="blue item" routerLink="/processinstancelist" class="item" >Process Instances</a>-->
 			</div>
 			<div class="ui segment" id="main-content">
 				<router-outlet></router-outlet>

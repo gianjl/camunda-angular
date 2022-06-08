@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { GenericForm } from './generic-form.component';
 import { MyAddonModule } from './forms/myAddon.module';
-import { ProcessInstanceListComponent } from './processinstancelist/processinstancelist.component';
 
 import { fakeBackendProvider } from './authentication/helpers/fake-backend';
 import { AuthGuard } from './authentication/guards/auth.guard';
@@ -25,6 +24,7 @@ import { AlertService } from './authentication/services/alert.service';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { UserComponent } from './authentication/user/user.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +33,10 @@ import { UserComponent } from './authentication/user/user.component';
     TasklistComponent,
     HomeComponent,
     UserComponent,
-    ProcessInstanceListComponent,
     StartProcessComponent,
     GenericForm,
     LoginComponent,
+    AdminDashboardComponent
     RegisterComponent
   ],
   imports: [

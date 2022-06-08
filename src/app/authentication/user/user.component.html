@@ -2,6 +2,23 @@
     <h2>Ciao {{currentUser.firstName}}!</h2>
     <p>Hai effettuato l'accesso</p>
     <ul>
+        <!--<li *ngFor="let user of users"> {{user.username}} ({{user.firstName}} {{user.lastName}} - {{user.email}})
+            <a class="btn btn-link" id="link-destructive" (click)="deletePopUp = true"> Delete </a>
+            <div class="overlay" *ngIf="deletePopUp">
+                <div class="popup">
+                    <h2>Elimina profilo utente</h2>
+                    <a class="close" (click)="deletePopUp = false">&times;</a>
+                    <div class="content">
+                        Sei sicuro di voler eliminare questo utente?
+                    </div>
+                    <div align="right">
+                        <button type="submit" class="ui button" (click)="deletePopUp = false">Annulla</button>
+                        <button type="submit" class="ui button" id="destructive"
+                            (click)="deleteUser(user.id)">Elimina</button>
+                    </div>
+                </div>
+            </div>
+        </li>--> 
         <li> {{currentUser.username}} ({{currentUser.firstName}} {{currentUser.lastName}} - {{currentUser.email}})
             <a class="btn btn-link" id="link-destructive" (click)="deletePopUp = true"> Delete </a>
             <div class="overlay" *ngIf="deletePopUp">

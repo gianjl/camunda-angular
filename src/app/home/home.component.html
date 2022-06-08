@@ -1,7 +1,7 @@
 <div class="form-group" *ngIf="!SUCCESS">
   <div class="sixteen wide column">
-    <h2>Deploy Processi</h2>
-    <label for="file">Scegli File</label>
+    <h2>Carica un Processo</h2>
+    <label for="file">Scegli file .bpmn da caricare</label>
     <input type="file"
            id="file"
            (change)="handleFileInput($event.target.files)">
