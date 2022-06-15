@@ -1,47 +1,127 @@
 <div class="col-md-6 col-md-offset-3">
-    <h2>Register</h2>
-    
-    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="ui form">
-        <div class="six wide column">
-            <div class="six wide field" *ngIf="message"
-        [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
-        {{message.text}}</div>
-            <div class="six wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                <label for="firstName">Nome</label>
-                <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName"
-                    #firstName="ngModel" required />
-                <div *ngIf="f.submitted && !firstName.valid" class="help-block">Inserire nome</div>
+    <h2>Admin Dashboard</h2>
+    <h3>List of Users</h3>
+    <div align="right">
+        <button type="submit" class="ui labeled icon button"  (click)="registerPopUp = true">
+            <i class="icon add user"></i>
+            Nuovo Utente
+        </button>
+    </div>
+    <li *ngFor="let user of users"> 
+        {{user.firstName}} {{user.lastName}} ({{user.id}})
+        <a class="btn btn-link" id="link-destructive" (click)="setUserForDeletion(user)"> Elimina </a>
+        <a class="btn btn-link" id="link" (click)="setCurrentUser(user)"> Profilo </a> 
+    </li>
+    <!-- EDIT POP-UP -->
+    <div class="overlay" *ngIf="profilePopUp">
+        <div class="popup">
+            <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="ui form">
+                <div class="twelve wide column">
+                    <div class="twelve wide field" *ngIf="message"
+                        [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
+                        {{message.text}}</div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="firstName">Nome</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="currentUser.firstName"
+                            #firstName="ngModel" required />
+                        <div *ngIf="f.submitted && !firstName.valid" class="help-block">Inserire nome</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="lastName">Cognome</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="currentUser.lastName"
+                            #lastName="ngModel" required />
+                        <div *ngIf="f.submitted && !lastName.valid" class="help-block">Inserire cognome</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" [(ngModel)]="currentUser.username"
+                            #username="ngModel" required />
+                        <div *ngIf="f.submitted && !username.valid" class="help-block">Inserire username</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="currentUser.email"
+                            #username="ngModel" required />
+                        <div *ngIf="f.submitted && !username.valid" class="help-block">Inserire e-mail</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="currentUser.password"
+                            #password="ngModel" required />
+                        <div *ngIf="f.submitted && !password.valid" class="help-block">Inserire password</div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="loading" class="ui button">Modifica Profilo</button>
+                        <img *ngIf="loading"
+                            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        <a (click)="profilePopUp = false" class="ui button" id="secondary-btn">Annulla</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- DELETION POP-UP -->
+    <div class="overlay" *ngIf="deletePopUp">
+        <div class="popup">
+            <h2>Elimina profilo utente</h2>
+            <a class="close" (click)="deletePopUp = false">&times;</a>
+            <div class="content">
+                Sei sicuro di voler eliminare l'utente {{currentUser.firstName}} {{currentUser.lastName}} - {{currentUser.id}}?
             </div>
-            <div class="six wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                <label for="lastName">Cognome</label>
-                <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"
-                    required />
-                <div *ngIf="f.submitted && !lastName.valid" class="help-block">Inserire cognome</div>
-            </div>
-            <div class="six wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel"
-                    required />
-                <div *ngIf="f.submitted && !username.valid" class="help-block">Inserire username</div>
-            </div>
-            <div class="six wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                <label for="email">E-mail</label>
-                <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #username="ngModel"
-                    required />
-                <div *ngIf="f.submitted && !username.valid" class="help-block">Inserire e-mail</div>
-            </div>
-            <div class="six wide field" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" [(ngModel)]="model.password"
-                    #password="ngModel" required />
-                <div *ngIf="f.submitted && !password.valid" class="help-block">Inserire password</div>
-            </div>
-            <div class="form-group">
-                <button [disabled]="loading" class="ui button">Registrati</button>
-                <img *ngIf="loading"
-                    src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                <a [routerLink]="['/login']" class="ui button" id="secondary-btn">Annulla</a>
+            <div align="right">
+                <button type="submit" class="ui button" (click)="deletePopUp = false">Annulla</button>
+
+                <button type="submit" class="ui button" id="destructive"
+                    (click)="deleteUser(currentUser.id)">Elimina</button>
             </div>
         </div>
-    </form>
+    </div>
+    <!-- REGISTRATION POP-UP -->
+    <div class="overlay" *ngIf="registerPopUp">
+        <div class="popup">
+            <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="ui form">
+                <div class="twelve wide column">
+                    <div class="twelve wide field" *ngIf="message"
+                        [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
+                        {{message.text}}</div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="firstName">Nome</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName"
+                            #firstName="ngModel" required />
+                        <div *ngIf="f.submitted && !firstName.valid" class="help-block">Inserire nome</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="lastName">Cognome</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName"
+                            #lastName="ngModel" required />
+                        <div *ngIf="f.submitted && !lastName.valid" class="help-block">Inserire cognome</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" [(ngModel)]="model.username"
+                            #username="ngModel" required />
+                        <div *ngIf="f.submitted && !username.valid" class="help-block">Inserire username</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="model.email"
+                            #username="ngModel" required />
+                        <div *ngIf="f.submitted && !username.valid" class="help-block">Inserire e-mail</div>
+                    </div>
+                    <div class="twelve wide field" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="model.password"
+                            #password="ngModel" required />
+                        <div *ngIf="f.submitted && !password.valid" class="help-block">Inserire password</div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="loading" class="ui button">Crea Utente</button>
+                        <img *ngIf="loading"
+                            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        <a (click)="registerPopUp = false" class="ui button" id="secondary-btn">Annulla</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

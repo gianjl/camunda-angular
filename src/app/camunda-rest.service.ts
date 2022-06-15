@@ -146,6 +146,13 @@ export class CamundaRestService {
     );
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<any>(this.engineRestUrl + 'user', httpOptions).pipe(
+      tap(user => this.log(`fetched users`)),
+      catchError(this.handleError('getUsers', []))
+    );
+  }
+
   getUserProfile(userId): Observable<User> {
     return this.http.get<any>(this.engineRestUrl + 'user/' +userId+'/profile', httpOptions).pipe(
       tap(user => this.log(`fetched user`)),

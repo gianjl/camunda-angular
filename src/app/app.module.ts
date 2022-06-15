@@ -36,7 +36,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     StartProcessComponent,
     GenericForm,
     LoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
     RegisterComponent
   ],
   imports: [

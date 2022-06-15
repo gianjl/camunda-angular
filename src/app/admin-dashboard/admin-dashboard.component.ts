@@ -4,6 +4,7 @@ import { CamundaRestService } from '../camunda-rest.service';
 
 import { AlertService } from '../authentication/services/alert.service';
 import { UserService } from '../authentication/services/user.service';
+import { User } from '../authentication/models/user.model';
 
 @Component({
     moduleId: module.id,
@@ -15,6 +16,11 @@ export class AdminDashboardComponent implements OnInit{
     model: any = {};
     loading = false;
     message: any;
+    users: User[];
+    currentUser: User;
+    deletePopUp = false;
+    registerPopUp = false;
+    profilePopUp = false;
 
     constructor(
         private router: Router,
@@ -23,6 +29,7 @@ export class AdminDashboardComponent implements OnInit{
         private camundaRestService: CamundaRestService) { }
 
     ngOnInit(): void {
+        this.camundaRestService.getUsers().subscribe(users => this.users = users);
         this.alertService.getMessage().subscribe(message => { this.message = message; });
     }
 
@@ -34,7 +41,7 @@ export class AdminDashboardComponent implements OnInit{
                     this.camundaRestService.createUser(this.getCreateUserRequestBody()).subscribe();
                     // set success message and pass true paramater to persist the message after redirecting to the login page
                     this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                    window.location.reload();
                 },
                 error => {
                     this.alertService.error(error);
@@ -53,6 +60,26 @@ export class AdminDashboardComponent implements OnInit{
                 {"password":this.model.password}
             }
         return body;
+    }
+
+    setCurrentUser(userSel: User){
+        this.currentUser = userSel;
+        this.profilePopUp = true;
+    }
+
+    setUserForDeletion(userSel: User){
+        this.currentUser = userSel;
+        this.deletePopUp = true;
+    }
+
+    deleteUser(userId: number) {
+        this.userService.delete(userId).subscribe(() => { this.loadAllUsers() });
+        this.camundaRestService.deleteUser(userId).subscribe();
+        window.location.reload();
+    }
+
+    private loadAllUsers() {
+        this.userService.getAll().subscribe(users => { this.users = users; });
     }
 
 }
