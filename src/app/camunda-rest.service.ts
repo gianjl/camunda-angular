@@ -128,6 +128,13 @@ export class CamundaRestService {
     );
   }
 
+  getProcessDiagram(processDefinitionId): Observable<any> {
+    return this.http.get<any>(this.engineRestUrl + 'process-definition/'+ processDefinitionId + '/diagram').pipe(
+      tap(activity => this.log(`fetched diagram`)),
+      catchError(this.handleError('getProcessDiagram', []))
+    );
+  }
+
   /*---------- Users Services ---------------*/
 
   verifyUser(requestBody): Observable<Auth> {

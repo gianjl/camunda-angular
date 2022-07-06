@@ -12,7 +12,7 @@ export class ProcesslistComponent implements OnInit {
   constructor(private camundaRestService: CamundaRestService) { }
 
   ngOnInit() {
-    this.getProcessDefinitions();
+    this.getProcessDefinitions(); 
   }
 
   getProcessDefinitions(): void {
@@ -20,4 +20,5 @@ export class ProcesslistComponent implements OnInit {
       .getProcessDefinitions()
       .subscribe(processDefinitions => this.processDefinitions = processDefinitions);
   }
+
 }
