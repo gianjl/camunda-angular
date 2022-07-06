@@ -1,5 +1,7 @@
-# Camunda - Angular Example Tasklist
+# Camunda - Angular Tasklist App
+The original source of this project can be found here: https://camunda.com/blog/2018/02/custom-tasklist-examples/.
 
+In this version, customizations have been made and features have been added.
 This project shows how one can use Angular with the standard Camunda REST API. It is an example implementation of how one could build a Tasklist for Camunda using Front End technology only.
 
 The Task Forms are defined within this application and not on the Server-Side to make it very easy to use.
@@ -8,12 +10,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Example
 Within this project you can find some example task forms that were defined for an example process.
-The example process can be found in the folder `examples/myprocess`.
-The forms can be found in `src/components/forms/myprocess`.
+The example processes can be found in the folder `examples/myprocess`.
+The forms can be found in `src/components/forms/`.
 
 ## How to use
 This project can be seen as an example implementation or as a starting point for your custom Tasklist.
-As it uses standard react mechanisms it should be very easy for a React developer to adapt and change or reuse the code.
+It offers also examples for the Camunda API usage.
 
 ### How to run the example process
 
